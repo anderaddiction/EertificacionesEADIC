@@ -17,6 +17,14 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::prefix('suporte')->group(function () {
+    Route::get('aulumno', function () {
+        return view('soporte.links.index');
+    })
+        ->name('soporte.alumno');
+});
+
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
