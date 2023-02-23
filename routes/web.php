@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Tramites\TramiteDiplomaController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -24,6 +25,11 @@ Route::prefix('suporte')->group(function () {
         ->name('soporte.alumno');
 });
 
+// Modulo de Tramites
+Route::prefix('tramites')->group(function () {
+    Route::get('certificados/seach', [TramiteDiplomaController::class, 'index'])->name('consulta');
+    Route::post('certificados', [TramiteDiplomaController::class, 'find'])->name('consulta.find');
+});
 
 Auth::routes();
 

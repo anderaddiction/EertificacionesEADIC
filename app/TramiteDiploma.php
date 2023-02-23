@@ -10,4 +10,9 @@ class TramiteDiploma extends Model
     use SoftDeletes;
 
     protected $guarded = [];
+
+    public function getRouteKeyName()
+    {
+        return 'TICKET_DIPLOMAYNOTAS';
+    }
 }

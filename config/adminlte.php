@@ -358,9 +358,9 @@ return [
             ],
         ],
         [
-            'text' => 'profile',
-            'url'  => 'admin/settings',
-            'icon' => 'fas fa-fw fa-user',
+            'text' => 'Trámite de Diploma',
+            'route'  => 'consulta',
+            'icon' => 'fas fa-fw fa-certificate',
         ],
         [
             'text' => 'change_password',
