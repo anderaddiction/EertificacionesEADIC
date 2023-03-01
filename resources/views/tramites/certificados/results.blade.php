@@ -78,7 +78,7 @@
                                 </div>
                                 <div class="card-body">
                                     <div id="external-events">
-                                        @if (utf8_encode($results[0]->CATEGORIA) === 'Diploma + Certificado + Apostilla + Env?o')
+                                        @if (utf8_encode($results[0]->CATEGORIA) === 'Diploma + Certificado + Apostilla + Envio')
                                             @if ($results[0]->ESTADO_DIPLOMA === 'Con tr?mite solicitado por estudiante/Diploma pendiente de llegada a EADIC')
                                                 <div class="external-event bg-success ui-draggable ui-draggable-handle" style="position: relative;">{{
                                                     $results[0]->ESTADO_DIPLOMA }}
@@ -89,12 +89,12 @@
                                                 </div>
                                                 <div class="external-event bg-secondary ui-draggable ui-draggable-handle" style="position: relative;">Diploma en Colegio Notarial
                                                 </div>
-                                                <div class="external-event bg-secondary ui-draggable ui-draggable-handle" style="position: relative;">Diploma apostillado en EADIC, pendiente de envío
+                                                <div class="external-event bg-secondary ui-draggable ui-draggable-handle" style="position: relative;">Diploma apostillado en EADIC, pendiente de envio
                                                 </div>
                                                 <div class="external-event bg-secondary ui-draggable ui-draggable-handle" style="position: relative;">Enviado a estudiante
                                                 </div>
                                             @elseif ($results[0]->ESTADO_DIPLOMA === 'Diploma en oficina EADIC, para apostillar')
-                                                <div class="external-event bg-secondary ui-draggable ui-draggable-handle" style="position: relative;">Con trámite solicitado por estudiante/Diploma pendiente de llegada a EADIC
+                                                <div class="external-event bg-secondary ui-draggable ui-draggable-handle" style="position: relative;">Con tramite solicitado por estudiante/Diploma pendiente de llegada a EADIC
                                                 </div>
                                                 <div class="external-event bg-success ui-draggable ui-draggable-handle" style="position: relative;">Diploma en oficina
                                                     {{ $results[0]->ESTADO_DIPLOMA }}
@@ -105,13 +105,13 @@
                                                     Notarial
                                                 </div>
                                                 <div class="external-event bg-secondary ui-draggable ui-draggable-handle" style="position: relative;">Diploma
-                                                    apostillado en EADIC, pendiente de envío
+                                                    apostillado en EADIC, pendiente de envio
                                                 </div>
                                                 <div class="external-event bg-secondary ui-draggable ui-draggable-handle" style="position: relative;">Enviado a
                                                     estudiante
                                                 </div>
                                             @elseif ($results[0]->ESTADO_DIPLOMA === 'Diploma en Notaría')
-                                                <div class="external-event bg-secondary ui-draggable ui-draggable-handle" style="position: relative;">Con trámite
+                                                <div class="external-event bg-secondary ui-draggable ui-draggable-handle" style="position: relative;">Con tramite
                                                     solicitado por estudiante/Diploma pendiente de llegada a EADIC
                                                 </div>
                                                 <div class="external-event bg-secondary ui-draggable ui-draggable-handle" style="position: relative;">Diploma en oficina
@@ -123,13 +123,13 @@
                                                     Notarial
                                                 </div>
                                                 <div class="external-event bg-secondary ui-draggable ui-draggable-handle" style="position: relative;">Diploma
-                                                    apostillado en EADIC, pendiente de envío
+                                                    apostillado en EADIC, pendiente de envio
                                                 </div>
                                                 <div class="external-event bg-secondary ui-draggable ui-draggable-handle" style="position: relative;">Enviado a
                                                     estudiante
                                                 </div>
                                             @elseif ($results[0]->ESTADO_DIPLOMA === 'Diploma en Colegio Notarial')
-                                                <div class="external-event bg-secondary ui-draggable ui-draggable-handle" style="position: relative;">Con trámite
+                                                <div class="external-event bg-secondary ui-draggable ui-draggable-handle" style="position: relative;">Con tramite
                                                     solicitado por estudiante/Diploma pendiente de llegada a EADIC
                                                 </div>
                                                 <div class="external-event bg-secondary ui-draggable ui-draggable-handle" style="position: relative;">Diploma en oficina
@@ -141,13 +141,13 @@
                                                 $results[0]->ESTADO_DIPLOMA }}
                                                 </div>
                                                 <div class="external-event bg-secondary ui-draggable ui-draggable-handle" style="position: relative;">Diploma
-                                                    apostillado en EADIC, pendiente de envío
+                                                    apostillado en EADIC, pendiente de envio
                                                 </div>
                                                 <div class="external-event bg-secondary ui-draggable ui-draggable-handle" style="position: relative;">Enviado a
                                                     estudiante
                                                 </div>
-                                            @elseif ($results[0]->ESTADO_DIPLOMA === 'Diploma apostillado en EADIC, pendiente de env?o')
-                                                <div class="external-event bg-secondary ui-draggable ui-draggable-handle" style="position: relative;">Con trámite
+                                            @elseif ($results[0]->ESTADO_DIPLOMA === 'Diploma apostillado en EADIC, pendiente de envio')
+                                                <div class="external-event bg-secondary ui-draggable ui-draggable-handle" style="position: relative;">Con tramite
                                                     solicitado por estudiante/Diploma pendiente de llegada a EADIC
                                                 </div>
                                                 <div class="external-event bg-secondary ui-draggable ui-draggable-handle" style="position: relative;">Diploma en oficina
@@ -164,7 +164,7 @@
                                                     estudiante
                                                 </div>
                                             @elseif ($results[0]->ESTADO_DIPLOMA === 'Enviado a estudiante')
-                                                <div class="external-event bg-secondary ui-draggable ui-draggable-handle" style="position: relative;">Con trámite
+                                                <div class="external-event bg-secondary ui-draggable ui-draggable-handle" style="position: relative;">Con tramite
                                                     solicitado por estudiante/Diploma pendiente de llegada a EADIC
                                                 </div>
                                                 <div class="external-event bg-secondary ui-draggable ui-draggable-handle" style="position: relative;">Diploma en oficina
@@ -175,13 +175,13 @@
                                                 <div class="external-event bg-secondary ui-draggable ui-draggable-handle" style="position: relative;">Diploma en Colegio
                                                     Notarial
                                                 </div>
-                                                <div class="external-event bg-secondary ui-draggable ui-draggable-handle" style="position: relative;">Diploma apostillado en EADIC, pendiente de envío
+                                                <div class="external-event bg-secondary ui-draggable ui-draggable-handle" style="position: relative;">Diploma apostillado en EADIC, pendiente de envio
                                                 </div>
                                                 <div class="external-event bg-success ui-draggable ui-draggable-handle" style="position: relative;">{{
                                                 $results[0]->ESTADO_DIPLOMA }}
                                                 </div>
                                             @endif
-                                        @elseif ($results[0]->CATEGORIA === 'Diploma + Apostilla + Env?o')
+                                        @elseif ($results[0]->CATEGORIA === 'Diploma + Apostilla + Envio')
                                             @if ($results[0]->ESTADO_DIPLOMA === 'Con tr?mite solicitado por estudiante/Diploma pendiente de llegada a EADIC')
                                                 <div class="external-event bg-success ui-draggable ui-draggable-handle" style="position: relative;">{{
                                                     $results[0]->ESTADO_DIPLOMA }}
@@ -195,13 +195,13 @@
                                                     Notarial
                                                 </div>
                                                 <div class="external-event bg-secondary ui-draggable ui-draggable-handle" style="position: relative;">Diploma
-                                                    apostillado en EADIC, pendiente de envío
+                                                    apostillado en EADIC, pendiente de envio
                                                 </div>
                                                 <div class="external-event bg-secondary ui-draggable ui-draggable-handle" style="position: relative;">Enviado a
                                                     estudiante
                                                 </div>
                                             @elseif ($results[0]->ESTADO_DIPLOMA === 'Diploma en oficina EADIC, para apostillar')
-                                                <div class="external-event bg-secondary ui-draggable ui-draggable-handle" style="position: relative;">Con trámite
+                                                <div class="external-event bg-secondary ui-draggable ui-draggable-handle" style="position: relative;">Con tramite
                                                     solicitado por estudiante/Diploma pendiente de llegada a EADIC
                                                 </div>
                                                 <div class="external-event bg-success ui-draggable ui-draggable-handle" style="position: relative;">Diploma en oficina
@@ -213,13 +213,13 @@
                                                     Notarial
                                                 </div>
                                                 <div class="external-event bg-secondary ui-draggable ui-draggable-handle" style="position: relative;">Diploma
-                                                    apostillado en EADIC, pendiente de envío
+                                                    apostillado en EADIC, pendiente de envio
                                                 </div>
                                                 <div class="external-event bg-secondary ui-draggable ui-draggable-handle" style="position: relative;">Enviado a
                                                     estudiante
                                                 </div>
                                             @elseif ($results[0]->ESTADO_DIPLOMA === 'Diploma en Notaría')
-                                                <div class="external-event bg-secondary ui-draggable ui-draggable-handle" style="position: relative;">Con trámite
+                                                <div class="external-event bg-secondary ui-draggable ui-draggable-handle" style="position: relative;">Con tramite
                                                     solicitado por estudiante/Diploma pendiente de llegada a EADIC
                                                 </div>
                                                 <div class="external-event bg-secondary ui-draggable ui-draggable-handle" style="position: relative;">Diploma en oficina
@@ -232,13 +232,13 @@
                                                     Notarial
                                                 </div>
                                                 <div class="external-event bg-secondary ui-draggable ui-draggable-handle" style="position: relative;">Diploma
-                                                    apostillado en EADIC, pendiente de envío
+                                                    apostillado en EADIC, pendiente de envio
                                                 </div>
                                                 <div class="external-event bg-secondary ui-draggable ui-draggable-handle" style="position: relative;">Enviado a
                                                     estudiante
                                                 </div>
                                             @elseif ($results[0]->ESTADO_DIPLOMA === 'Diploma en Colegio Notarial')
-                                                <div class="external-event bg-secondary ui-draggable ui-draggable-handle" style="position: relative;">Con trámite
+                                                <div class="external-event bg-secondary ui-draggable ui-draggable-handle" style="position: relative;">Con tramite
                                                     solicitado por estudiante/Diploma pendiente de llegada a EADIC
                                                 </div>
                                                 <div class="external-event bg-secondary ui-draggable ui-draggable-handle" style="position: relative;">Diploma en oficina
@@ -250,13 +250,13 @@
                                                     $results[0]->ESTADO_DIPLOMA }}
                                                 </div>
                                                 <div class="external-event bg-secondary ui-draggable ui-draggable-handle" style="position: relative;">Diploma
-                                                    apostillado en EADIC, pendiente de envío
+                                                    apostillado en EADIC, pendiente de envio
                                                 </div>
                                                 <div class="external-event bg-secondary ui-draggable ui-draggable-handle" style="position: relative;">Enviado a
                                                     estudiante
                                                 </div>
-                                            @elseif ($results[0]->ESTADO_DIPLOMA === 'Diploma apostillado en EADIC, pendiente de env?o')
-                                                <div class="external-event bg-secondary ui-draggable ui-draggable-handle" style="position: relative;">Con trámite
+                                            @elseif ($results[0]->ESTADO_DIPLOMA === 'Diploma apostillado en EADIC, pendiente de envio')
+                                                <div class="external-event bg-secondary ui-draggable ui-draggable-handle" style="position: relative;">Con tramite
                                                     solicitado por estudiante/Diploma pendiente de llegada a EADIC
                                                 </div>
                                                 <div class="external-event bg-secondary ui-draggable ui-draggable-handle" style="position: relative;">Diploma en oficina
@@ -274,7 +274,7 @@
                                                     estudiante
                                                 </div>
                                             @elseif ($results[0]->ESTADO_DIPLOMA === 'Enviado a estudiante')
-                                                <div class="external-event bg-secondary ui-draggable ui-draggable-handle" style="position: relative;">Con trámite
+                                                <div class="external-event bg-secondary ui-draggable ui-draggable-handle" style="position: relative;">Con tramite
                                                     solicitado por estudiante/Diploma pendiente de llegada a EADIC
                                                 </div>
                                                 <div class="external-event bg-secondary ui-draggable ui-draggable-handle" style="position: relative;">Diploma en oficina
@@ -286,24 +286,24 @@
                                                     Notarial
                                                 </div>
                                                 <div class="external-event bg-secondary ui-draggable ui-draggable-handle" style="position: relative;">Diploma
-                                                    apostillado en EADIC, pendiente de envío
+                                                    apostillado en EADIC, pendiente de envio
                                                 </div>
                                                 <div class="external-event bg-success ui-draggable ui-draggable-handle" style="position: relative;">{{
                                                     $results[0]->ESTADO_DIPLOMA }}
                                                 </div>
                                             @endif
-                                        @elseif ($results[0]->CATEGORIA === 'Diploma + Env?o')
+                                        @elseif ($results[0]->CATEGORIA === 'Diploma + Envio')
                                             @if ($results[0]->ESTADO_DIPLOMA === 'Con tr?mite solicitado por estudiante/Diploma pendiente de llegada a EADIC')
                                                 <div class="external-event bg-success ui-draggable ui-draggable-handle" style="position: relative;">{{
                                                     $results[0]->ESTADO_DIPLOMA }}
                                                 </div>
-                                                <div class="external-event bg-secondary ui-draggable ui-draggable-handle" style="position: relative;">Diploma (sin apostilla) en oficina EADIC, pendiente de envío
+                                                <div class="external-event bg-secondary ui-draggable ui-draggable-handle" style="position: relative;">Diploma (sin apostilla) en oficina EADIC, pendiente de envio
                                                 </div>
                                                 <div class="external-event bg-secondary ui-draggable ui-draggable-handle" style="position: relative;">Enviado a
                                                     estudiante
                                                 </div>
-                                            @elseif ($results[0]->ESTADO_DIPLOMA === 'Diploma (sin apostilla) en oficina EADIC, pendiente de env?o')
-                                                <div class="external-event bg-secondary ui-draggable ui-draggable-handle" style="position: relative;">Con trámite
+                                            @elseif ($results[0]->ESTADO_DIPLOMA === 'Diploma (sin apostilla) en oficina EADIC, pendiente de envio')
+                                                <div class="external-event bg-secondary ui-draggable ui-draggable-handle" style="position: relative;">Con tramite
                                                     solicitado por estudiante/Diploma pendiente de llegada a EADIC
                                                 </div>
                                                 <div class="external-event bg-success ui-draggable ui-draggable-handle" style="position: relative;">{{ $results[0]->ESTADO_DIPLOMA }}
@@ -312,28 +312,28 @@
                                                     estudiante
                                                 </div>
                                             @elseif ($results[0]->ESTADO_DIPLOMA === 'Enviado a estudiante')
-                                                <div class="external-event bg-secondary ui-draggable ui-draggable-handle" style="position: relative;">Con trámite
+                                                <div class="external-event bg-secondary ui-draggable ui-draggable-handle" style="position: relative;">Con tramite
                                                     solicitado por estudiante/Diploma pendiente de llegada a EADIC
                                                 </div>
-                                                <div class="external-event bg-secondary ui-draggable ui-draggable-handle" style="position: relative;">Diploma (sin apostilla) en oficina EADIC, pendiente de envío
+                                                <div class="external-event bg-secondary ui-draggable ui-draggable-handle" style="position: relative;">Diploma (sin apostilla) en oficina EADIC, pendiente de envio
                                                 </div>
                                                 <div class="external-event bg-success ui-draggable ui-draggable-handle" style="position: relative;">{{
                                                     $results[0]->ESTADO_DIPLOMA }}
                                                 </div>
                                             @endif
-                                        @elseif ($results[0]->CATEGORIA === 'Diploma + Certificado + Env?o')
+                                        @elseif ($results[0]->CATEGORIA === 'Diploma + Certificado + Envio')
                                             @if ($results[0]->ESTADO_DIPLOMA === 'Con tr?mite solicitado por estudiante/Diploma pendiente de llegada a EADIC')
                                                 <div class="external-event bg-success ui-draggable ui-draggable-handle" style="position: relative;">{{
                                                     $results[0]->ESTADO_DIPLOMA }}
                                                 </div>
                                                 <div class="external-event bg-secondary ui-draggable ui-draggable-handle" style="position: relative;">Diploma (sin
-                                                    apostilla) en oficina EADIC, pendiente de envío
+                                                    apostilla) en oficina EADIC, pendiente de envio
                                                 </div>
                                                 <div class="external-event bg-secondary ui-draggable ui-draggable-handle" style="position: relative;">Enviado a
                                                     estudiante
                                                 </div>
-                                            @elseif ($results[0]->ESTADO_DIPLOMA === 'Diploma (sin apostilla) en oficina EADIC, pendiente de env?o')
-                                                <div class="external-event bg-secondary ui-draggable ui-draggable-handle" style="position: relative;">Con trámite
+                                            @elseif ($results[0]->ESTADO_DIPLOMA === 'Diploma (sin apostilla) en oficina EADIC, pendiente de envio')
+                                                <div class="external-event bg-secondary ui-draggable ui-draggable-handle" style="position: relative;">Con tramite
                                                     solicitado por estudiante/Diploma pendiente de llegada a EADIC
                                                 </div>
                                                 <div class="external-event bg-success ui-draggable ui-draggable-handle" style="position: relative;">{{
@@ -343,47 +343,47 @@
                                                     estudiante
                                                 </div>
                                             @elseif ($results[0]->ESTADO_DIPLOMA === 'Enviado a estudiante')
-                                                <div class="external-event bg-secondary ui-draggable ui-draggable-handle" style="position: relative;">Con trámite
+                                                <div class="external-event bg-secondary ui-draggable ui-draggable-handle" style="position: relative;">Con tramite
                                                     solicitado por estudiante/Diploma pendiente de llegada a EADIC
                                                 </div>
                                                 <div class="external-event bg-secondary ui-draggable ui-draggable-handle" style="position: relative;">Diploma (sin
-                                                    apostilla) en oficina EADIC, pendiente de envío
+                                                    apostilla) en oficina EADIC, pendiente de envio
                                                 </div>
                                                 <div class="external-event bg-success ui-draggable ui-draggable-handle" style="position: relative;">{{
                                                     $results[0]->ESTADO_DIPLOMA }}
                                                 </div>
                                             @endif
-                                        @elseif ($results[0]->CATEGORIA === 'Certificado + Env?o')
+                                        @elseif ($results[0]->CATEGORIA === 'Certificado + Envio')
                                             @if ($results[0]->ESTADO_DIPLOMA === 'Pendiente de solicitarlo a la Universidad')
                                                 <div class="external-event bg-success ui-draggable ui-draggable-handle" style="position: relative;">{{
                                                     $results[0]->ESTADO_DIPLOMA }}
                                                 </div>
                                                 <div class="external-event bg-secondary ui-draggable ui-draggable-handle" style="position: relative;">Solicitado a la Universidad
                                                 </div>
-                                                <div class="external-event bg-secondary ui-draggable ui-draggable-handle" style="position: relative;">Cert. de Notas (sin apostilla) en oficina EADIC, pendiente de envío
+                                                <div class="external-event bg-secondary ui-draggable ui-draggable-handle" style="position: relative;">Cert. de Notas (sin apostilla) en oficina EADIC, pendiente de envio
                                                 </div>
                                                 <div class="external-event bg-secondary ui-draggable ui-draggable-handle" style="position: relative;">Enviado a
                                                     estudiante
                                                 </div>
                                             @elseif ($results[0]->ESTADO_DIPLOMA === 'Solicitado a la Universidad')
-                                                <div class="external-event bg-secondary ui-draggable ui-draggable-handle" style="position: relative;">Con trámite
+                                                <div class="external-event bg-secondary ui-draggable ui-draggable-handle" style="position: relative;">Con tramite
                                                     solicitado por estudiante/Diploma pendiente de llegada a EADIC
                                                 </div>
                                                 <div class="external-event bg-success ui-draggable ui-draggable-handle" style="position: relative;">{{
                                                     $results[0]->ESTADO_DIPLOMA }}
                                                 </div>
                                                 <div class="external-event bg-secondary ui-draggable ui-draggable-handle" style="position: relative;">Cert. de Notas
-                                                    (sin apostilla) en oficina EADIC, pendiente de envío
+                                                    (sin apostilla) en oficina EADIC, pendiente de envio
                                                 </div>
                                                 <div class="external-event bg-secondary ui-draggable ui-draggable-handle" style="position: relative;">Enviado a
                                                     estudiante
                                                 </div>
-                                            @elseif ($results[0]->ESTADO_DIPLOMA === 'Cert. de Notas (sin apostilla) en oficina EADIC, pendiente de env?o')
-                                                <div class="external-event bg-secondary ui-draggable ui-draggable-handle" style="position: relative;">Con trámite
+                                            @elseif ($results[0]->ESTADO_DIPLOMA === 'Cert. de Notas (sin apostilla) en oficina EADIC, pendiente de envio')
+                                                <div class="external-event bg-secondary ui-draggable ui-draggable-handle" style="position: relative;">Con tramite
                                                     solicitado por estudiante/Diploma pendiente de llegada a EADIC
                                                 </div>
                                                 <div class="external-event bg-secondary ui-draggable ui-draggable-handle" style="position: relative;">Diploma (sin
-                                                    apostilla) en oficina EADIC, pendiente de envío
+                                                    apostilla) en oficina EADIC, pendiente de envio
                                                 </div>
                                                 <div class="external-event bg-success ui-draggable ui-draggable-handle" style="position: relative;">{{
                                                     $results[0]->ESTADO_DIPLOMA }}
@@ -392,20 +392,20 @@
                                                     estudiante
                                                 </div>
                                             @elseif ($results[0]->ESTADO_DIPLOMA === 'Enviado a estudiante')
-                                                <div class="external-event bg-secondary ui-draggable ui-draggable-handle" style="position: relative;">Con trámite
+                                                <div class="external-event bg-secondary ui-draggable ui-draggable-handle" style="position: relative;">Con tramite
                                                     solicitado por estudiante/Diploma pendiente de llegada a EADIC
                                                 </div>
                                                 <div class="external-event bg-secondary ui-draggable ui-draggable-handle" style="position: relative;">Diploma (sin
-                                                    apostilla) en oficina EADIC, pendiente de envío
+                                                    apostilla) en oficina EADIC, pendiente de envio
                                                 </div>
                                                 <div class="external-event bg-secondary ui-draggable ui-draggable-handle" style="position: relative;">Cert. de Notas
-                                                    (sin apostilla) en oficina EADIC, pendiente de envío
+                                                    (sin apostilla) en oficina EADIC, pendiente de envio
                                                 </div>
                                                 <div class="external-event bg-success ui-draggable ui-draggable-handle" style="position: relative;">{{
                                                     $results[0]->ESTADO_DIPLOMA }}
                                                 </div>
                                             @endif
-                                        @elseif ($results[0]->CATEGORIA === 'Certificado + Apostilla + Env?o')
+                                        @elseif ($results[0]->CATEGORIA === 'Certificado + Apostilla + Envio')
                                             @if ($results[0]->ESTADO_DIPLOMA === 'Pendiente de solicitarlo a la Universidad')
                                                 <div class="external-event bg-success ui-draggable ui-draggable-handle" style="position: relative;">{{
                                                     $results[0]->ESTADO_DIPLOMA }}
@@ -419,7 +419,7 @@
                                                 </div>
                                                 <div class="external-event bg-secondary ui-draggable ui-draggable-handle" style="position: relative;">Cert. de Notas en Colegio Notarial
                                                 </div>
-                                                <div class="external-event bg-secondary ui-draggable ui-draggable-handle" style="position: relative;">Cert. de Notas apostillado en EADIC, pendiente de envío
+                                                <div class="external-event bg-secondary ui-draggable ui-draggable-handle" style="position: relative;">Cert. de Notas apostillado en EADIC, pendiente de envio
                                                 </div>
                                                 <div class="external-event bg-secondary ui-draggable ui-draggable-handle" style="position: relative;">Enviado a estudiante
                                                 </div>
@@ -439,7 +439,7 @@
                                                     Colegio Notarial
                                                 </div>
                                                 <div class="external-event bg-secondary ui-draggable ui-draggable-handle" style="position: relative;">Cert. de Notas
-                                                    apostillado en EADIC, pendiente de envío
+                                                    apostillado en EADIC, pendiente de envio
                                                 </div>
                                                 <div class="external-event bg-secondary ui-draggable ui-draggable-handle" style="position: relative;">Enviado a
                                                     estudiante
@@ -460,7 +460,7 @@
                                                     Colegio Notarial
                                                 </div>
                                                 <div class="external-event bg-secondary ui-draggable ui-draggable-handle" style="position: relative;">Cert. de Notas
-                                                    apostillado en EADIC, pendiente de envío
+                                                    apostillado en EADIC, pendiente de envio
                                                 </div>
                                                 <div class="external-event bg-secondary ui-draggable ui-draggable-handle" style="position: relative;">Enviado a
                                                     estudiante
@@ -481,7 +481,7 @@
                                                     Colegio Notarial
                                                 </div>
                                                 <div class="external-event bg-secondary ui-draggable ui-draggable-handle" style="position: relative;">Cert. de Notas
-                                                    apostillado en EADIC, pendiente de envío
+                                                    apostillado en EADIC, pendiente de envio
                                                 </div>
                                                 <div class="external-event bg-secondary ui-draggable ui-draggable-handle" style="position: relative;">Enviado a
                                                     estudiante
@@ -503,12 +503,12 @@
                                                 $results[0]->ESTADO_DIPLOMA }}
                                                 </div>
                                                 <div class="external-event bg-secondary ui-draggable ui-draggable-handle" style="position: relative;">Cert. de Notas
-                                                    apostillado en EADIC, pendiente de envío
+                                                    apostillado en EADIC, pendiente de envio
                                                 </div>
                                                 <div class="external-event bg-secondary ui-draggable ui-draggable-handle" style="position: relative;">Enviado a
                                                     estudiante
                                                 </div>
-                                            @elseif ($results[0]->ESTADO_DIPLOMA === 'Cert. de Notas apostillado en EADIC, pendiente de env?o')
+                                            @elseif ($results[0]->ESTADO_DIPLOMA === 'Cert. de Notas apostillado en EADIC, pendiente de envio')
                                                 <div class="external-event bg-secondary ui-draggable ui-draggable-handle" style="position: relative;">Pendiente de
                                                     solicitarlo a la Universidad
                                                 </div>
@@ -544,7 +544,7 @@
                                                 <div class="external-event bg-secondary ui-draggable ui-draggable-handle" style="position: relative;">Cert. de Notas en
                                                     Colegio Notarial
                                                 </div>
-                                                <div class="external-event bg-secondary ui-draggable ui-draggable-handle" style="position: relative;">Cert. de Notas apostillado en EADIC, pendiente de envío
+                                                <div class="external-event bg-secondary ui-draggable ui-draggable-handle" style="position: relative;">Cert. de Notas apostillado en EADIC, pendiente de envio
                                                 </div>
                                                 <div class="external-event bg-success ui-draggable ui-draggable-handle" style="position: relative;">{{ $results[0]->ESTADO_DIPLOMA }}
                                                 </div>

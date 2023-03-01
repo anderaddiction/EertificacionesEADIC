@@ -28,6 +28,7 @@ class CreateTramiteDiplomasTable extends Migration
             $table->string('CORREO', 250)->nulable();
             $table->string('USUARIO_PLATAFORMA', 250)->nulable();
             $table->string('ESTADO_DIPLOMA', 250)->nulable();
+            $table->string('INCIDENCIAS', 250)->nulable();
             $table->string('ESTADO_CERTIFICADO_NOTAS', 250)->nulable();
             $table->string('OBS_INCIDENCIA', 250)->nulable();
             $table->string('CATEGORIA', 250)->nulable();
