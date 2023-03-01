@@ -89,7 +89,7 @@
                                                 </div>
                                                 <div class="external-event bg-secondary ui-draggable ui-draggable-handle" style="position: relative;">Diploma en Colegio Notarial
                                                 </div>
-                                                <div class="external-event bg-secondary ui-draggable ui-draggable-handle" style="position: relative;">Diploma apostillado en EADIC, pendiente de envio
+                                                <div class="external-event bg-secondary ui-draggable ui-draggable-handle" style="position: relative;">Diploma apostillado en EADIC, pendiente de envío
                                                 </div>
                                                 <div class="external-event bg-secondary ui-draggable ui-draggable-handle" style="position: relative;">Enviado a estudiante
                                                 </div>
@@ -175,7 +175,7 @@
                                                 <div class="external-event bg-secondary ui-draggable ui-draggable-handle" style="position: relative;">Diploma en Colegio
                                                     Notarial
                                                 </div>
-                                                <div class="external-event bg-secondary ui-draggable ui-draggable-handle" style="position: relative;">Diploma apostillado en EADIC, pendiente de envio
+                                                <div class="external-event bg-secondary ui-draggable ui-draggable-handle" style="position: relative;">Diploma apostillado en EADIC, pendiente de envío
                                                 </div>
                                                 <div class="external-event bg-success ui-draggable ui-draggable-handle" style="position: relative;">{{
                                                 $results[0]->ESTADO_DIPLOMA }}
@@ -297,12 +297,12 @@
                                                 <div class="external-event bg-success ui-draggable ui-draggable-handle" style="position: relative;">{{
                                                     $results[0]->ESTADO_DIPLOMA }}
                                                 </div>
-                                                <div class="external-event bg-secondary ui-draggable ui-draggable-handle" style="position: relative;">Diploma (sin apostilla) en oficina EADIC, pendiente de envio
+                                                <div class="external-event bg-secondary ui-draggable ui-draggable-handle" style="position: relative;">Diploma (sin apostilla) en oficina EADIC, pendiente de envío
                                                 </div>
                                                 <div class="external-event bg-secondary ui-draggable ui-draggable-handle" style="position: relative;">Enviado a
                                                     estudiante
                                                 </div>
-                                            @elseif ($results[0]->ESTADO_DIPLOMA === 'Diploma (sin apostilla) en oficina EADIC, pendiente de envio')
+                                            @elseif ($results[0]->ESTADO_DIPLOMA === 'Diploma (sin apostilla) en oficina EADIC, pendiente de envío')
                                                 <div class="external-event bg-secondary ui-draggable ui-draggable-handle" style="position: relative;">Con tramite
                                                     solicitado por estudiante/Diploma pendiente de llegada a EADIC
                                                 </div>
@@ -315,7 +315,7 @@
                                                 <div class="external-event bg-secondary ui-draggable ui-draggable-handle" style="position: relative;">Con tramite
                                                     solicitado por estudiante/Diploma pendiente de llegada a EADIC
                                                 </div>
-                                                <div class="external-event bg-secondary ui-draggable ui-draggable-handle" style="position: relative;">Diploma (sin apostilla) en oficina EADIC, pendiente de envio
+                                                <div class="external-event bg-secondary ui-draggable ui-draggable-handle" style="position: relative;">Diploma (sin apostilla) en oficina EADIC, pendiente de envío
                                                 </div>
                                                 <div class="external-event bg-success ui-draggable ui-draggable-handle" style="position: relative;">{{
                                                     $results[0]->ESTADO_DIPLOMA }}
@@ -332,7 +332,7 @@
                                                 <div class="external-event bg-secondary ui-draggable ui-draggable-handle" style="position: relative;">Enviado a
                                                     estudiante
                                                 </div>
-                                            @elseif ($results[0]->ESTADO_DIPLOMA === 'Diploma (sin apostilla) en oficina EADIC, pendiente de envio')
+                                            @elseif ($results[0]->ESTADO_DIPLOMA === 'Diploma (sin apostilla) en oficina EADIC, pendiente de envío')
                                                 <div class="external-event bg-secondary ui-draggable ui-draggable-handle" style="position: relative;">Con tramite
                                                     solicitado por estudiante/Diploma pendiente de llegada a EADIC
                                                 </div>
@@ -360,7 +360,7 @@
                                                 </div>
                                                 <div class="external-event bg-secondary ui-draggable ui-draggable-handle" style="position: relative;">Solicitado a la Universidad
                                                 </div>
-                                                <div class="external-event bg-secondary ui-draggable ui-draggable-handle" style="position: relative;">Cert. de Notas (sin apostilla) en oficina EADIC, pendiente de envio
+                                                <div class="external-event bg-secondary ui-draggable ui-draggable-handle" style="position: relative;">Cert. de Notas (sin apostilla) en oficina EADIC, pendiente de envío
                                                 </div>
                                                 <div class="external-event bg-secondary ui-draggable ui-draggable-handle" style="position: relative;">Enviado a
                                                     estudiante
@@ -378,7 +378,7 @@
                                                 <div class="external-event bg-secondary ui-draggable ui-draggable-handle" style="position: relative;">Enviado a
                                                     estudiante
                                                 </div>
-                                            @elseif ($results[0]->ESTADO_DIPLOMA === 'Cert. de Notas (sin apostilla) en oficina EADIC, pendiente de envio')
+                                            @elseif ($results[0]->ESTADO_DIPLOMA === 'Cert. de Notas (sin apostilla) en oficina EADIC, pendiente de envío')
                                                 <div class="external-event bg-secondary ui-draggable ui-draggable-handle" style="position: relative;">Con tramite
                                                     solicitado por estudiante/Diploma pendiente de llegada a EADIC
                                                 </div>
@@ -419,7 +419,7 @@
                                                 </div>
                                                 <div class="external-event bg-secondary ui-draggable ui-draggable-handle" style="position: relative;">Cert. de Notas en Colegio Notarial
                                                 </div>
-                                                <div class="external-event bg-secondary ui-draggable ui-draggable-handle" style="position: relative;">Cert. de Notas apostillado en EADIC, pendiente de envio
+                                                <div class="external-event bg-secondary ui-draggable ui-draggable-handle" style="position: relative;">Cert. de Notas apostillado en EADIC, pendiente de envío
                                                 </div>
                                                 <div class="external-event bg-secondary ui-draggable ui-draggable-handle" style="position: relative;">Enviado a estudiante
                                                 </div>
@@ -544,7 +544,7 @@
                                                 <div class="external-event bg-secondary ui-draggable ui-draggable-handle" style="position: relative;">Cert. de Notas en
                                                     Colegio Notarial
                                                 </div>
-                                                <div class="external-event bg-secondary ui-draggable ui-draggable-handle" style="position: relative;">Cert. de Notas apostillado en EADIC, pendiente de envio
+                                                <div class="external-event bg-secondary ui-draggable ui-draggable-handle" style="position: relative;">Cert. de Notas apostillado en EADIC, pendiente de envío
                                                 </div>
                                                 <div class="external-event bg-success ui-draggable ui-draggable-handle" style="position: relative;">{{ $results[0]->ESTADO_DIPLOMA }}
                                                 </div>
