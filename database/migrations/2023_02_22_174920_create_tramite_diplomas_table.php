@@ -31,7 +31,7 @@ class CreateTramiteDiplomasTable extends Migration
             $table->string('INCIDENCIAS', 250)->nulable();
             $table->string('ESTADO_CERTIFICADO_NOTAS', 250)->nulable();
             $table->string('OBS_INCIDENCIA', 250)->nulable();
-            $table->string('CATEGORIA', 250)->nulable();
+            $table->string('CATEGORIA_ID', 250)->nulable();
             $table->string('TICKET_DIPLOMAYNOTAS', 250)->unique()->nulable();
             $table->string('TICKET_SOLONOTAS', 250)->nulable();
             $table->string('OBS_TRAMITE', 250)->nulable();
