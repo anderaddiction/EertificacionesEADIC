@@ -16,4 +16,5 @@ return [
     'important'                     => 'Importante',
     'warning'                       => 'Advertencia',
     'information'                   => 'Información',
+    'admin_settings'                => 'AJUSTE DE ADMINISTRACIÓN'
 ];

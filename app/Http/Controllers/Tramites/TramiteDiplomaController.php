@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers\Tramites;
 
-use App\TramiteDiploma;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\TramiteDiplomaRequest;
 use Illuminate\Support\Facades\DB;
