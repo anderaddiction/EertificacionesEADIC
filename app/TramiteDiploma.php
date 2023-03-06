@@ -15,4 +15,14 @@ class TramiteDiploma extends Model
     {
         return 'TICKET_DIPLOMAYNOTAS';
     }
+
+    /**
+     * Get all of the category for the TramiteDiploma
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function category()
+    {
+        return $this->hasMany(Category::class, 'categoria_id', 'id');
+    }
 }
