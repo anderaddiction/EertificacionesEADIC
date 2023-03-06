@@ -330,6 +330,11 @@ return [
             'route'  => 'user.index',
             'icon' => 'fas fa-fw fa-users',
         ],
+        [
+            'text' => 'Categories',
+            'route'  => 'category.index',
+            'icon' => 'fas fa-fw fa-tag',
+        ],
         ['header' => 'account_settings'],
         [
             'text'    => 'Soporte',

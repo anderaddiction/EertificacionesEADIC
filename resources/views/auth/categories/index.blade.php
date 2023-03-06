@@ -1,9 +1,9 @@
 @extends('adminlte::page')
 
-@section('title', 'Dashboard')
+@section('title', 'Categories')
 
 @section('content_header')
-<h1>{{ __('Users') }}</h1>
+<h1>{{ __('Categories') }}</h1>
 @stop
 
 @section('content')
@@ -11,12 +11,12 @@
         <!-- DATATABLE EXAMPLE -->
         <div class="card card-primary">
             <div class="card-header">
-                <h3 class="card-title">{{ ('Users Table') }}</h3>
+                <h3 class="card-title">{{ ('Categories Table') }}</h3>
             </div>
             <!-- /.card-header -->
             <div class="card-body">
                 <div class="col-sm-1 mb-3">
-                    <a href="{{ route('user.create') }}" class="btn btn-block bg-gradient-primary" title="{{ __('Add') }}"><i
+                    <a href="{{ route('category.create') }}" class="btn btn-block bg-gradient-primary" title="{{ __('Add') }}"><i
                             class="fas fa-pencil"></i></a>
                 </div>
                 <div class="col-12 mb-3">
@@ -27,30 +27,32 @@
                     </div>
                     @endif
                 </div>
-                <table id="example2" class="table table-bordered table-hover">
+                <table id="example2" class="table table-bordered table-hover dt-responsive nowrap">
                     <thead class="text-center">
                         <tr>
                             <th>ID</th>
+                            <th>{{ __('Code') }}</th>
                             <th>{{ __('Name') }}</th>
-                            <th>{{ __('Email') }}</th>
-                            <th>{{ __('Role') }}</th>
+                            <th>{{ __('Status') }}</th>
+                            <th>{{ __('Note') }}</th>
                             <th>{{ __('Created At') }}</th>
                             <th>{{ __('Action') }}</th>
                         </tr>
                     </thead>
                     <tbody class="text-center">
-                        @foreach ($users as $user)
+                        @foreach ($categories as $category)
                             <tr>
-                                <td>{{ $user->present()->id() }}</td>
-                                <td>{{ $user->present()->name() }}</td>
-                                <td>{{ $user->present()->email() }}</td>
-                                <td>{{ $user->present()->role() }}</td>
-                                <td>{{ $user->present()->createdAt() }}</td>
+                                <td>{{ $category->present()->id() }}</td>
+                                <td>{{ $category->present()->code() }}</td>
+                                <td>{{ $category->present()->name() }}</td>
+                                <td>{!! $category->present()->status() !!}</td>
+                                <td>{{ $category->present()->note() }}</td>
+                                <td>{{ $category->present()->createdAt() }}</td>
                                 <td>
-                                    <form action="{{ route('user.destroy', $user) }}" method="POST">
+                                    <form action="{{ route('category.destroy', $category) }}" method="POST">
                                         @csrf
                                         @method('DELETE')
-                                        {!! $user->present()->actionButtons() !!}
+                                        {!! $category->present()->actionButtons() !!}
                                     </form>
                                 </td>
                             </tr>
@@ -60,8 +62,9 @@
                         <tr>
                             <th>ID</th>
                             <th>{{ __('Code') }}</th>
-                            <th>{{ __('Email') }}</th>
-                            <th>{{ __('Role') }}</th>
+                            <th>{{ __('Name') }}</th>
+                            <th>{{ __('Status') }}</th>
+                            <th>{{ __('Note') }}</th>
                             <th>{{ __('Created At') }}</th>
                             <th>{{ __('Action') }}</th>
                         </tr>

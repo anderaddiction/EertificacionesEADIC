@@ -19,6 +19,14 @@
                 <a href="{{ route('user.create') }}" class="btn btn-block bg-gradient-primary" title="{{ __('Add') }}"><i
                         class="fas fa-pencil"></i></a>
             </div>
+            <div class="col-12 mb-3">
+                @if (session()->has('Success'))
+                <div class="alert bg-teal alert-dismissible">
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                    <h6><i class="icon fas fa-check"></i> Feliciades! {{ session('Success') }}</h6>
+                </div>
+                @endif
+            </div>
             <table id="example2" class="table table-bordered table-hover">
                 <thead>
                     <tr>

@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'Dashboard')
+@section('title', __('Categories'))
 
 @section('content_header')
 <h1>{{ __('Roles') }}</h1>
@@ -11,21 +11,13 @@
     <!-- SELECT2 EXAMPLE -->
     <div class="card card-primary">
         <div class="card-header">
-            <h3 class="card-title">Role {{ $role->name }}</h3>
+            <h3 class="card-title">{{ __('Category') }} {{ $category->name }}</h3>
         </div>
         <!-- /.card-header -->
         <div class="card-body">
             <div class="col-sm-1 mb-3">
-                <a href="{{ route('role.create') }}" class="btn btn-block bg-gradient-primary" title="{{ __('Add') }}"><i
+                <a href="{{ route('category.create') }}" class="btn btn-block bg-gradient-primary" title="{{ __('Add') }}"><i
                         class="fas fa-pencil"></i></a>
-            </div>
-            <div class="col-12 mb-3">
-                @if (session()->has('Success'))
-                <div class="alert bg-teal alert-dismissible">
-                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-                    <h6><i class="icon fas fa-check"></i> Feliciades! {{ session('Success') }}</h6>
-                </div>
-                @endif
             </div>
             <table id="example2" class="table table-bordered table-hover">
                 <thead class="text-center">
@@ -42,18 +34,18 @@
                 </thead>
                 <tbody class="text-center">
                     <tr>
-                        <td>{{ $role->present()->id() }}</td>
-                        <td>{{ $role->present()->code() }}</td>
-                        <td>{{ $role->present()->name() }}</td>
-                        <td>{{ $role->present()->displayName() }}</td>
-                        <td>{{ $role->present()->note() }}</td>
-                        <td>{{ $role->present()->slug() }}</td>
-                        <td>{{ $role->present()->createdAt() }}</td>
+                        <td>{{ $category->present()->id() }}</td>
+                        <td>{{ $category->present()->code() }}</td>
+                        <td>{{ $category->present()->name() }}</td>
+                        <td>{!! $category->present()->status() !!}</td>
+                        <td>{{ $category->present()->note() }}</td>
+                        <td>{{ $category->present()->slug() }}</td>
+                        <td>{{ $category->present()->createdAt() }}</td>
                         <td>
-                            <form action="{{ route('role.destroy', $role) }}" method="POST">
+                            <form action="{{ route('category.destroy', $category) }}" method="POST">
                                 @csrf
                                 @method('DELETE')
-                                {!! $role->present()->actionButtons() !!}
+                                {!! $category->present()->actionButtons() !!}
                             </form>
                         </td>
                     </tr>
@@ -63,7 +55,7 @@
                         <th>ID</th>
                         <th>{{ __('Code') }}</th>
                         <th>{{ __('Name') }}</th>
-                        <th>{{ __('Display Name') }}</th>
+                        <th>{{ __('Status') }}</th>
                         <th>{{ __('Note') }}</th>
                         <th>{{ __('Slug') }}</th>
                         <th>{{ __('Created At') }}</th>

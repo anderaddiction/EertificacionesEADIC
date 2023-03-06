@@ -108,10 +108,10 @@ class UserController extends Controller
         $user->roles()->sync($request->role_id);
 
         $roles = Role::orderBy('name', 'ASC')->pluck('name', 'id');
-        return view('auth.users.edit', [
+        return redirect()->route('user.edit', [
             'user' => $user,
             'roles' => $roles
-        ])->with('success', 'Data updated successfully');
+        ])->with('Success', 'Data updated successfully');
     }
 
     /**
@@ -124,6 +124,8 @@ class UserController extends Controller
     {
         $user->delete();
         $user->roles()->detach();
-        return redirect()->route('user.index');
+        return redirect()->route('user.index', [
+            'user' => $user
+        ])->with('Success', 'Data Deleted Successfully');
     }
 }

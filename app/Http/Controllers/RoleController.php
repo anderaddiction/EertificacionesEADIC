@@ -110,9 +110,9 @@ class RoleController extends Controller
             $request->validated()
                 + ['slug' => generateUrl($request->name)]
         );
-        return view('auth.roles.edit', [
+        return redirect()->route('role.edit', [
             'role' => $role
-        ])->with('success', 'Data updated successfully');
+        ])->with('Success', 'Data Updated Successfully');
     }
 
     /**
@@ -125,8 +125,8 @@ class RoleController extends Controller
     {
         $role->delete();
         $roles = Role::orderBy('id', 'ASC')->paginate(20);
-        return view('auth.roles.index', [
+        return redirect()->route('role.index', [
             'roles' => $roles
-        ]);
+        ])->with('Success', 'Data Deleted Successfully');
     }
 }

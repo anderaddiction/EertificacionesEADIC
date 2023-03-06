@@ -36,6 +36,11 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::prefix('admin')->group(function () {
+    //Categories
+    Route::resource('categories', CategoryController::class)
+        ->parameters(['category' => 'category'])
+        ->names('category');
+
     //Roles
     Route::resource('roles', RoleController::class)
         ->parameters(['role' => 'role'])
