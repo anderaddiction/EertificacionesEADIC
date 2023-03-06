@@ -3,7 +3,7 @@
 @section('title', 'Dashboard')
 
 @section('content_header')
-<h1>{{ __('Roles') }}</h1>
+<h1>{{ __('Users') }}</h1>
 @stop
 
 @section('content')
@@ -11,40 +11,39 @@
         <!-- DATATABLE EXAMPLE -->
         <div class="card card-primary">
             <div class="card-header">
-                <h3 class="card-title">{{ ('Roles Table') }}</h3>
+                <h3 class="card-title">{{ ('Users Table') }}</h3>
             </div>
             <!-- /.card-header -->
             <div class="card-body">
                 <div class="col-sm-1 mb-3">
-                    <a href="{{ route('role.create') }}" class="btn btn-block bg-gradient-primary" title="{{ __('Add') }}"><i
+                    <a href="{{ route('user.create') }}" class="btn btn-block bg-gradient-primary" title="{{ __('Add') }}"><i
                             class="fas fa-pencil"></i></a>
                 </div>
                 <table id="example2" class="table table-bordered table-hover">
+
                     <thead>
                         <tr>
                             <th>ID</th>
-                            <th>{{ __('Code') }}</th>
                             <th>{{ __('Name') }}</th>
-                            <th>{{ __('Display Name') }}</th>
-                            <th>{{ __('Note') }}</th>
+                            <th>{{ __('Email') }}</th>
+                            <th>{{ __('Role') }}</th>
                             <th>{{ __('Created At') }}</th>
                             <th>{{ __('Action') }}</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($roles as $role)
+                        @foreach ($users as $user)
                             <tr>
-                                <td>{{ $role->present()->id() }}</td>
-                                <td>{{ $role->present()->code() }}</td>
-                                <td>{{ $role->present()->name() }}</td>
-                                <td>{{ $role->present()->displayName() }}</td>
-                                <td>{{ $role->present()->note() }}</td>
-                                <td>{{ $role->present()->createdAt() }}</td>
+                                <td>{{ $user->present()->id() }}</td>
+                                <td>{{ $user->present()->name() }}</td>
+                                <td>{{ $user->present()->email() }}</td>
+                                <td>{{ $user->present()->role() }}</td>
+                                <td>{{ $user->present()->createdAt() }}</td>
                                 <td>
-                                    <form action="{{ route('role.destroy', $role) }}" method="POST">
+                                    <form action="{{ route('user.destroy', $user) }}" method="POST">
                                         @csrf
                                         @method('DELETE')
-                                        {!! $role->present()->actionButtons() !!}
+                                        {!! $user->present()->actionButtons() !!}
                                     </form>
                                 </td>
                             </tr>
@@ -54,9 +53,8 @@
                         <tr>
                             <th>ID</th>
                             <th>{{ __('Code') }}</th>
-                            <th>{{ __('Name') }}</th>
-                            <th>{{ __('Display Name') }}</th>
-                            <th>{{ __('Note') }}</th>
+                            <th>{{ __('Email') }}</th>
+                            <th>{{ __('Role') }}</th>
                             <th>{{ __('Created At') }}</th>
                             <th>{{ __('Action') }}</th>
                         </tr>

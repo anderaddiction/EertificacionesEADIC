@@ -10,7 +10,7 @@
 <div class="container-fluid">
     <!-- SELECT2 EXAMPLE -->
     <form action="{{ route('role.store') }}" method="POST" id="form-register" rol="form">
-        @include('auth.roles._form', ['btnText' => __('Send')])
+        @include('auth.roles._form', ['btnText' => __('Send'), 'title' => __('Register User Form')])
     </form>
 </div>
 

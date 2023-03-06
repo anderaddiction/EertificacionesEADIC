@@ -323,6 +323,12 @@ return [
             'text' => 'Roles',
             'route'  => 'role.index',
             'icon' => 'fas fa-fw fa-lock',
+            'role' => 'Administrador'
+        ],
+        [
+            'text' => 'Users',
+            'route'  => 'user.index',
+            'icon' => 'fas fa-fw fa-users',
         ],
         ['header' => 'account_settings'],
         [

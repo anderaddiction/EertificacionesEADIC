@@ -1,7 +1,7 @@
 @csrf
 <div class="card card-primary">
     <div class="card-header">
-        <h3 class="card-title">{{ __('Register Role Form') }}</h3>
+        <h3 class="card-title">{{ $title }}</h3>
     </div>
     <!-- /.card-header -->
     <div class="card-body">

@@ -40,4 +40,9 @@ Route::prefix('admin')->group(function () {
     Route::resource('roles', RoleController::class)
         ->parameters(['role' => 'role'])
         ->names('role');
+
+    //Users
+    Route::resource('users', UserController::class)
+        ->parameters(['user' => 'user'])
+        ->names('user');
 });

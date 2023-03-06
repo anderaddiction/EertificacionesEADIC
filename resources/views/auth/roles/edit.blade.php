@@ -11,7 +11,7 @@
     <!-- SELECT2 EXAMPLE -->
     <form action="{{ route('role.update', $role) }}" method="POST" id="form-register" rol="form">
         @method('PUT')
-        @include('auth.roles._form', ['btnText' => __('Update')])
+        @include('auth.roles._form', ['btnText' => __('Update'), 'title' => __('Update User Form')])
     </form>
 </div>
 
