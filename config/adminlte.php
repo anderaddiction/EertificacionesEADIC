@@ -14,7 +14,7 @@ return [
     |
     */
 
-    'title' => 'AdminLTE 3',
+    'title' => 'EADIC',
     'title_prefix' => '',
     'title_postfix' => '',
 
@@ -318,6 +318,23 @@ return [
             'label'       => 4,
             'label_color' => 'success',
         ],
+        ['header' => 'admin_settings'],
+        [
+            'text' => 'Roles',
+            'route'  => 'role.index',
+            'icon' => 'fas fa-fw fa-lock',
+            'role' => 'Administrador'
+        ],
+        [
+            'text' => 'Users',
+            'route'  => 'user.index',
+            'icon' => 'fas fa-fw fa-users',
+        ],
+        [
+            'text' => 'Categories',
+            'route'  => 'category.index',
+            'icon' => 'fas fa-fw fa-tag',
+        ],
         ['header' => 'account_settings'],
         [
             'text'    => 'Soporte',
@@ -358,9 +375,9 @@ return [
             ],
         ],
         [
-            'text' => 'profile',
-            'url'  => 'admin/settings',
-            'icon' => 'fas fa-fw fa-user',
+            'text' => 'Trámite de Diploma',
+            'route'  => 'consulta',
+            'icon' => 'fas fa-fw fa-certificate',
         ],
         [
             'text' => 'change_password',
@@ -460,56 +477,56 @@ return [
 
     'plugins' => [
         'Datatables' => [
-            'active' => false,
+            'active' => true,
             'files' => [
                 [
                     'type' => 'js',
-                    'asset' => false,
+                    'asset' => true,
                     'location' => '//cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js',
                 ],
                 [
                     'type' => 'js',
-                    'asset' => false,
+                    'asset' => true,
                     'location' => '//cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js',
                 ],
                 [
                     'type' => 'css',
-                    'asset' => false,
+                    'asset' => true,
                     'location' => '//cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css',
                 ],
             ],
         ],
         'Select2' => [
-            'active' => false,
+            'active' => true,
             'files' => [
                 [
                     'type' => 'js',
-                    'asset' => false,
+                    'asset' => true,
                     'location' => '//cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js',
                 ],
                 [
                     'type' => 'css',
-                    'asset' => false,
+                    'asset' => true,
                     'location' => '//cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.css',
                 ],
             ],
         ],
         'Chartjs' => [
-            'active' => false,
+            'active' => true,
             'files' => [
                 [
                     'type' => 'js',
-                    'asset' => false,
+                    'asset' => true,
                     'location' => '//cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.0/Chart.bundle.min.js',
                 ],
             ],
         ],
         'Sweetalert2' => [
-            'active' => false,
+            'active' => true,
             'files' => [
                 [
                     'type' => 'js',
-                    'asset' => false,
+                    'asset' => true,
                     'location' => '//cdn.jsdelivr.net/npm/sweetalert2@8',
                 ],
             ],

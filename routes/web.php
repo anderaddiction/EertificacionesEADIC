@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Tramites\TramiteDiplomaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,7 +25,29 @@ Route::prefix('suporte')->group(function () {
         ->name('soporte.alumno');
 });
 
+// Modulo de Tramites
+Route::prefix('tramites')->group(function () {
+    Route::get('certificados/seach', [TramiteDiplomaController::class, 'index'])->name('consulta');
+    Route::post('certificados', [TramiteDiplomaController::class, 'find'])->name('consulta.find');
+});
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::prefix('admin')->group(function () {
+    //Categories
+    Route::resource('categories', CategoryController::class)
+        ->parameters(['category' => 'category'])
+        ->names('category');
+
+    //Roles
+    Route::resource('roles', RoleController::class)
+        ->parameters(['role' => 'role'])
+        ->names('role');
+
+    //Users
+    Route::resource('users', UserController::class)
+        ->parameters(['user' => 'user'])
+        ->names('user');
+});

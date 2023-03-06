@@ -90,6 +90,26 @@
             @enderror
         </div>
 
+        {{-- Roles field --}}
+        <div class="input-group mb-3">
+            <select class="select2" id="role_id" name="role_id[]" multiple="multiple" data-placeholder="{{ __('Select a role') }}" style="width: 88%;">
+                @foreach ($roles as $id => $name)
+                    <option value="{{ $id }}">{{ $name }}</option>
+                @endforeach
+            </select>
+            <div class="input-group-append">
+                <div class="input-group-text">
+                    <span class="fas fa-user {{ config('adminlte.classes_auth_icon', '') }}"></span>
+                </div>
+            </div>
+
+            @error('role_id')
+            <span class="invalid-feedback" role="alert">
+                <strong>{{ $message }}</strong>
+            </span>
+            @enderror
+        </div>
+
         {{-- Register button --}}
         <button type="submit" class="btn btn-block {{ config('adminlte.classes_auth_btn', 'btn-flat btn-primary') }}">
             <span class="fas fa-user-plus"></span>
@@ -106,3 +126,12 @@
         </a>
     </p>
 @stop
+
+@section('js')
+<script>
+    $(function () {
+    //Initialize Select2 Elements
+    $('.select2').select2()
+    });
+</script>
+@endsection
