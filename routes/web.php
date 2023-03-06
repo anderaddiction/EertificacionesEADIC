@@ -1,7 +1,7 @@
 <?php
 
-use App\Http\Controllers\Tramites\TramiteDiplomaController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Tramites\TramiteDiplomaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -34,3 +34,10 @@ Route::prefix('tramites')->group(function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::prefix('admin')->group(function () {
+    //Roles
+    Route::resource('roles', RoleController::class)
+        ->parameters(['role' => 'role'])
+        ->names('role');
+});
