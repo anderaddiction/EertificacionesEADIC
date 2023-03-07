@@ -335,6 +335,11 @@ return [
             'route'  => 'category.index',
             'icon' => 'fas fa-fw fa-tag',
         ],
+        [
+            'text' => 'Universities',
+            'route'  => 'university.index',
+            'icon' => 'fas fa-fw fa-bank',
+        ],
         ['header' => 'account_settings'],
         [
             'text'    => 'Soporte',

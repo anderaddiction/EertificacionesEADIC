@@ -46,6 +46,11 @@ Route::prefix('admin')->group(function () {
         ->parameters(['role' => 'role'])
         ->names('role');
 
+    //University
+    Route::resource('universities', UniversityController::class)
+        ->parameters(['university' => 'university'])
+        ->names('university');
+
     //Users
     Route::resource('users', UserController::class)
         ->parameters(['user' => 'user'])
