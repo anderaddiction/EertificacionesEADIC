@@ -359,6 +359,11 @@ return [
                 ],
             ],
         ],
+        [
+            'text' => 'Masters',
+            'route'  => 'master.index',
+            'icon' => 'fas fa-fw fa-book',
+        ],
         ['header' => 'account_settings'],
         [
             'text'    => 'Soporte',

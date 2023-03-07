@@ -56,6 +56,11 @@ Route::prefix('admin')->group(function () {
         ->parameters(['certificate_status' => 'certificate_status'])
         ->names('certificate_status');
 
+    //Masters
+    Route::resource('masters', MasterController::class)
+        ->parameters(['master' => 'master'])
+        ->names('master');
+
     //Roles
     Route::resource('roles', RoleController::class)
         ->parameters(['role' => 'role'])
