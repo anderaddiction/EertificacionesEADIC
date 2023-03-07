@@ -41,6 +41,11 @@ Route::prefix('admin')->group(function () {
         ->parameters(['category' => 'category'])
         ->names('category');
 
+    //Concepts
+    Route::resource('concepts', ConceptController::class)
+        ->parameters(['concept' => 'concept'])
+        ->names('concept');
+
     //Roles
     Route::resource('roles', RoleController::class)
         ->parameters(['role' => 'role'])

@@ -340,6 +340,11 @@ return [
             'route'  => 'university.index',
             'icon' => 'fas fa-fw fa-bank',
         ],
+        [
+            'text' => 'Concepts',
+            'route'  => 'concept.index',
+            'icon' => 'fas fa-fw fa-book',
+        ],
         ['header' => 'account_settings'],
         [
             'text'    => 'Soporte',
