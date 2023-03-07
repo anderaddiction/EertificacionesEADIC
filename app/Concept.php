@@ -17,6 +17,16 @@ class Concept extends Model
         return 'slug';
     }
 
+    /**
+     * Get the diploma associated with the Concept
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    public function diploma()
+    {
+        return $this->hasOne(DiplomaState::class);
+    }
+
     public function present()
     {
         return new ConceptPresenter($this);

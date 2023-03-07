@@ -1,37 +1,42 @@
 <?php
 
-namespace App\Presenters\Concepts;
+namespace App\Presenters\Diploma_State;
 
-use App\Concept;
+use App\DiplomaState;
 use Illuminate\Support\Str;
 
-class ConceptPresenter
+class DiplomaStatePresenter
 {
-    protected $concept;
+    protected $diploma;
 
-    public function __construct(Concept $concept)
+    public function __construct(DiplomaState $diploma)
     {
-        return $this->concept = $concept;
+        return $this->diploma = $diploma;
     }
 
     public function id()
     {
-        return $this->concept->id;
+        return $this->diploma->id;
     }
 
     public function code()
     {
-        return $this->concept->code;
+        return $this->diploma->code;
     }
 
     public function name()
     {
-        return Str::limit($this->concept->name, 50, '...');
+        return Str::limit($this->diploma->name, 20, '...');
+    }
+
+    public function concept()
+    {
+        return Str::limit($this->diploma->concept->name, 20, '...');
     }
 
     public function status()
     {
-        if ($this->concept->status === 1) {
+        if ($this->diploma->status === 1) {
             return '<i class="fa-regular fa-circle-check text-success"></i>';
         } else {
             return '<i class="fa-regular fa-circle-xmark text-danger"></i>';
@@ -40,28 +45,28 @@ class ConceptPresenter
 
     public function slug()
     {
-        return $this->concept->slug;
+        return $this->diploma->slug;
     }
 
     public function note()
     {
-        return $this->concept->note;
+        return Str::limit($this->diploma->note, 20, '...');
     }
 
     public function createdAt()
     {
-        return $this->concept->created_at->diffForHumans();
+        return $this->diploma->created_at->diffForHumans();
     }
 
     public function actionButtons()
     {
         return '
-            ' . $this->concept . '
+
             <div class="btn-group">
-                <a href="' . route('concept.edit', $this->concept) . '"  class="btn btn-primary">
+                <a href="' . route('diploma_state.edit', $this->diploma) . '"  class="btn btn-primary">
                 <i class="fas fa-edit"></i>
                 </a>
-                <a href="' . route('concept.show', $this->concept) . '" class="btn btn-warning">
+                <a href="' . route('diploma_state.show', $this->diploma) . '" class="btn btn-warning">
                 <i class="fas fa-eye"></i>
                 </a>
                 <button type="submit" class="btn btn-danger">

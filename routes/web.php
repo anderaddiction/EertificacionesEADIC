@@ -46,6 +46,11 @@ Route::prefix('admin')->group(function () {
         ->parameters(['concept' => 'concept'])
         ->names('concept');
 
+    //Diploma Status
+    Route::resource('diploma-status', DiplomaStateController::class)
+        ->parameters(['diploma_state' => 'diploma_state'])
+        ->names('diploma_state');
+
     //Roles
     Route::resource('roles', RoleController::class)
         ->parameters(['role' => 'role'])

@@ -345,6 +345,16 @@ return [
             'route'  => 'concept.index',
             'icon' => 'fas fa-fw fa-book',
         ],
+        [
+            'text'    => 'Formalities Status',
+            'icon'    => 'fas fa-fw fa-bar-chart',
+            'submenu' => [
+                [
+                    'text' => 'Diploma Status',
+                    'route'  => 'diploma_state.index',
+                ],
+            ],
+        ],
         ['header' => 'account_settings'],
         [
             'text'    => 'Soporte',
