@@ -353,6 +353,10 @@ return [
                     'text' => 'Diploma Status',
                     'route'  => 'diploma_state.index',
                 ],
+                [
+                    'text' => 'Certificate Status',
+                    'route'  => 'certificate_status.index',
+                ],
             ],
         ],
         ['header' => 'account_settings'],

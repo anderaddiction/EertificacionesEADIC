@@ -4,9 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Concept;
 use App\DiplomaState;
-use App\Http\Requests\DiplomaStateRequest;
+use App\CertificateState;
+use Illuminate\Http\Request;
+use App\Http\Requests\CertificateStateRequest;
 
-class DiplomaStateController extends Controller
+class CertificateStateController extends Controller
 {
     public function __construct()
     {
@@ -20,9 +22,9 @@ class DiplomaStateController extends Controller
      */
     public function index()
     {
-        $diplomas = DiplomaState::orderBy('id', 'ASC')->paginate(20);
-        return view('auth.diploma_state.index', [
-            'diplomas' => $diplomas
+        $certificates = CertificateState::orderBy('id', 'ASC')->paginate(20);
+        return view('auth.certificate_state.index', [
+            'certificates' => $certificates
         ]);
     }
 
@@ -33,10 +35,10 @@ class DiplomaStateController extends Controller
      */
     public function create()
     {
-        $diploma_status = new DiplomaState();
+        $certificate_status = new CertificateState();
         $concepts = Concept::orderBy('name', 'ASC')->pluck('name', 'id');
-        return view('auth.diploma_state.create', [
-            'diploma_status' => $diploma_status,
+        return view('auth.certificate_state.create', [
+            'certificate_status' => $certificate_status,
             'concepts' => $concepts
         ]);
     }
@@ -47,9 +49,9 @@ class DiplomaStateController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(DiplomaStateRequest $request)
+    public function store(CertificateStateRequest $request)
     {
-        DiplomaState::create(
+        CertificateState::create(
             $request->validated()
                 + ['code' => getRandomString()]
                 + ['slug' => generateUrl($request->name)]
@@ -60,28 +62,29 @@ class DiplomaStateController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $diploma_status
+     * @param  int  $certificate_status
      * @return \Illuminate\Http\Response
      */
-    public function show(DiplomaState $diploma_status)
+    public function show(CertificateState $certificate_status)
     {
-
-        return view('auth.diploma_state.show', [
-            'diploma' => $diploma_status
+        $concepts = Concept::orderBy('name', 'ASC')->pluck('name', 'id');
+        return view('auth.certificate_state.show', [
+            'certificate_status' => $certificate_status,
+            'concepts' => $concepts
         ]);
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $diploma_status
+     * @param  int  $certificate_status
      * @return \Illuminate\Http\Response
      */
-    public function edit(DiplomaState $diploma_status)
+    public function edit(CertificateState $certificate_status)
     {
         $concepts = Concept::orderBy('name', 'ASC')->pluck('name', 'id');
-        return view('auth.diploma_state.edit', [
-            'diploma_status' => $diploma_status,
+        return view('auth.certificate_state.edit', [
+            'certificate_status' => $certificate_status,
             'concepts' => $concepts
         ]);
     }
@@ -90,32 +93,32 @@ class DiplomaStateController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $diploma_status
+     * @param  int  $certificate_status
      * @return \Illuminate\Http\Response
      */
-    public function update(DiplomaStateRequest $request, DiplomaState $diploma_status)
+    public function update(CertificateStateRequest $request, CertificateState $certificate_status)
     {
-        $diploma_status->update(
+        $certificate_status->update(
             $request->validated()
                 + ['slug' => generateUrl($request->name)]
         );
-        return redirect()->route('diploma_state.edit', [
-            'diploma_status' => $diploma_status
+        return redirect()->route('certificate_status.edit', [
+            'certificate_status' => $certificate_status
         ])->with('Success', 'Data updated Successfully');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $diploma_status
+     * @param  int  $certificate_status
      * @return \Illuminate\Http\Response
      */
-    public function destroy(DiplomaState $diploma_status)
+    public function destroy(CertificateState $certificate_status)
     {
-        $diploma_status->delete();
-        $diplomas = DiplomaState::orderBy('id', 'ASC')->paginate(20);
-        return redirect()->route('diploma_state.index', [
-            'diplomas' => $diplomas
+        $certificate_status->delete();
+        $certificates = CertificateState::orderBy('id', 'ASC')->paginate(20);
+        return redirect()->route('certificate_status.index', [
+            'certificates' => $certificates
         ])->with('Success', 'Data Deleted Successfully');
     }
 }
