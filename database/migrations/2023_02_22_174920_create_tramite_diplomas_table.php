@@ -39,7 +39,7 @@ class CreateTramiteDiplomasTable extends Migration
             $table->string('direccion_envio', 250)->nulable();
             $table->string('pais', 250)->nulable();
             $table->string('fecha_envio', 250)->nulable();
-            $table->softDeletes();
+            //$table->softDeletes();
             $table->timestamps();
         });
     }

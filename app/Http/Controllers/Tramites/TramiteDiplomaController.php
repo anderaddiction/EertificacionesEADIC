@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Tramites;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\TramiteDiplomaRequest;
+use App\TramiteDiploma;
+use App\University;
 use Illuminate\Support\Facades\DB;
 
 class TramiteDiplomaController extends Controller
@@ -17,7 +19,9 @@ class TramiteDiplomaController extends Controller
     {
 
         $ticket = $request->ticket_diplomaynotas;
-        $results = DB::table("tramite_diplomas")->where("TICKET_DIPLOMAYNOTAS", $ticket)->get();
+        $results = TramiteDiploma::with('category', 'diploma_state', 'university', 'master')->where('ticket_diplomaynota', $ticket)->get();
+        //$results = DB::table("tramite_diplomas")->where("ticket_diplomaynota", $ticket)->get();
+
         return view('tramites.certificados.results', [
             'results' => $results
         ]);

@@ -31,4 +31,14 @@ class DiplomaState extends Model
     {
         return new DiplomaStatePresenter($this);
     }
+
+    /**
+     * Get the tramite_diploma associated with the DiplomaState
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    public function tramite_diploma()
+    {
+        return $this->hasOne(TramiteDiploma::class, 'estado_diploma_id');
+    }
 }

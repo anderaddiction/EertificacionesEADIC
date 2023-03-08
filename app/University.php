@@ -18,13 +18,13 @@ class University extends Model
     }
 
     /**
-     * Get the user that owns the Category
+     * Get the user associated with the University
      *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
      */
     public function tramiteDiploma()
     {
-        return $this->belongsTo(TramiteDiploma::class, 'universidad_id');
+        return $this->hasOne(TramiteDiploma::class);
     }
 
     public function present()

@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\TramiteDiploma;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use App\Presenters\Categories\CategoryPresenter;
@@ -18,13 +19,13 @@ class Category extends Model
     }
 
     /**
-     * Get the user that owns the Category
+     * Get the tramiteDiploma associated with the Category
      *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
      */
     public function tramiteDiploma()
     {
-        return $this->belongsTo(TramiteDiploma::class, 'CATEGORIA_ID');
+        return $this->hasOne(TramiteDiploma::class);
     }
 
     public function present()
