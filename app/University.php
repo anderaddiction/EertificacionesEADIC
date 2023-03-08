@@ -24,7 +24,7 @@ class University extends Model
      */
     public function tramiteDiploma()
     {
-        return $this->belongsTo(TramiteDiploma::class, 'UNIVERSIDAD_ID');
+        return $this->belongsTo(TramiteDiploma::class, 'universidad_id');
     }
 
     public function present()
