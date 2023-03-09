@@ -15,10 +15,22 @@
                 <form class="form-horizontal" method="POST" action="{{ route('consulta.find') }}" id="seach-form" name="seach-form" rol="form">
                     @csrf
                     <div class="card-body">
+                        <div class="row">
+                            <div class="col">
+                                @if (session()->has('error'))
+                                    <div class="alert alert-danger alert-dismissible">
+                                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                                        <h5><i class="icon fas fa-ban"></i> {{ __('Alert!') }}</h5>
+                                        {{ session('error') }}
+                                    </div>
+                                @endif
+                            </div>
+                        </div>
                         <div class="form-group row">
                             <label for="ticket_diplomaynotas" class="col-sm-2 col-form-label">Número de ticket:</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" id="ticket_diplomaynotas" name="ticket_diplomaynotas" placeholder="{{ __('Enter ticket number here...') }}" value="{{ old('ticket_diplomaynotas') }}">
+                                <input type="text" class="form-control form-control-border" id="ticket_diplomaynotas" name="ticket_diplomaynotas"
+                                    placeholder="{{ __('Enter ticket number here...') }}" value="{{ old('ticket_diplomaynotas') }}">
                                 <small class="text-danger"><i>{{ $errors->first('ticket_diplomaynotas') }}</i></small>
                             </div>
                         </div>

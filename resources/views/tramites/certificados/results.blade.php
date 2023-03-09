@@ -44,7 +44,7 @@
                                 <label for="inputEmail3" class="col-sm-3 col-form-label">{{ __('Master') }}</label>
                                 <div class="col-sm-8">
                                     <input type="text" class="form-control" id="category" disabled
-                                        value="{{ $results[0]->master }}">
+                                        value="{{ $results[0]->master->name }}">
                                 </div>
                             </div>
                         </div>

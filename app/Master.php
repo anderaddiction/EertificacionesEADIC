@@ -17,12 +17,13 @@ class Master extends Model
         return 'slug';
     }
 
+
     /**
-     * Get the diploma_tramite associated with the Master
+     * Get the tramite_diploma associated with the DiplomaState
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasOne
      */
-    public function diploma_tramite()
+    public function tramite_diploma()
     {
         return $this->hasOne(TramiteDiploma::class);
     }

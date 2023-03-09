@@ -53,6 +53,6 @@ class TramiteDiploma extends Model
      */
     public function master()
     {
-        return $this->belongsTo(Master::class, 'id');
+        return $this->belongsTo(Master::class, 'master_code');
     }
 }

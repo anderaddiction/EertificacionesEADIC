@@ -20,10 +20,14 @@ class TramiteDiplomaController extends Controller
 
         $ticket = $request->ticket_diplomaynotas;
         $results = TramiteDiploma::with('category', 'diploma_state', 'university', 'master')->where('ticket_diplomaynota', $ticket)->get();
-        //$results = DB::table("tramite_diplomas")->where("ticket_diplomaynota", $ticket)->get();
+        $ticket_result = DB::table('tramite_diplomas')->select("ticket_diplomaynota")->where('ticket_diplomaynota', $ticket)->first();
 
-        return view('tramites.certificados.results', [
-            'results' => $results
-        ]);
+        if (empty($ticket_result)) {
+            return redirect()->route('consulta')->with('error', 'En este momento no identificamos la información brindada, por favor verificar número de ticket o intente más tarde');
+        } else {
+            return view('tramites.certificados.results', [
+                'results' => $results
+            ]);
+        }
     }
 }
