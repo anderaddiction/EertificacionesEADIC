@@ -69,8 +69,8 @@ class User extends Authenticatable
         return new UserPresenter($this);
     }
 
-    public function setPasswordAttribute($password)
-    {
-        $this->attributes['password'] = Hash::make($password);
-    }
+    // public function setPasswordAttribute($password)
+    // {
+    //     $this->attributes['password'] = Hash::make($password);
+    // }
 }

@@ -6,12 +6,19 @@
         <div class="col-md-12">
             <div class="card card-info">
                 <div class="card-header ">
-                    <h4>{{ __('¿Tienes tú número de ticket?') }}</h4>
+                    <h4>{{ __('¿Conoce el status de tu diploma y/o certificado de notas?') }}</h4>
                 </div>
                 {{-- <form class="form-horizontal" method="POST" action="{{ route('consulta.find') }}" id="seach-form"
                     name="seach-form" rol="form">
                     @csrf --}}
                     <div class="card-body">
+                        <div class="row">
+                            <div class="title p-2">
+                                <h4>¿Tienes tú número de ticket?</h4>
+                                <p class="text-justify">Recuerda que tu número de ticket es el que creaste en nuestra plataforma Soporte EADIC, donde adjuntaste el justificante
+                                de pago para iniciar con el trámite de diploma.</p>
+                            </div>
+                        </div>
                         <div class="form-group row">
                             <label for="ticket_diplomaynotas" class="col-sm-2 col-form-label">Cuéntanos:</label>
                             <div class="col-sm-10">
