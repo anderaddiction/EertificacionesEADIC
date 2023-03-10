@@ -49,8 +49,8 @@ class MasterController extends Controller
     {
         Master::create(
             $request->validated()
-                + ['code' => getRandomString()]
-                + ['slug' => generateUrl($request->name)]
+                + ['code' => app(Master::class)->getRandomString()]
+                + ['slug' => app(Master::class)->generateUrl($request->name)]
         );
         return redirect()->back()->with('Success', 'Data stored Successfully');
     }
@@ -92,7 +92,7 @@ class MasterController extends Controller
     {
         $master->update(
             $request->validated()
-                + ['slug' => generateUrl($request->name)]
+                + ['slug' => app(Master::class)->generateUrl($request->name)]
         );
         return redirect()->route('master.edit', [
             'master' => $master

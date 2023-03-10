@@ -49,8 +49,8 @@ class UniversityController extends Controller
     {
         University::create(
             $request->validated()
-                + ['code' => getRandomString()]
-                + ['slug' => generateUrl($request->name)]
+                + ['code' => app(University::class)->getRandomString()]
+                + ['slug' => app(University::class)->generateUrl($request->name)]
         );
         return redirect()->back()->with('Success', 'Data stored Successfully');
     }
@@ -92,7 +92,7 @@ class UniversityController extends Controller
     {
         $university->update(
             $request->validated()
-                + ['slug' => generateUrl($request->name)]
+                + ['slug' => app(University::class)->generateUrl($request->name)]
         );
         return redirect()->route('university.edit', [
             'university' => $university

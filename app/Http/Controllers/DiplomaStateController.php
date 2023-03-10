@@ -51,8 +51,8 @@ class DiplomaStateController extends Controller
     {
         DiplomaState::create(
             $request->validated()
-                + ['code' => getRandomString()]
-                + ['slug' => generateUrl($request->name)]
+                + ['code' => app(DiplomaState::class)->getRandomString()]
+                + ['slug' => app(DiplomaState::class)->generateUrl($request->name)]
         );
         return redirect()->back()->with('Success', 'Data stored Successfully');
     }
@@ -97,7 +97,7 @@ class DiplomaStateController extends Controller
     {
         $diploma_status->update(
             $request->validated()
-                + ['slug' => generateUrl($request->name)]
+                + ['slug' => app(DiplomaState::class)->generateUrl($request->name)]
         );
         return redirect()->route('diploma_state.edit', [
             'diploma_status' => $diploma_status

@@ -56,7 +56,6 @@ class ConceptPresenter
     public function actionButtons()
     {
         return '
-            ' . $this->concept . '
             <div class="btn-group">
                 <a href="' . route('concept.edit', $this->concept) . '"  class="btn btn-primary">
                 <i class="fas fa-edit"></i>

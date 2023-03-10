@@ -44,8 +44,8 @@ class ConceptController extends Controller
     {
         Concept::create(
             $request->validated()
-                + ['code' => getRandomString()]
-                + ['slug' => generateUrl($request->name)]
+                + ['code' => app(Concept::class)->getRandomString()]
+                + ['slug' => app(Concept::class)->generateUrl($request->name)]
         );
         return redirect()->back()->with('Success', 'Data stored Successfully');
     }
@@ -87,7 +87,7 @@ class ConceptController extends Controller
     {
         $concept->update(
             $request->validated()
-                + ['slug' => generateUrl($request->name)]
+                + ['slug' => app(Concept::class)->generateUrl($request->name)]
         );
         return redirect()->route('concept.edit', [
             'concept' => $concept

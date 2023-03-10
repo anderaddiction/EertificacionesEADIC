@@ -64,8 +64,8 @@ class RoleController extends Controller
     {
         Role::create(
             $request->validated()
-                + ['code' => getRandomString()]
-                + ['slug' => generateUrl($request->name)]
+                + ['code' => app(Role::class)->getRandomString()]
+                + ['slug' => app(Role::class)->generateUrl($request->name)]
         );
         return redirect()->back()->with('Success', 'Data stored Successfully');
     }
@@ -108,7 +108,7 @@ class RoleController extends Controller
 
         $role_updated = $role->update(
             $request->validated()
-                + ['slug' => generateUrl($request->name)]
+                + ['slug' => app(Role::class)->generateUrl($request->name)]
         );
         return redirect()->route('role.edit', [
             'role' => $role

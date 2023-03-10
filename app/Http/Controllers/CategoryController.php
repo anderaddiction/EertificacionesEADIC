@@ -49,8 +49,8 @@ class CategoryController extends Controller
     {
         Category::create(
             $request->validated()
-                + ['code' => getRandomString()]
-                + ['slug' => generateUrl($request->name)]
+                + ['code' => app(Category::class)->getRandomString()]
+                + ['slug' => app(Category::class)->generateUrl($request->name)]
         );
         return redirect()->back()->with('Success', 'Data stored Successfully');
     }
@@ -92,7 +92,7 @@ class CategoryController extends Controller
     {
         $category->update(
             $request->validated()
-                + ['slug' => generateUrl($request->name)]
+                + ['slug' => app(Category::class)->generateUrl($request->name)]
         );
         return redirect()->route('category.edit', [
             'category' => $category

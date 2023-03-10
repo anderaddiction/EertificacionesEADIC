@@ -2,6 +2,7 @@
 
 namespace App;
 
+use Illuminate\Support\Str;
 use Illuminate\Database\Eloquent\Model;
 use App\Presenters\Masters\MasterPresenter;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -31,5 +32,23 @@ class Master extends Model
     public function present()
     {
         return new MasterPresenter($this);
+    }
+
+    function getRandomString()
+    {
+        $characters     = '0123456789';
+        $randomString     = "";
+
+        for ($i = 0; $i < 6; $i++) {
+            $index = rand(0, strlen($characters) - 1);
+            $randomString .= $characters[$index];
+        }
+
+        return $randomString;
+    }
+
+    public function generateUrl($value)
+    {
+        return Str::slug($value);
     }
 }

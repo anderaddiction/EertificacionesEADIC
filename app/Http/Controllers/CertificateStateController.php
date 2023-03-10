@@ -53,8 +53,8 @@ class CertificateStateController extends Controller
     {
         CertificateState::create(
             $request->validated()
-                + ['code' => getRandomString()]
-                + ['slug' => generateUrl($request->name)]
+                + ['code' => app(CertificateState::class)->getRandomString()]
+                + ['slug' => app(CertificateState::class)->generateUrl($request->name)]
         );
         return redirect()->back()->with('Success', 'Data stored Successfully');
     }
@@ -100,7 +100,7 @@ class CertificateStateController extends Controller
     {
         $certificate_status->update(
             $request->validated()
-                + ['slug' => generateUrl($request->name)]
+                + ['slug' => app(CertificateState::class)->generateUrl($request->name)]
         );
         return redirect()->route('certificate_status.edit', [
             'certificate_status' => $certificate_status

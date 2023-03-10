@@ -9,7 +9,7 @@
 @section('content')
 <div class="container-fluid">
     <!-- SELECT2 EXAMPLE -->
-    <form action="{{ route('diploma.store') }}" method="POST" id="form-register" rol="form">
+    <form action="{{ route('diploma_state.store') }}" method="POST" id="form-register" rol="form">
         @include('auth.diploma_state._form', ['btnText' => __('Send'), 'title' => __('Register Diploma State Form')])
     </form>
 </div>

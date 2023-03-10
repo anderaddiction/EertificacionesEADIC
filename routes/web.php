@@ -31,6 +31,12 @@ Route::prefix('tramites')->group(function () {
     Route::post('certificados', [TramiteDiplomaController::class, 'find'])->name('consulta.find');
 });
 
+// Route::get('/clear-cache', function () {
+//     $exitCode = Artisan::call('config:cache');
+//     $exitCode2 = Artisan::call('cache:clear');
+//     $exitCode3 = Artisan::call('key:generate');
+// });
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
