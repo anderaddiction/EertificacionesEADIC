@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', __('Role Update'))
+@section('title', __('Users'))
 
 @section('content_header')
 <h1>{{ __('Users') }}</h1>

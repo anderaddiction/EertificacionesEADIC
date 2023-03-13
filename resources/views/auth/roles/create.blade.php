@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'Dashboard')
+@section('title', __('Roles'))
 
 @section('content_header')
 <h1>{{ __('Roles') }}</h1>
@@ -10,7 +10,7 @@
 <div class="container-fluid">
     <!-- SELECT2 EXAMPLE -->
     <form action="{{ route('role.store') }}" method="POST" id="form-register" rol="form">
-        @include('auth.roles._form', ['btnText' => __('Send'), 'title' => __('Register User Form')])
+        @include('auth.roles._form', ['btnText' => __('Send'), 'title' => __('Register Role Form')])
     </form>
 </div>
 

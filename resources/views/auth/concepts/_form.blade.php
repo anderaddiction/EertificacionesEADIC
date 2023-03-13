@@ -46,7 +46,7 @@
     </div>
     <!-- /.card-body -->
     <div class="card-footer">
-        <button type="button" class="btn btn-default float-right">Cancel</button>
+        <button type="button" class="btn btn-default float-right">{{ __('Cancel') }}</button>
         <button type="submit" class="btn btn-primary">{{ $btnText }}</button>
     </div>
 </div>

@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'Dashboard')
+@section('title', __('Roles'))
 
 @section('content_header')
 <h1>{{ __('Roles') }}</h1>
@@ -11,7 +11,7 @@
     <!-- SELECT2 EXAMPLE -->
     <div class="card card-primary">
         <div class="card-header">
-            <h3 class="card-title">Role {{ $role->name }}</h3>
+            <h3 class="card-title">{{ __('Role').' '.$role->name }}</h3>
         </div>
         <!-- /.card-header -->
         <div class="card-body">

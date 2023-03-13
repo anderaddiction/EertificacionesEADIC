@@ -3,7 +3,7 @@
 @section('title', __('Universities'))
 
 @section('content_header')
-<h1>{{ __('Roles') }}</h1>
+<h1>{{ __('Universities') }}</h1>
 @stop
 
 @section('content')

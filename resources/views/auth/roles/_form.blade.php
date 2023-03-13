@@ -35,7 +35,7 @@
 
                 <div class="form-group">
                     <label>{{ __('Note') }}</label>
-                    <textarea class="form-control form-control-border" rows="3" id="note" name="note" placeholder="{{ ('Enter a little description') }}">{{ old('note', $role->note) }}</textarea>
+                    <textarea class="form-control form-control-border" rows="3" id="note" name="note" placeholder="{{ __('Enter a little description') }}">{{ old('note', $role->note) }}</textarea>
                 </div>
             </div>
         </div>

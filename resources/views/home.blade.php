@@ -24,7 +24,7 @@
                             <div class="col-sm-10">
                                 <div class="form-group">
                                     <select class="custom-select form-control-border" id="response" name="response">
-                                        <option >{{ ('Select an option') }}</option>
+                                        <option >{{ __('Select an option') }}</option>
                                         <option value="1">{{ __('Yes') }}</option>
                                         <option value="0">{{ __('No') }}</option>
                                     </select>

@@ -3,7 +3,7 @@
 @section('title', __('Masters'))
 
 @section('content_header')
-<h1>{{ __('Roles') }}</h1>
+<h1>{{ __('Masters') }}</h1>
 @stop
 
 @section('content')
@@ -11,7 +11,7 @@
     <!-- SELECT2 EXAMPLE -->
     <div class="card card-primary">
         <div class="card-header">
-            <h3 class="card-title">{{ __('Master') }} {{ $master->name }}</h3>
+            <h3 class="card-title">{{ __('Master') }}: {{ $master->name }}</h3>
         </div>
         <!-- /.card-header -->
         <div class="card-body">

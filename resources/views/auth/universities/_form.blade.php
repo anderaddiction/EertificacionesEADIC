@@ -38,7 +38,7 @@
 
                 <div class="form-group">
                     <label>{{ __('Note') }}</label>
-                    <textarea class="form-control form-control-border" rows="3" id="note" name="note" placeholder="{{ ('Enter a little description') }}">{{ old('note', $university->note) }}</textarea>
+                    <textarea class="form-control form-control-border" rows="3" id="note" name="note" placeholder="{{ __('Enter a little description') }}">{{ old('note', $university->note) }}</textarea>
                 </div>
             </div>
         </div>
@@ -46,7 +46,7 @@
     </div>
     <!-- /.card-body -->
     <div class="card-footer">
-        <button type="button" class="btn btn-default float-right">Cancel</button>
+        <button type="button" class="btn btn-default float-right">{{ __('Cancel') }}</button>
         <button type="submit" class="btn btn-primary">{{ $btnText }}</button>
     </div>
 </div>

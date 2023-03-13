@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'Dashboard')
+@section('title', __('Users'))
 
 @section('content_header')
 <h1>{{ __('Users') }}</h1>
@@ -11,7 +11,7 @@
         <!-- DATATABLE EXAMPLE -->
         <div class="card card-primary">
             <div class="card-header">
-                <h3 class="card-title">{{ ('Users Table') }}</h3>
+                <h3 class="card-title">{{ __('Users Table') }}</h3>
             </div>
             <!-- /.card-header -->
             <div class="card-body">

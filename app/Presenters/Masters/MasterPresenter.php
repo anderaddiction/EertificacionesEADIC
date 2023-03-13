@@ -26,7 +26,7 @@ class MasterPresenter
 
     public function name()
     {
-        return Str::limit($this->master->name, 50, '...');
+        return Str::limit($this->master->name, 250, '...');
     }
 
     public function codeMaster()

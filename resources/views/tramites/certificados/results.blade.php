@@ -39,18 +39,6 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col">
-                            <div class="form-group row">
-                                <label for="inputEmail3" class="col-sm-3 col-form-label">{{ __('Master') }}</label>
-                                <div class="col-sm-8">
-                                    <input type="text" class="form-control" id="category" disabled
-                                        value="{{ $results[0]->master->name }}">
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-                    <div class="row">
                         <div class="col-6">
                             <div class="form-group row">
                                 <label for="inputEmail3" class="col-sm-3 col-form-label">{{ __('University') }}</label>
@@ -60,6 +48,18 @@
                                 </div>
                             </div>
                         </div>
+
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="form-group row">
+                                <label for="inputEmail3" class="col-sm-1 col-form-label">{{ __('Master') }}</label>
+                                <div class="col-sm-8" style="margin-left:4%">
+                                    <input type="text" class="form-control" id="category" disabled value="{{ $results[0]->master->name }}">
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
                     <div class="row pt-3">
                         <div class="col-md-4">
@@ -106,7 +106,7 @@
                         <div class="col-sm-8">
                             <div class="card card-olive">
                                 <div class="card-header">
-                                    <h4 class="card-title">{{ __('State of Certification') }}</h4>
+                                    <h4 class="card-title">{{ __('Estado de tramite') }}</h4>
                                 </div>
                                 <div class="card-body">
                                     <div id="external-events">
@@ -136,7 +136,7 @@
                                                             </a>
                                                         </h4>
                                                     </div>
-                                                    <div id="collapseThree25" class="collapse" data-parent="#accordion25">
+                                                    <div id="collapseThree25" class="collapse show" data-parent="#accordion25">
                                                         <div class="card-body">
                                                             {{ $results[0]->diploma_state->concept->name }}
                                                         </div>
@@ -168,7 +168,7 @@
                                                             </a>
                                                         </h4>
                                                     </div>
-                                                    <div id="collapseThree26" class="collapse" data-parent="#accordion26">
+                                                    <div id="collapseThree26" class="collapse show" data-parent="#accordion26">
                                                         <div class="card-body">
                                                             {{ $results[0]->diploma_state->concept->name }}
                                                         </div>
@@ -200,7 +200,7 @@
                                                             </a>
                                                         </h4>
                                                     </div>
-                                                    <div id="collapseThree27" class="collapse" data-parent="#accordion27">
+                                                    <div id="collapseThree27" class="collapse show" data-parent="#accordion27">
                                                         <div class="card-body">
                                                             {{ $results[0]->diploma_state->concept->name }}
                                                         </div>
@@ -231,7 +231,7 @@
                                                             </a>
                                                         </h4>
                                                     </div>
-                                                    <div id="collapseThree28" class="collapse">
+                                                    <div id="collapseThree28" class="collapse show">
                                                         <div class="card-body">
                                                             {{ $results[0]->diploma_state->concept->name }}
                                                         </div>
@@ -262,7 +262,7 @@
                                                             </a>
                                                         </h4>
                                                     </div>
-                                                    <div id="collapseThree1" class="collapse">
+                                                    <div id="collapseThree1" class="collapse show">
                                                         <div class="card-body">
                                                             {{ $results[0]->diploma_state->concept->name }}
                                                         </div>
@@ -279,7 +279,7 @@
                                                             </a>
                                                         </h4>
                                                     </div>
-                                                    <div id="collapseThree" class="collapse">
+                                                    <div id="collapseThree" class="collapse show">
                                                         <div class="card-body">
                                                             {{ $results[0]->diploma_state->concept->name }}
                                                         </div>
@@ -311,7 +311,7 @@
                                                             </a>
                                                         </h4>
                                                     </div>
-                                                    <div id="collapseThree2" class="collapse">
+                                                    <div id="collapseThree2" class="collapse show">
                                                         <div class="card-body">
                                                             {{ $results[0]->diploma_state->concept->name }}
                                                         </div>
@@ -343,7 +343,7 @@
                                                             </a>
                                                         </h4>
                                                     </div>
-                                                    <div id="collapseThree3" class="collapse">
+                                                    <div id="collapseThree3" class="collapse show">
                                                         <div class="card-body">
                                                             {{ $results[0]->diploma_state->concept->name }}
                                                         </div>
@@ -375,7 +375,7 @@
                                                             </a>
                                                         </h4>
                                                     </div>
-                                                    <div id="collapseThree4" class="collapse">
+                                                    <div id="collapseThree4" class="collapse show">
                                                         <div class="card-body">
                                                             {{ $results[0]->diploma_state->concept->name }}
                                                         </div>
@@ -407,7 +407,7 @@
                                                             </a>
                                                         </h4>
                                                     </div>
-                                                    <div id="collapseThree5" class="collapse">
+                                                    <div id="collapseThree5" class="collapse show">
                                                         <div class="card-body">
                                                             {{ $results[0]->diploma_state->concept->name }}
                                                         </div>
@@ -439,7 +439,7 @@
                                                             </a>
                                                         </h4>
                                                     </div>
-                                                    <div id="collapseThree6" class="collapse">
+                                                    <div id="collapseThree6" class="collapse show">
                                                         <div class="card-body">
                                                             {{ $results[0]->diploma_state->concept->name }}
                                                         </div>
@@ -456,7 +456,7 @@
                                                             </a>
                                                         </h4>
                                                     </div>
-                                                    <div id="collapseThree7" class="collapse">
+                                                    <div id="collapseThree7" class="collapse show">
                                                         <div class="card-body">
                                                             {{ $results[0]->diploma_state->concept->name }}
                                                         </div>
@@ -479,7 +479,7 @@
                                                             </a>
                                                         </h4>
                                                     </div>
-                                                    <div id="collapseThree8" class="collapse">
+                                                    <div id="collapseThree8" class="collapse show">
                                                         <div class="card-body">
                                                             {{ $results[0]->diploma_state->concept->name }}
                                                         </div>
@@ -502,7 +502,7 @@
                                                             </a>
                                                         </h4>
                                                     </div>
-                                                    <div id="collapseThree9" class="collapse">
+                                                    <div id="collapseThree9" class="collapse show">
                                                         <div class="card-body">
                                                             {{ $results[0]->diploma_state->concept->name }}
                                                         </div>
@@ -519,7 +519,7 @@
                                                             </a>
                                                         </h4>
                                                     </div>
-                                                    <div id="collapseThree10" class="collapse">
+                                                    <div id="collapseThree10" class="collapse show">
                                                         <div class="card-body">
                                                             {{ $results[0]->diploma_state->concept->name }}
                                                         </div>
@@ -543,7 +543,7 @@
                                                             </a>
                                                         </h4>
                                                     </div>
-                                                    <div id="collapseThree11" class="collapse">
+                                                    <div id="collapseThree11" class="collapse show">
                                                         <div class="card-body">
                                                             {{ $results[0]->diploma_state->concept->name }}
                                                         </div>
@@ -567,7 +567,7 @@
                                                             </a>
                                                         </h4>
                                                     </div>
-                                                    <div id="collapseThree12" class="collapse">
+                                                    <div id="collapseThree12" class="collapse show">
                                                         <div class="card-body">
                                                             {{ $results[0]->diploma_state->concept->name }}
                                                         </div>
@@ -584,7 +584,7 @@
                                                             </a>
                                                         </h4>
                                                     </div>
-                                                    <div id="collapseThree14" class="collapse">
+                                                    <div id="collapseThree14" class="collapse show">
                                                         <div class="card-body">
                                                             {{ $results[0]->diploma_state->concept->name }}
                                                         </div>
@@ -609,7 +609,7 @@
                                                             </a>
                                                         </h4>
                                                     </div>
-                                                    <div id="collapseThree15" class="collapse">
+                                                    <div id="collapseThree15" class="collapse show">
                                                         <div class="card-body">
                                                             {{ $results[0]->diploma_state->concept->name }}
                                                         </div>
@@ -636,7 +636,7 @@
                                                             </a>
                                                         </h4>
                                                     </div>
-                                                    <div id="collapseThree16" class="collapse">
+                                                    <div id="collapseThree16" class="collapse show">
                                                         <div class="card-body">
                                                             {{ $results[0]->diploma_state->concept->name }}
                                                         </div>
@@ -663,7 +663,7 @@
                                                             </a>
                                                         </h4>
                                                     </div>
-                                                    <div id="collapseThree17" class="collapse">
+                                                    <div id="collapseThree17" class="collapse show">
                                                         <div class="card-body">
                                                             {{ $results[0]->diploma_state->concept->name }}
                                                         </div>
@@ -680,7 +680,7 @@
                                                             </a>
                                                         </h4>
                                                     </div>
-                                                    <div id="collapseThree18" class="collapse">
+                                                    <div id="collapseThree18" class="collapse show">
                                                         <div class="card-body">
                                                             {{ $results[0]->diploma_state->concept->name }}
                                                         </div>
@@ -710,7 +710,7 @@
                                                             </a>
                                                         </h4>
                                                     </div>
-                                                    <div id="collapseThree19" class="collapse">
+                                                    <div id="collapseThree19" class="collapse show">
                                                         <div class="card-body">
                                                             {{ $results[0]->diploma_state->concept->name }}
                                                         </div>
@@ -745,7 +745,7 @@
                                                             </a>
                                                         </h4>
                                                     </div>
-                                                    <div id="collapseThree20" class="collapse">
+                                                    <div id="collapseThree20" class="collapse show">
                                                         <div class="card-body">
                                                             {{ $results[0]->diploma_state->concept->name }}
                                                         </div>
@@ -780,7 +780,7 @@
                                                             </a>
                                                         </h4>
                                                     </div>
-                                                    <div id="collapseThree21" class="collapse">
+                                                    <div id="collapseThree21" class="collapse show">
                                                         <div class="card-body">
                                                             {{ $results[0]->diploma_state->concept->name }}
                                                         </div>
@@ -816,7 +816,7 @@
                                                             </a>
                                                         </h4>
                                                     </div>
-                                                    <div id="collapseThree22" class="collapse">
+                                                    <div id="collapseThree22" class="collapse show">
                                                         <div class="card-body">
                                                             {{ $results[0]->diploma_state->concept->name }}
                                                         </div>
@@ -850,7 +850,7 @@
                                                             </a>
                                                         </h4>
                                                     </div>
-                                                    <div id="collapseThree23" class="collapse">
+                                                    <div id="collapseThree23" class="collapse show">
                                                         <div class="card-body">
                                                             {{ $results[0]->diploma_state->concept->name }}
                                                         </div>
@@ -885,7 +885,7 @@
                                                             </a>
                                                         </h4>
                                                     </div>
-                                                    <div id="collapseThree24" class="collapse">
+                                                    <div id="collapseThree24" class="collapse show">
                                                         <div class="card-body">
                                                             {{ $results[0]->diploma_state->concept->name }}
                                                         </div>

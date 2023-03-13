@@ -11,7 +11,7 @@
     <!-- SELECT2 EXAMPLE -->
     <form action="{{ route('user.store') }}" method="POST" id="form-register" rol="form">
         @include('auth.users._form', ['btnText' => __('Send'), 'title' => __('Register User Form')])
-    </form>user
+    </form>
 </div>
 
 @stop

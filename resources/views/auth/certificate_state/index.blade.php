@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'Certificate State')
+@section('title', __('Certificate State'))
 
 @section('content_header')
 <h1>{{ __('Certificate State') }}</h1>
@@ -11,7 +11,7 @@
         <!-- DATATABLE EXAMPLE -->
         <div class="card card-primary">
             <div class="card-header">
-                <h3 class="card-title">{{ ('Certificate State Table') }}</h3>
+                <h3 class="card-title">{{ __('Certificate State Table') }}</h3>
             </div>
             <!-- /.card-header -->
             <div class="card-body">

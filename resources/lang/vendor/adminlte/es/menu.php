@@ -16,5 +16,13 @@ return [
     'important'                     => 'Importante',
     'warning'                       => 'Advertencia',
     'information'                   => 'Información',
-    'admin_settings'                => 'AJUSTE DE ADMINISTRACIÓN'
+    'admin_settings'                => 'AJUSTE DE ADMINISTRACIÓN',
+    "Users"                         => "Usuarios",
+    "Categories"                    => "Categorías",
+    "Universities"                  => "Univeridades",
+    "Concepts"                      => "Conceptos",
+    "Formalities Status"            => "Estado de Solicitudes",
+    "Diploma Status"                => "Estado de Diploma",
+    "Certificate Status"            => "Estado de Certificado",
+    "Masters"                       => "Masters",
 ];

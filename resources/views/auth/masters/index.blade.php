@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'Masters')
+@section('title', __('Masters'))
 
 @section('content_header')
 <h1>{{ __('Masters') }}</h1>
@@ -11,7 +11,7 @@
         <!-- DATATABLE EXAMPLE -->
         <div class="card card-primary">
             <div class="card-header">
-                <h3 class="card-title">{{ ('Masters Table') }}</h3>
+                <h3 class="card-title">{{ __('Masters Table') }}</h3>
             </div>
             <!-- /.card-header -->
             <div class="card-body">
@@ -35,7 +35,7 @@
                             <th>{{ __('Name') }}</th>
                             <th>{{ __('Master Code') }}</th>
                             <th>{{ __('Status') }}</th>
-                            <th>{{ __('Note') }}</th>
+                            {{-- <th>{{ __('Note') }}</th> --}}
                             <th>{{ __('Created At') }}</th>
                             <th>{{ __('Action') }}</th>
                         </tr>
@@ -48,7 +48,7 @@
                                 <td>{{ $master->present()->name() }}</td>
                                 <td>{{ $master->present()->codeMaster() }}</td>
                                 <td>{!! $master->present()->status() !!}</td>
-                                <td>{{ $master->present()->note() }}</td>
+                                {{-- <td>{{ $master->present()->note() }}</td> --}}
                                 <td>{{ $master->present()->createdAt() }}</td>
                                 <td>
                                     <form action="{{ route('master.destroy', $master) }}" method="POST">
@@ -67,7 +67,7 @@
                             <th>{{ __('Name') }}</th>
                             <th>{{ __('Master Code') }}</th>
                             <th>{{ __('Status') }}</th>
-                            <th>{{ __('Note') }}</th>
+                            {{-- <th>{{ __('Note') }}</th> --}}
                             <th>{{ __('Created At') }}</th>
                             <th>{{ __('Action') }}</th>
                         </tr>

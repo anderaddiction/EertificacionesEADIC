@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', __('Concept Update'))
+@section('title', __('Concepts'))
 
 @section('content_header')
 <h1>{{ __('Roles') }}</h1>

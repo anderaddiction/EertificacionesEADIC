@@ -11,7 +11,7 @@
         <!-- DATATABLE EXAMPLE -->
         <div class="card card-primary">
             <div class="card-header">
-                <h3 class="card-title">{{ ('Diploma State Table') }}</h3>
+                <h3 class="card-title">{{ __('Diploma State Table') }}</h3>
             </div>
             <!-- /.card-header -->
             <div class="card-body">
