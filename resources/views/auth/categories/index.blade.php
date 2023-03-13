@@ -17,7 +17,7 @@
             <div class="card-body">
                 <div class="col-sm-1 mb-3">
                     <a href="{{ route('category.create') }}" class="btn btn-block bg-gradient-primary" title="{{ __('Add') }}"><i
-                            class="fas fa-pencil"></i></a>
+                            class="fa fa-plus"></i></a>
                 </div>
                 <div class="col-12 mb-3">
                     @if (session()->has('Success'))

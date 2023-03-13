@@ -343,7 +343,7 @@ return [
         [
             'text' => 'Universities',
             'route'  => 'university.index',
-            'icon' => 'fas fa-fw fa-bank',
+            'icon' => 'fa fa-university',
             'can' => 'menu-restriction'
         ],
         [
@@ -354,7 +354,7 @@ return [
         ],
         [
             'text'    => 'Formalities Status',
-            'icon'    => 'fas fa-fw fa-bar-chart',
+            'icon'    => 'fa fa-bar-chart',
             'can' => 'menu-restriction',
             'submenu' => [
                 [
