@@ -19,7 +19,7 @@ return [
     'admin_settings'                => 'AJUSTE DE ADMINISTRACIÓN',
     "Users"                         => "Usuarios",
     "Categories"                    => "Categorías",
-    "Universities"                  => "Univeridades",
+    "Universities"                  => "Universidades",
     "Concepts"                      => "Conceptos",
     "Formalities Status"            => "Estado de Solicitudes",
     "Diploma Status"                => "Estado de Diploma",
