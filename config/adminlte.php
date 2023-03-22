@@ -63,7 +63,7 @@ return [
     |
     */
 
-    'logo' => '<b>SECRETARÍA</b> ACADEMÍCA',
+    'logo' => '<b>SECRETARÍA</b> ACADÉMICA',
     'logo_img' => 'vendor/adminlte/dist/img/eadic-isotipo.png',
     'logo_img_class' => 'brand-image',
     'logo_img_xl' => null,
@@ -109,7 +109,7 @@ return [
     'preloader' => [
         'enabled' => true,
         'img' => [
-            'path' => 'vendor/adminlte/dist/img/AdminLTELogo.png',
+            'path' => 'vendor/adminlte/dist/img/eadic-isotipo.png',
             'alt' => 'AdminLTE Preloader Image',
             'effect' => 'animation__shake',
             'width' => 60,
