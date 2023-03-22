@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content_header')
-<h1>Tramites</h1>
+<h1>Trámites</h1>
 @stop
 
 @section('content')

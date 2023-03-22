@@ -63,24 +63,31 @@
                                     </div>
                                 </form>
                                 <div class="disclaimer p-4 text-justify">
-                                    <p>Por favor, ingresa el número de ticket que creaste en nuestra plataforma Soporte EADIC, donde adjuntaste el
-                                        justificante
-                                        de pago para iniciar con el trámite de diploma.</p>
-
-                                    <p>En caso de haber realizado el pago, pero no has creado dicho ticket, por favor, ingresa a Soporte EADIC
-                                        <a href="http://soporte.eadic.biz/open.php" target="_BLANK">http://soporte.eadic.biz/open.php</a>, seleccionas
-                                        el Help Topic/Tema de ayuda, correspondiente al trámite que deseas,
-                                        completa los campos requeridos y adjuntas (en el área sombreada que dice Drop files here or choose them) el
-                                        comprobante
-                                        de pago.
-                                    </p>
+                                    <p>El número de ticket no es lo mismo al número de pedido de cuando realizaste el pago en nuestra página web de Secretaría.</p>
+                                    <p>El número de ticket es el que creaste en nuestro <span class="text-danger"><strong>Centro de Soporte</strong></span> para indicarnos tus datos personales, datos del
+                                    máster, dirección de envío y donde adjuntaste el justificante de pago del trámite.</p>
                                 </div>
                             </div>
                             <div class="show-iframe" style="display:none">
-                                <div class="row text-center">
-                                    <div class="col-sm-3"></div>
-                                    <div class="col-sm-6">
-                                        <a href="https://soporte.eadic.biz/" target="_BLANK" class="btn btn-block btn-success">{{ __('Create a ticket') }}</a>
+                                <div class="row text-justify">
+                                    <div class="col-sm-12">
+                                        <p>Cuando sea opción No por favor colocar este texto: Tal como te informamos en el correo de trámites de diploma y en
+                                        nuestra página web de Secretaría, si realizas el pago, pero no generas el ticket de solicitud, el trámite no se
+                                        iniciará. Es indispensable crear correctamente el ticket con los datos de envío completos.</p>
+                                        <p class="justify text-danger"><i><strong>Importante</strong>: El número de ticket no es lo mismo al número de pedido de cuando realizaste el pago en nuestra página web de
+                                        Secretaría.</i></p>
+                                        <p>Antes de dirigirte a la opción “Crear un ticket”, debes estar seguro de lo siguiente:</p>
+                                        <ol>
+                                            <li>Haber realizado el pago de trámite de diploma en nuestra página web de Secretaría.</li>
+                                            <li>Tener la captura de pantalla del justificante de pago.</li>
+                                            <li>Tener todos los datos de envío completos.</li>
+                                        </ol>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-4"></div>
+                                    <div class="col-sm-6 mt-3 text-center">
+                                        <a href="https://soporte.eadic.biz/" target="_BLANK" class="col-sm-6 btn btn-block btn-success">{{ __('Create a ticket') }}</a>
                                     </div>
                                     <div class="col-sm-3"></div>
                                 </div>

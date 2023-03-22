@@ -376,47 +376,47 @@ return [
             'can' => 'menu-restriction'
         ],
         ['header' => 'account_settings'],
-        [
-            'text'    => 'Soporte',
-            'icon'    => 'fas fa-fw fa-share',
-            'submenu' => [
-                [
-                    'text' => 'Alumno',
-                    'route'  => 'soporte.alumno',
-                ],
-                // [
-                //     'text'    => 'level_one',
-                //     'url'     => '#',
-                //     'submenu' => [
-                //         [
-                //             'text' => 'level_two',
-                //             'url'  => '#',
-                //         ],
-                //         [
-                //             'text'    => 'level_two',
-                //             'url'     => '#',
-                //             'submenu' => [
-                //                 [
-                //                     'text' => 'level_three',
-                //                     'url'  => '#',
-                //                 ],
-                //                 [
-                //                     'text' => 'level_three',
-                //                     'url'  => '#',
-                //                 ],
-                //             ],
-                //         ],
-                //     ],
-                // ],
-                // [
-                //     'text' => 'level_one',
-                //     'url'  => '#',
-                // ],
-            ],
-        ],
+        // [
+        //     'text'    => 'Soporte',
+        //     'icon'    => 'fas fa-fw fa-share',
+        //     'submenu' => [
+        //         [
+        //             'text' => 'Alumno',
+        //             'route'  => 'soporte.alumno',
+        //         ],
+        // [
+        //     'text'    => 'level_one',
+        //     'url'     => '#',
+        //     'submenu' => [
+        //         [
+        //             'text' => 'level_two',
+        //             'url'  => '#',
+        //         ],
+        //         [
+        //             'text'    => 'level_two',
+        //             'url'     => '#',
+        //             'submenu' => [
+        //                 [
+        //                     'text' => 'level_three',
+        //                     'url'  => '#',
+        //                 ],
+        //                 [
+        //                     'text' => 'level_three',
+        //                     'url'  => '#',
+        //                 ],
+        //             ],
+        //         ],
+        //     ],
+        // ],
+        // [
+        //     'text' => 'level_one',
+        //     'url'  => '#',
+        // ],
+        //     ],
+        // ],
         [
             'text' => 'Trámite de Diploma',
-            'route'  => 'consulta',
+            'route'  => 'home',
             'icon' => 'fas fa-fw fa-certificate',
         ],
         // [
