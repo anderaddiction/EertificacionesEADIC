@@ -112,8 +112,19 @@
                                     <div id="external-events">
                                         @if (utf8_encode($results[0]->category->name) === 'Diploma + Certificado + Apostilla + Envio')
                                             @if ($results[0]->diploma_state->name === 'Con trámite solicitado por estudiante/Diploma pendiente de llegada a EADIC')
-                                                <div class="external-event bg-success ui-draggable ui-draggable-handle" style="position: relative;">{{
-                                                    $results[0]->diploma_state->name }}
+                                                <div class="card card-success">
+                                                    <div class="card-header">
+                                                        <h4 class="card-title w-100">
+                                                            <a class="d-block w-100" data-toggle="collapse" href="#collapseThree25">
+                                                                {{ $results[0]->diploma_state->name }}
+                                                            </a>
+                                                        </h4>
+                                                    </div>
+                                                    <div id="collapseThree25" class="collapse show" data-parent="#accordion25">
+                                                        <div class="card-body">
+                                                            {{ $results[0]->diploma_state->concept->name }}
+                                                        </div>
+                                                    </div>
                                                 </div>
                                                 <div class="external-event bg-secondary ui-draggable ui-draggable-handle" style="position: relative;">Diploma en oficina EADIC, para apostillar
                                                 </div>
@@ -448,7 +459,7 @@
                                             @endif
                                         @elseif ($results[0]->category->name === 'Diploma + Envio')
                                             @if ($results[0]->diploma_state->name === 'Con trámite solicitado por estudiante/Diploma pendiente de llegada a EADIC')
-                                                <div class="card card-sendary">
+                                                <div class="card card-success">
                                                     <div class="card-header">
                                                         <h4 class="card-title w-100">
                                                             <a class="d-block w-100" data-toggle="collapse" href="#collapseThree7">

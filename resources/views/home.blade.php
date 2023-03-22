@@ -71,7 +71,7 @@
                             <div class="show-iframe" style="display:none">
                                 <div class="row text-justify">
                                     <div class="col-sm-12">
-                                        <p>Cuando sea opción No por favor colocar este texto: Tal como te informamos en el correo de trámites de diploma y en
+                                        <p>Tal como te informamos en el correo de trámites de diploma y en
                                         nuestra página web de Secretaría, si realizas el pago, pero no generas el ticket de solicitud, el trámite no se
                                         iniciará. Es indispensable crear correctamente el ticket con los datos de envío completos.</p>
                                         <p class="justify text-danger"><i><strong>Importante</strong>: El número de ticket no es lo mismo al número de pedido de cuando realizaste el pago en nuestra página web de
