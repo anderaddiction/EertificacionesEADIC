@@ -34,7 +34,7 @@
                                 <small class="text-danger"><i>{{ $errors->first('ticket_diplomaynotas') }}</i></small>
                             </div>
                         </div>
-                        <div class="disclaimer p-4 text-justify">
+                        {{-- <div class="disclaimer p-4 text-justify">
                             <p>Por favor, ingresa el número de ticket que creaste en nuestra plataforma Soporte EADIC, donde adjuntaste el justificante
                             de pago para iniciar con el trámite de diploma.</p>
 
@@ -42,7 +42,7 @@
                             <a href="http://soporte.eadic.biz/open.php" target="_BLANK">http://soporte.eadic.biz/open.php</a>, seleccionas el Help Topic/Tema de ayuda, correspondiente al trámite que deseas,
                             completa los campos requeridos y adjuntas (en el área sombreada que dice Drop files here or choose them) el comprobante
                             de pago.</p>
-                        </div>
+                        </div> --}}
                     </div>
                     <!-- /.card-body -->
                     <div class="card-footer">
