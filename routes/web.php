@@ -15,8 +15,16 @@ use App\Http\Controllers\Tramites\TramiteDiplomaController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth.students.login');
 });
+
+Route::prefix('eadic-auth')->group(
+    function () {
+        Route::get('/alumnos-login', 'StudentController@index')->name('alumnos-login');
+        Route::post('/alumnos-autenticacion', 'StudentController@auth')->name('alumnos-autenticacion');
+    }
+);
+
 
 Route::prefix('suporte')->group(function () {
     Route::get('aulumno', function () {
