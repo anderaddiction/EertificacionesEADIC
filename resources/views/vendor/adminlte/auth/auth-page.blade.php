@@ -19,8 +19,8 @@
     <div class="{{ $auth_type ?? 'login' }}-box">
 
         {{-- Logo --}}
-        <div class="{{ $auth_type ?? 'login' }}-logo">
-            <a href="{{ $dashboard_url }}">
+        <div class="{{ $auth_type ?? 'login' }}-logo" style="font-size:1.5rem">
+           <a href="{{ $dashboard_url }}">
 
                 {{-- Logo Image --}}
                 @if (config('adminlte.auth_logo.enabled', false))
@@ -37,7 +37,7 @@
                          @endif>
                 @else
                     <img src="{{ asset(config('adminlte.logo_img')) }}"
-                         alt="{{ config('adminlte.logo_img_alt') }}" height="50">
+                         alt="{{ config('adminlte.logo_img_alt') }}" height="50 ">
                 @endif
 
                 {{-- Logo Label --}}

@@ -419,6 +419,11 @@ return [
             'route'  => 'home',
             'icon' => 'fas fa-fw fa-certificate',
         ],
+        [
+            'text' => 'Cerrar Sesión',
+            'route'  => 'logout',
+            'icon' => 'fas fa-fw fa-lock',
+        ],
         // [
         //     'text' => 'change_password',
         //     'url'  => 'admin/settings',

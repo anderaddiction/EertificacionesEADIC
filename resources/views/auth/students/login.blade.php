@@ -35,9 +35,7 @@
                 </div>
             </div>
                 @if (session()->has('alert'))
-                <span class="invalid-feedback" role="alert">
-                    <strong>{{ session('alert') }}</strong>
-                </span>
+                <small class="text-danger"><strong>{{ session('alert') }}</strong></small>
                 @endif
                 <span class="invalid-feedback" role="alert">
                     <strong>{{ $errors->first('email') }}</strong>

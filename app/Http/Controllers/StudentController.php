@@ -19,8 +19,8 @@ class StudentController extends Controller
 
         if (!empty($result)) {
             return view('home');
-        } else {
-            return back()->with('alert', 'El email ingresado no coincide con nustros registros');
+        } elseif (!$result) {
+            return redirect()->back()->with('alert', 'El email ingresado no coincide con nuestros registros');
         }
     }
 }
