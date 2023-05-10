@@ -420,6 +420,11 @@ return [
             'icon' => 'fas fa-fw fa-certificate',
         ],
         [
+            'text' => 'Estado de Matricula',
+            'route'  => 'matricula',
+            'icon' => 'fas fa-fw fa-certificate',
+        ],
+        [
             'text' => 'Cerrar Sesión',
             'route'  => 'logout',
             'icon' => 'fas fa-fw fa-lock',

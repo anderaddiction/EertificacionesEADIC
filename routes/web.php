@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\MatriculaStatusController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Tramites\TramiteDiplomaController;
 
@@ -31,6 +32,12 @@ Route::prefix('suporte')->group(function () {
         return view('soporte.links.index');
     })
         ->name('soporte.alumno');
+});
+
+// Modulo Estado de Certificaciones
+Route::prefix('matriculas')->group(function () {
+    Route::get('search', [MatriculaStatusController::class, 'index'])->name('matricula');
+    Route::post('matriculacion', [MatriculaStatusController::class, 'find'])->name('matricula.find');
 });
 
 // Modulo de Tramites
