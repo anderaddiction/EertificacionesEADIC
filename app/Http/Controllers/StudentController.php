@@ -20,7 +20,8 @@ class StudentController extends Controller
         if (!empty($result)) {
             return view('home');
         } elseif (!$result) {
-            return redirect()->back()->with('alert', 'El email ingresado no coincide con nuestros registros');
+            return redirect()->back()->with('alert', '
+Si después de verificar los puntos anteriores y continúas presentando inconvenientes para acceder a nuestro portal, por favor, solicita ayuda a través de la <strong> plataforma Soporte EADIC</strong> con el help topic:  <strong>“Problema de acceso/Portal Secretaría”</strong>');
         }
     }
 }

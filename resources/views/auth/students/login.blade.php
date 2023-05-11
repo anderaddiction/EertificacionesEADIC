@@ -20,10 +20,23 @@
 
 @section('auth_header', __('adminlte::adminlte.login_message'))
 
+
 @section('auth_body')
     <form action="{{ route('alumnos-autenticacion') }}" id="student-login-form" method="post" rol="form">
         @csrf
-
+        <div style="font-size: 11px; text-align:justify; color:black; margin-bottom:2%"><strong>Por favor</strong>, verifica los siguientes puntos para continuar con tu consulta:
+            <ol>
+                <li>Que hayas finalizado exitosamente el máster que te propusiste a realizar.</li>
+                <li>Que te haya llegado el correo de Trámites de Diploma desde el correo de Atención Alumno.</li>
+                <li>Que estás usando el correo electrónico al que te llegó dicho correo de Trámites de Diploma.</li>
+            </ol>
+            {{-- <p>
+                Si después de verificar los puntos anteriores y continúas presentando inconvenientes para acceder a nuestro portal,
+                por
+                favor, solicita ayuda a través de la plataforma Soporte EADIC con el help topic: “Problema de acceso/Portal
+                Secretaría”
+            </p> --}}
+        </div>
         {{-- Email field --}}
         <div class="input-group mb-3">
             <input type="email" name="email" class="form-control @error('email') is-invalid @enderror"
@@ -35,7 +48,7 @@
                 </div>
             </div>
                 @if (session()->has('alert'))
-                <small class="text-danger"><strong>{{ session('alert') }}</strong></small>
+                <small class="text-danger text-justify mt-2">{!! session('alert') !!}</small>
                 @endif
                 <span class="invalid-feedback" role="alert">
                     <strong>{{ $errors->first('email') }}</strong>
