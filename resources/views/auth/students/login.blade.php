@@ -26,16 +26,14 @@
         @csrf
         <div style="font-size: 11px; text-align:justify; color:black; margin-bottom:2%"><strong>Por favor</strong>, verifica los siguientes puntos para continuar con tu consulta:
             <ol>
-                <li>Que hayas finalizado exitosamente el máster que te propusiste a realizar.</li>
-                <li>Que te haya llegado el correo de Trámites de Diploma desde el correo de Atención Alumno.</li>
-                <li>Que estás usando el correo electrónico al que te llegó dicho correo de Trámites de Diploma.</li>
+                <li>Que hayas finalizado exitosamente el máster en el que estás matriculado.</li>
+                <li>Que hayas finalizado exitosamente el máster en el que estás matriculado.</li>
+                <li>Que estás usando el correo electrónico al que te llegó la notificación de Trámites de Diploma.</li>
             </ol>
-            {{-- <p>
-                Si después de verificar los puntos anteriores y continúas presentando inconvenientes para acceder a nuestro portal,
-                por
-                favor, solicita ayuda a través de la plataforma Soporte EADIC con el help topic: “Problema de acceso/Portal
-                Secretaría”
-            </p> --}}
+            <p>
+                Si después de verificar los puntos anteriores y continúas presentando inconvenientes para acceder a nuestro portal, por
+                favor, solicita ayuda a través de la plataforma Soporte EADIC dando clic <a href="http://soporte.eadic.biz/open.php" target="_BLANK">AQUÍ</a>
+            </p>
         </div>
         {{-- Email field --}}
         <div class="input-group mb-3">
