@@ -30,10 +30,10 @@
                 <li>Que hayas finalizado exitosamente el máster en el que estás matriculado.</li>
                 <li>Que estás usando el correo electrónico al que te llegó la notificación de Trámites de Diploma.</li>
             </ol>
-            <p>
+            {{-- <p>
                 Si después de verificar los puntos anteriores y continúas presentando inconvenientes para acceder a nuestro portal, por
                 favor, solicita ayuda a través de la plataforma Soporte EADIC dando clic <a href="http://soporte.eadic.biz/open.php" target="_BLANK"><strong>AQUÍ</strong></a>
-            </p>
+            </p> --}}
         </div>
         {{-- Email field --}}
         <div class="input-group mb-3">

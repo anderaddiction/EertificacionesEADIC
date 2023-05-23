@@ -21,7 +21,8 @@ class StudentController extends Controller
             return view('home');
         } elseif (!$result) {
             return redirect()->back()->with('alert', '
-Si después de verificar los puntos anteriores y continúas presentando inconvenientes para acceder a nuestro portal, por favor, solicita ayuda a través de la <strong> plataforma Soporte EADIC</strong> con el help topic:  <strong>“Problema de acceso/Portal Secretaría”</strong>');
+Si después de verificar los puntos anteriores y continúas presentando inconvenientes para acceder a nuestro portal, por
+                favor, solicita ayuda a través de la plataforma Soporte EADIC dando clic <a href="http://soporte.eadic.biz/open.php" target="_BLANK"><strong>AQUÍ</strong></a>');
         }
     }
 }
