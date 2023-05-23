@@ -32,7 +32,7 @@
             </ol>
             <p>
                 Si después de verificar los puntos anteriores y continúas presentando inconvenientes para acceder a nuestro portal, por
-                favor, solicita ayuda a través de la plataforma Soporte EADIC dando clic <a href="http://soporte.eadic.biz/open.php" target="_BLANK">AQUÍ</a>
+                favor, solicita ayuda a través de la plataforma Soporte EADIC dando clic <a href="http://soporte.eadic.biz/open.php" target="_BLANK"><strong>AQUÍ</strong></a>
             </p>
         </div>
         {{-- Email field --}}
