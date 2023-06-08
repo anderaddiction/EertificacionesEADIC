@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\MatriculaStatusController;
+use App\Http\Controllers\OficinaVirtualController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Tramites\TramiteDiplomaController;
 
@@ -32,6 +33,13 @@ Route::prefix('suporte')->group(function () {
         return view('soporte.links.index');
     })
         ->name('soporte.alumno');
+});
+
+Route::prefix('oficina-virtual')->group(function () {
+    Route::get('/oficina-virtual', [OficinaVirtualController::class, 'index'])->name('oficina-virtual');
+    Route::get('/zoom-meet', [OficinaVirtualController::class, 'zoomMeet'])->name('zoom-meet');
+    Route::get('/solicitud-cita-telefonica', [OficinaVirtualController::class, 'citaTelefonica'])->name('cita-telefonica');
+    Route::post('/agendar-cita-telefonica', [OficinaVirtualController::class, 'agendarCita'])->name('agendar-cita-telefonica');
 });
 
 // Modulo Estado de Certificaciones

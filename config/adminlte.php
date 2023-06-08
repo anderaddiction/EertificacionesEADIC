@@ -426,6 +426,11 @@ return [
             'icon' => 'fas fa-fw fa-certificate',
         ],
         [
+            'text' => 'Oficina Virtual',
+            'route'  => 'oficina-virtual',
+            'icon' => 'fas fa-fw fa-building',
+        ],
+        [
             'text' => 'Cerrar Sesión',
             'route'  => 'logout',
             'icon' => 'fas fa-fw fa-lock',

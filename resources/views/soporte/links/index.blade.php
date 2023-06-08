@@ -20,7 +20,7 @@
 
     <div class="sticky-top mb-3">
         <div class="card">
-            
+
 
             <div class="card-body">
 
@@ -29,21 +29,21 @@
 
                     <img src="https://eadic.org/portal-admisiones/public/img/Banner_portal-de-admisiones.png" alt="" style="width: 100%">
                 </div>
-                
-             
+
+
 
                 <div class="row justify-content-md-center mt-3">
 
-                                                    
 
-            
+
+
 
                 <iframe width="560" height="315" src="https://www.youtube.com/embed/gWndvxJdZHc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen=""></iframe>
 
 
 
-                    
-                   
+
+
 
 
 
@@ -51,17 +51,17 @@
                 </div>
 
 
-        
-
-                  
 
 
-            
+
+
+
+
 
 
             </div>
 
-          
+
 
 
         </div>
@@ -79,7 +79,7 @@
 
 <div class="col-12 mb-1">
     <div class="info-box">
-      
+
 
         <div class="info-box-content">
         <h5 class="mb-3"><b>Contacta con Nosotros</b> </h5>
@@ -175,7 +175,7 @@
     </a>
     </div>
 
-</div> 
+</div>
 
 
 </div>
