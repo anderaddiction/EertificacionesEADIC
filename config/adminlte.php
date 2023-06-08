@@ -63,12 +63,13 @@ return [
     |
     */
 
-    'logo' => '<b>SECRETARÍA</b> ACADÉMICA',
-    'logo_img' => 'vendor/adminlte/dist/img/eadic-isotipo.png',
+    'logo' => '<br>',
+    //'logo_img' => 'vendor/adminlte/dist/img/eadic-isotipo.png',
     'logo_img_class' => 'brand-image',
     'logo_img_xl' => null,
     'logo_img_xl_class' => 'brand-image-xs',
     'logo_img_alt' => 'Admin Logo',
+    'width' => 100,
 
     /*
     |--------------------------------------------------------------------------
@@ -85,16 +86,16 @@ return [
 
     'auth_logo' => [
         'enabled' => false,
-        'img' => [
-            'path' => 'vendor/adminlte/dist/img/eadic-isotipo.png',
-            'alt' => 'Auth Logo',
-            'class' => '',
-            'width' => 50,
-            'height' => 50,
-        ],
+        // 'img' => [
+        //     'path' => 'vendor/adminlte/dist/img/eadic-isotipo.png',
+        //     'alt' => 'Auth Logo',
+        //     'class' => '',
+        //     'width' => 50,
+        //     'height' => 50,
+        // ],
     ],
 
-    /*
+    /*<img src="vendor/adminlte/dist/img/eadic_logo_home.png" width="100">
     |--------------------------------------------------------------------------
     | Preloader Animation
     |--------------------------------------------------------------------------
