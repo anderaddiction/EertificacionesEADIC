@@ -22,6 +22,7 @@ class CreateAlumnoActivosTable extends Migration
             $table->string('universidad_italiana', 255);
             $table->string('universidad_espanola', 255);
             $table->string('modalidad_de_estudio', 255);
+            $table->string('correo', 255);
             $table->date('inicio_edicion');
             $table->date('fin_de_edicion');
             $table->string('estado_univ_espanola', 255);
