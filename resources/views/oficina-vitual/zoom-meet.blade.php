@@ -95,12 +95,12 @@
 
     //Funciones
     function habilitarPorHorarios() {
-        if ((horaActual >= '15:00') && (horaActual <= '23:59' )) {
-            horarioInactivo.style.display='none',
-            horarioActivo.style.display='' ;
-        }else{
+        if ((horaActual >= '9:00') && (horaActual <= '18:59')) {
             horarioInactivo.style.display='',
             horarioActivo.style.display='none' ;
+        }else{
+            horarioInactivo.style.display='none',
+            horarioActivo.style.display='' ;
         }
     }
 

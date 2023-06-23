@@ -1,8 +1,10 @@
 <?php
 
-use App\Http\Controllers\MatriculaStatusController;
-use App\Http\Controllers\OficinaVirtualController;
+use App\AlumnoActivo;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AlumnosActivosController;
+use App\Http\Controllers\OficinaVirtualController;
+use App\Http\Controllers\MatriculaStatusController;
 use App\Http\Controllers\Tramites\TramiteDiplomaController;
 
 /*
@@ -52,7 +54,10 @@ Route::prefix('matriculas')->group(function () {
 Route::prefix('tramites')->group(function () {
     Route::get('certificados/seach', [TramiteDiplomaController::class, 'index'])->name('consulta');
     Route::post('certificados', [TramiteDiplomaController::class, 'find'])->name('consulta.find');
+    Route::get('/certificados/alumno-activo', [AlumnosActivosController::class, 'index'])->name('certificado.consulta');
+    Route::post('/certificados/alumno-activo', [AlumnosActivosController::class, 'find'])->name('certificado.find');
 });
+
 
 // Route::get('/clear-cache', function () {
 //     $exitCode = Artisan::call('config:cache');

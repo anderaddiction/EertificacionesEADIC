@@ -431,6 +431,16 @@ return [
             'icon' => 'fas fa-fw fa-building',
         ],
         [
+            'text'    => 'Certificados provisionales',
+            'icon'    => 'fa fa-certificate',
+            'submenu' => [
+                [
+                    'text' => 'Certificado de alumno activo',
+                    'route'  => 'certificado.consulta',
+                ],
+            ],
+        ],
+        [
             'text' => 'Cerrar Sesión',
             'route'  => 'logout',
             'icon' => 'fas fa-fw fa-lock',
