@@ -30,12 +30,12 @@
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label for="ticket_diplomaynotas" class="col-sm-2 col-form-label">DNI:</label>
+                            <label for="ticket_diplomaynotas" class="col-sm-2 col-form-label">Email:</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control form-control-border" id="user_dni"
-                                    name="user_dni" placeholder="Ingresa tu DNI aquí"
-                                    value="{{ old('user_dni') }}">
-                                <small class="text-danger"><i>{{ $errors->first('user_dni') }}</i></small>
+                                <input type="text" class="form-control form-control-border" id="email"
+                                    name="email" placeholder="Ingresa tu email aquí"
+                                    value="{{ old('email') }}">
+                                <small class="text-danger"><i>{{ $errors->first('email') }}</i></small>
                             </div>
                         </div>
                         {{-- <div class="disclaimer p-4 text-justify">

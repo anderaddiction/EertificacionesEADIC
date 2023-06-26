@@ -56,6 +56,7 @@ Route::prefix('tramites')->group(function () {
     Route::post('certificados', [TramiteDiplomaController::class, 'find'])->name('consulta.find');
     Route::get('/certificados/alumno-activo', [AlumnosActivosController::class, 'index'])->name('certificado.consulta');
     Route::post('/certificados/alumno-activo', [AlumnosActivosController::class, 'find'])->name('certificado.find');
+    Route::post('/certificados/desacargar-certificado', [AlumnosActivosController::class, 'downloadPDF'])->name('certificado.descarga');
 });
 
 

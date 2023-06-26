@@ -15,6 +15,7 @@ class CreateAlumnoActivosTable extends Migration
     {
         Schema::create('alumno_activos', function (Blueprint $table) {
             $table->id();
+            $table->string('oportunidad_nombre_oportunidad', 500);
             $table->string('oportunidades_nombre_contacto', 255);
             $table->string('oportunidades_situacion_financiera', 255);
             $table->string('oportunidades_estado_matriculación', 255);

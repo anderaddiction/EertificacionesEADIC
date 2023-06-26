@@ -24,7 +24,7 @@ class AlumnosActivosRequest extends FormRequest
     public function rules()
     {
         return [
-            'user_dni' => 'required'
+            'email' => 'required'
         ];
     }
 }

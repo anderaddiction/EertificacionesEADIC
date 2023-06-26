@@ -1,5 +1,12 @@
 <?php
 
+// use RoleSeeder;
+// use MasterSeeder;
+// use CateogrySeeder;
+// use UniversitySeeder;
+// use ConceptStateSeeder;
+// use DiplomaStateSeeder;
+// use CertificateStateSeeder;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder

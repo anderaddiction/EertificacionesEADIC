@@ -18,18 +18,36 @@ class AlumnosActivosController extends Controller
 
     public function find(AlumnosActivosRequest $request)
     {
-        $user = AlumnoActivo::where('contactos_n_identificacion', $request->user_dni)->first();
-        if (empty($user)) {
-            return redirect()->back()->with('error', 'En este momento no identificamos la información brindada, por favor verificar número de DNI o intente más tarde');
-        } else {
-            $dompdf = App::make("dompdf.wrapper");
-            $dompdf->loadView("tramites.pdf.certificado_pdf", [
-                'user' => $user
-            ]);
-            return $dompdf->download("certificado_alumno_activo.pdf");
-            return view('tramites.certificados.certificado-alumno-activo-descrgable', [
-                'user' => $user
-            ]);
-        }
+        $users = AlumnoActivo::where('correo', $request->email)
+            ->get();
+
+        //return $user;
+
+        return view('tramites.certificados.certificado_lista', [
+            'users' => $users
+        ]);
+        // if (empty($user)) {
+        //     return redirect()->back()->with('error', 'En este momento no identificamos la información brindada, por favor verificar número de DNI o intente más tarde');
+        // } else {
+        //     $dompdf = App::make("dompdf.wrapper");
+        //     $dompdf->loadView("tramites.pdf.certificado_pdf", [
+        //         'user' => $user
+        //     ]);
+        //     return $dompdf->download("certificado_alumno_activo.pdf");
+        //     return view('tramites.certificados.certificado-alumno-activo-descrgable', [
+        //         'user' => $user
+        //     ]);
+        // }
+    }
+
+    public function downloadPDF(Request $request)
+    {
+        $user = AlumnoActivo::where('id', $request->id)
+            ->first();
+        $dompdf = App::make("dompdf.wrapper");
+        $dompdf->loadView("tramites.pdf.certificado_pdf", [
+            'user' => $user
+        ]);
+        return $dompdf->download("certificado_alumno_activo.pdf");
     }
 }
