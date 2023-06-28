@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\AlumnoActivo;
 use App\AlumnosActivos;
+use App\CerficadoActivoLog;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\App;
@@ -44,10 +45,13 @@ class AlumnosActivosController extends Controller
     {
         $user = AlumnoActivo::where('id', $request->id)
             ->first();
+        CerficadoActivoLog::create([
+            'correo' => $request->correo
+        ]);
         $dompdf = App::make("dompdf.wrapper");
         $dompdf->loadView("tramites.pdf.certificado_pdf", [
             'user' => $user
         ]);
-        return $dompdf->download("certificado_alumno_activo.pdf");
+        return $dompdf->download($user->oportunidades_nombre_contacto . "_" . "certificado_alumno.pdf");
     }
 }

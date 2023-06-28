@@ -376,6 +376,23 @@ return [
             'icon' => 'fas fa-fw fa-book',
             'can' => 'menu-restriction'
         ],
+        [
+            'text'    => 'Historiales',
+            'icon'    => 'fa fa-bar-chart',
+            'can' => 'menu-restriction',
+            'submenu' => [
+                [
+                    'text' => 'Certificado Activos Descargados',
+                    'route'  => 'certificado_activo_log',
+                    'can' => 'menu-restriction'
+                ],
+                // [
+                //     'text' => 'Certificate Status',
+                //     'route'  => 'certificate_status.index',
+                //     'can' => 'menu-restriction'
+                // ],
+            ],
+        ],
         ['header' => 'account_settings'],
         // [
         //     'text'    => 'Soporte',

@@ -41,6 +41,7 @@
                                 @csrf
                                 <input type="hidden" class="form-element" id="id" name="id"
                                     value="{{ $user->id }}">
+                                    <input type="hidden" class="form-element" id="correo" name="correo" value="{{ $user->correo }}">
                                 <button type="submit" class="btn btn-primary">
                                     Decargar
                                 </button>

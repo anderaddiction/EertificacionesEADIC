@@ -3,6 +3,7 @@
 use App\AlumnoActivo;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AlumnosActivosController;
+use App\Http\Controllers\LogController;
 use App\Http\Controllers\OficinaVirtualController;
 use App\Http\Controllers\MatriculaStatusController;
 use App\Http\Controllers\Tramites\TramiteDiplomaController;
@@ -111,4 +112,8 @@ Route::prefix('admin')->group(function () {
     Route::resource('users', UserController::class)
         ->parameters(['user' => 'user'])
         ->names('user');
+
+    //Reportes
+    Route::get('log/cerficados-activos-descargados', [LogController::class, 'certificadoActivoDescargadoLog'])
+        ->name('certificado_activo_log');
 });
