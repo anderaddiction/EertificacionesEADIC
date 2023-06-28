@@ -59,7 +59,7 @@
                         Desarrollo de Ingeniería y Construcción SL (EADIC SL)</p>
                         <h4 style="text-align: center; margin:10% 0 10% 0;">CERTIFICA</h4>
                         <p style="font-size:13px">Que D./Dña. <strong>{{ $user->oportunidades_nombre_contacto }}</strong>, con nº documento identidad <strong>{{ $user->contactos_n_identificacion }}</strong>
-                        , es alumno activo del <strong>{{ $user->codigo_de_producto }}</strong> impartido por EADIC, junto con la Universidad <strong>{{ $user->universidad_espanola }}</strong>.</p>
+                        , es alumno activo del <strong>{{ $user->nombre_producto }}</strong> impartido por EADIC, junto con la Universidad <strong>{{ $user->universidad_espanola }}</strong>.</p>
                         <p style="font-size:13px; margin:10% 0 0 0;">Y para que así conste a los efectos oportunos firmo el presente en Madrid.</p>
                         <p style="font-size:13px; margin:5% 0 0 0;">NOTA: el presente certificado sólo tiene vigencia de 30 días a partir de la fecha en que ha sido firmado digitalmente
                         </p>
