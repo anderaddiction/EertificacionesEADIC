@@ -41,11 +41,11 @@
                     </div>
                     <div style="width:50%; display:inline-block">
                         <div class="universidad_logo justify-content-end" >
-                            @if ($user->universidad_espanola == 'UDIMA')
+                            @if ($user->universidad_espanola == 'Universidad a Distancia de Madrid (UDIMA)')
                                 <div class="udima" style="margin:-20% -130% 0 150%">
                                     <img src="{{ public_path('img/udima_log.png') }}" width="45%" height="80px" alt="udima-logo">
                                 </div>
-                            @else
+                            @elseif ($user->universidad_espanola == 'Universidad Católica San Antonio de Murcia (UCAM)')
                                 <div class="ucam" style="margin:-20% -130% 0 150%">
                                     <img src="{{ public_path('img/ucam_logo.png') }}" width="45%" height="80px" alt="ucam-logo">
                                 </div>
@@ -54,6 +54,7 @@
                     </div>
                 </div>
                 <div class="row" style="margin:18% 0 0 0">
+                    @if ($user->universidad_espanola)
                     <div class="col-12" style="font-size:16px">
                         <p style="font-size:13px">LINA LIZBETH SANTAMARÍA GUTIÉRREZ, Responsable del Departamento de Formación de la Escuela Abierta en
                         Desarrollo de Ingeniería y Construcción SL (EADIC SL)</p>
@@ -64,6 +65,22 @@
                         <p style="font-size:13px; margin:5% 0 0 0;">NOTA: el presente certificado sólo tiene vigencia de 30 días a partir de la fecha en que ha sido firmado digitalmente
                         </p>
                     </div>
+                    @else
+                    <div class="col-12" style="font-size:16px">
+                        <p style="font-size:13px">LINA LIZBETH SANTAMARÍA GUTIÉRREZ, Responsable del Departamento de Formación de la Escuela
+                            Abierta en
+                            Desarrollo de Ingeniería y Construcción SL (EADIC SL)</p>
+                        <h4 style="text-align: center; margin:10% 0 10% 0;">CERTIFICA</h4>
+                        <p style="font-size:13px">Que D./Dña. <strong>{{ $user->oportunidades_nombre_contacto }}</strong>, con nº documento
+                            identidad <strong>{{ $user->contactos_n_identificacion }}</strong>
+                            , es alumno activo del <strong>{{ $user->nombre_producto }}</strong> impartido por EADIC.</p>
+                        <p style="font-size:13px; margin:10% 0 0 0;">Y para que así conste a los efectos oportunos firmo el presente en
+                            Madrid.</p>
+                        <p style="font-size:13px; margin:5% 0 0 0;">NOTA: el presente certificado sólo tiene vigencia de 30 días a partir de
+                            la fecha en que ha sido firmado digitalmente
+                        </p>
+                    </div>
+                    @endif
                 </div>
                 <div class="row" style="margin:10% 0 0 0">
                     <div class="firma">
