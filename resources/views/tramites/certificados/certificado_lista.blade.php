@@ -28,7 +28,14 @@
                         <td>{{ $user->oportunidades_nombre_contacto }}</td>
                         <td>{{ Str::limit($user->nombre_producto, 20, '...') }}</td>
                         <td>{{ $user->oportunidades_situacion_financiera }}</td>
-                        @if (($user->oportunidades_situacion_financiera == '3.2.COMPLETADO') || ($user->oportunidades_situacion_financiera == '3.1.COMPLETADO'))
+                        @if (
+                            ($user->oportunidades_situacion_financiera == '3.2.COMPLETADO') ||
+                            ($user->oportunidades_situacion_financiera == '3.1.COMPLETADO') ||
+                            ($user->oportunidades_situacion_financiera == '3.1.CONTADO') ||
+                            ($user->oportunidades_situacion_financiera == 'PAGOS AL DIA') ||
+                            ($user->oportunidades_situacion_financiera == 'CONTADO')
+
+                        )
                         <td>
                             <form action="{{ route('certificado.descarga') }}" method="POST" rol="form" id="descarga-pdf">
                                 @csrf
