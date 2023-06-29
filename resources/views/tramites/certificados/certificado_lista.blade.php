@@ -33,7 +33,8 @@
                             ($user->oportunidades_situacion_financiera == '3.1.COMPLETADO') ||
                             ($user->oportunidades_situacion_financiera == '3.1.CONTADO') ||
                             ($user->oportunidades_situacion_financiera == 'PAGOS AL DIA') ||
-                            ($user->oportunidades_situacion_financiera == 'CONTADO')
+                            ($user->oportunidades_situacion_financiera == 'CONTADO') ||
+                            ($user->oportunidades_situacion_financiera == '1.2.CUOTAS')
 
                         )
                         <td>
