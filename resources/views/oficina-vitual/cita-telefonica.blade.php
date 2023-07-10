@@ -50,6 +50,18 @@
                             <div class="row">
                                 <div class="col-6">
                                     <div class="form-group">
+                                        <label class="col-form-label" for="telefono">Email</label>
+                                        <div class="input-group">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+                                            </div>
+                                            <input type="email" class="form-control" placeholder="Email" name="email" id="email">
+                                        </div>
+                                        <small id="email-error" class="error text-danger">{{ $errors->first('email') }}</small>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="form-group">
                                         <label class="col-form-label" for="telefono">Telefono</label>
                                         <div class="input-group">
                                             <div class="input-group-prepend">
@@ -57,9 +69,11 @@
                                             </div>
                                             <input type="text" class="form-control" placeholder="Telefono" name="telefono" id="telefono">
                                         </div>
-                                        <small id="name-error" class="error text-danger">{{ $errors->first('telefono') }}</small>
+                                        <small id="telefono-error" class="error text-danger">{{ $errors->first('telefono') }}</small>
                                     </div>
                                 </div>
+                            </div>
+                            <div class="row">
                                 <div class="col-6">
                                     <div class="form-group">
                                         <label class="col-form-label" for="motivo_llamada">Motivo de la Llamada</label>
@@ -71,16 +85,16 @@
                                                 <option value="">Seleccione una opcion</option>
                                                 <option value="Problemas con Diploma">Problemas con Diploma</option>
                                                 <option value="Problemas con notas">Problemas con notas</option>
-                                                <option value="Incidencia con certificado de alumno activo">Incidencia con certificado de alumno activo</option>
-                                                <option value="Incidencia con matriculacion universitaria">Incidencia con matriculacion universitaria</option>
+                                                <option value="Incidencia con certificado de alumno activo">Incidencia con certificado de alumno activo
+                                                </option>
+                                                <option value="Incidencia con matriculacion universitaria">Incidencia con matriculacion universitaria
+                                                </option>
                                                 <option value="otros">otros</option>
                                             </select>
                                         </div>
                                         <small id="name-error" class="error text-danger">{{ $errors->first('motivo_llamada') }}</small>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="row">
                                 <div class="col-6">
                                     <div class="form-group">
                                         <label class="col-form-label" for="horario">Hora</label>

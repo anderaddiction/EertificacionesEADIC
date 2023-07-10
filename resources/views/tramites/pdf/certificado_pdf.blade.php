@@ -60,11 +60,11 @@
                         Desarrollo de Ingeniería y Construcción SL (EADIC SL)</p>
                         <h4 style="text-align: center; margin:10% 0 10% 0;">CERTIFICA</h4>
                         <p style="font-size:13px">Que D./Dña. <strong>{{ $user->oportunidades_nombre_contacto }}</strong>, con nº documento identidad <strong>{{ $user->contactos_n_identificacion }}</strong>
-                        , es alumno activo del <strong>{{ $user->nombre_producto }}</strong> impartido por EADIC, junto con la <strong>{{ $user->universidad_espanola }}</strong>. Bajo la modalidad <strong>{{ $user->modalidad_de_estudio }}</strong> desde el día <strong>{{ $user->inicio_edicion
-                            }}</strong> hasta <strong>{{ $user->fin_de_edicion }}</strong></p>
+                        , es alumno activo del <strong>{{ $user->nombre_producto }}</strong> impartido por EADIC, junto con la <strong>{{ $user->universidad_espanola }}</strong>. Dicho máster se imparte desde el día <strong>{{ $user->inicio_edicion
+                            }}</strong> hasta <strong>{{ $user->fin_de_edicion }}</strong>. Bajo la modalidad <strong>{{ $user->modalidad_de_estudio }}</strong></p>
                         <p style="font-size:13px; margin:10% 0 0 0;">Y para que así conste a los efectos oportunos firmo el presente en Madrid.
                         </p>
-                        <p style="font-size:13px; margin:5% 0 0 0;">NOTA: el presente certificado sólo tiene vigencia de 30 días a partir de la fecha {{ \Carbon\Carbon::now()->format('d-m-y') }} en que ha sido firmado digitalmente
+                        <p style="font-size:13px; margin:5% 0 0 0;">NOTA: el presente certificado sólo tiene vigencia de 30 días a partir de la fecha {{ \Carbon\Carbon::now()->format('d-m-y') }} en que ha sido firmado digitalmente.
                         </p>
                     </div>
                     @else
@@ -75,13 +75,14 @@
                         <h4 style="text-align: center; margin:10% 0 10% 0;">CERTIFICA</h4>
                         <p style="font-size:13px">Que D./Dña. <strong>{{ $user->oportunidades_nombre_contacto }}</strong>, con nº documento
                             identidad <strong>{{ $user->contactos_n_identificacion }}</strong>
-                            , es alumno activo del <strong>{{ $user->nombre_producto }}</strong> impartido por EADIC. Bajo la modalidad <strong>{{ $user->modalidad_de_estudio }}</strong> desde el día <strong>{{ $user->inicio_edicion
-                                }}</strong> hasta <strong>{{ $user->fin_de_edicion }}</strong></p>
+                            , es alumno activo del <strong>{{ $user->nombre_producto }}</strong> impartido por EADIC. Dicho máster se imparte desde el día <strong>{{ $user->inicio_edicion
+                                }}</strong> hasta <strong>{{ $user->fin_de_edicion }}</strong>. Bajo la modalidad <strong>{{
+                                $user->modalidad_de_estudio }}</strong></p>
                         <p style="font-size:13px; margin:10% 0 0 0;">Y para que así conste a los efectos oportunos firmo el presente en
                             Madrid.
                         </p>
                         <p style="font-size:13px; margin:5% 0 0 0;">NOTA: el presente certificado sólo tiene vigencia de 30 días a partir de
-                            la fecha {{ \Carbon\Carbon::now()->format('d-m-y') }} en que ha sido firmado digitalmente
+                            la fecha {{ \Carbon\Carbon::now()->format('d-m-y') }} en que ha sido firmado digitalmente.
                         </p>
                     </div>
                     @endif

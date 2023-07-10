@@ -22,7 +22,7 @@
                             <div class="col">
                                 <div class="header">
                                     <h4 class="text-primary">Estamos disponibles para ti</h4>
-                                    <p>Horario de atención: Lunes a viernes de <br> 15:00 a 23:59 hora España</p>
+                                    <p>Horario de atención: Lunes a viernes de <br> 15:00 a 23:55 hora España</p>
                                 </div>
                                 <div class="button-link">
                                     <a href="https://us06web.zoom.us/j/85204356189" target="_BLANK" class="btn btn-primary link-button">Iniciar llamada</a>
@@ -42,7 +42,7 @@
                             <div class="col">
                                 <div class="header">
                                     <h4 class="text-primary">En estos momentos no podemos atenderte</h4>
-                                    <p>Horario de atención: Lunes a viernes de <br> 15:00 a 23:59 hora España</p>
+                                    <p>Horario de atención: Lunes a viernes de <br> 15:00 a 23:55 hora España</p>
                                 </div>
                                 <div class="button-link">
                                     <a href="{{ route('cita-telefonica') }}" class="btn btn-primary link-button">Agendar una cita</a>

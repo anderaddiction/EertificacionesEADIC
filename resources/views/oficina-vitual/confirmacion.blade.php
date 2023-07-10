@@ -8,8 +8,9 @@
 </head>
 <body>
     <h1>Email enviado a Osticket</h1>
-    <h3>Dastos que se envian a Osticket</h3>
+    <h3>Datos que se envian a Osticket</h3>
     Nombre : {{ $request->name }} {{ $request->last_name }}<br>
+    Email : {{ $request->email }}<br>
     Telefono : {{ $request->telefono }}<br>
     Motivo de Llamada : {{ $request->motivo_llamada }}<br>
     horario : {{ $request->horario }}
