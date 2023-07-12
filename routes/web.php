@@ -43,6 +43,9 @@ Route::prefix('oficina-virtual')->group(function () {
     Route::get('/zoom-meet', [OficinaVirtualController::class, 'zoomMeet'])->name('zoom-meet');
     Route::get('/solicitud-cita-telefonica', [OficinaVirtualController::class, 'citaTelefonica'])->name('cita-telefonica');
     Route::post('/agendar-cita-telefonica', [OficinaVirtualController::class, 'agendarCita'])->name('agendar-cita-telefonica');
+    Route::get('preguntas-frecuentes', function () {
+        return view('oficina-vitual.preguntas-frecuentes');
+    })->name('preguntas-frecuentes');
 });
 
 // Modulo Estado de Certificaciones

@@ -77,7 +77,7 @@
                                     <div class="col-sm-4">
                                         <img class="conversacion" src="{{ asset("img/icons/conversacion.png") }}" alt="conversacion">
                                         <div class="btn-links">
-                                            <a class="btn factura-btn" href="{{ route('zoom-meet') }}">Preguntas frecuentes</a>
+                                            <a class="btn factura-btn" href="{{ route('preguntas-frecuentes') }}">Preguntas frecuentes</a>
                                         </div>
                                     </div>
                                 </div>
