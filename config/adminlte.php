@@ -441,6 +441,7 @@ return [
             'text' => 'Estado de Matricula',
             'route'  => 'matricula',
             'icon' => 'fas fa-fw fa-certificate',
+            'can' => 'menu-restriction'
         ],
         [
             'text' => 'Oficina Virtual',
