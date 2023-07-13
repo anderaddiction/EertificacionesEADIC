@@ -457,6 +457,7 @@ return [
                     'route'  => 'certificado.consulta',
                 ],
             ],
+            'can' => 'menu-restriction'
         ],
         [
             'text' => 'Cerrar Sesión',
