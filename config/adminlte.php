@@ -370,6 +370,19 @@ return [
                 ],
             ],
         ],
+
+        [
+            'text'    => 'Territorios',
+            'icon'    => 'fa fa-globe',
+            'can' => 'menu-restriction',
+            'submenu' => [
+                [
+                    'text' => 'Paises',
+                    'route'  => 'country.index',
+                    'can' => 'menu-restriction'
+                ]
+            ],
+        ],
         [
             'text' => 'Masters',
             'route'  => 'master.index',

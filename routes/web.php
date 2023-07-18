@@ -64,6 +64,8 @@ Route::prefix('tramites')->group(function () {
 });
 
 
+
+
 // Route::get('/clear-cache', function () {
 //     $exitCode = Artisan::call('config:cache');
 //     $exitCode2 = Artisan::call('cache:clear');
@@ -119,4 +121,10 @@ Route::prefix('admin')->group(function () {
     //Reportes
     Route::get('log/cerficados-activos-descargados', [LogController::class, 'certificadoActivoDescargadoLog'])
         ->name('certificado_activo_log');
+
+    Route::prefix('territorios')->group(function () {
+        Route::resource('countries', CountryController::class)
+            ->parameters(['country' => 'country'])
+            ->names('country');
+    });
 });

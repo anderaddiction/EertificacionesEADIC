@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Country;
 use App\Http\Requests\CitaTelefonicaRequest;
 use App\Http\Requests\OficinaVirtualRequest;
 use App\Mail\OsticketNotification;
@@ -18,16 +17,13 @@ class OficinaVirtualController extends Controller
 
     public function citaTelefonica(Type $var = null)
     {
-        $paises = Country::orderBy('name', 'ASC')->get();
-        return view('oficina-vitual.cita-telefonica', [
-            'paises' => $paises
-        ]);
+        return view('oficina-vitual.cita-telefonica');
     }
 
     public function agendarCita(CitaTelefonicaRequest $request)
     {
         $osticket = Mail::to('apoyomaster@eadic.es')->send(new OsticketNotification($request));
-        return redirect()->back()->with('success', 'En el horario y fecha informada uno de nuestros asesores se comunicara contigo');
+        return view('oficina-vitual.cita-telefonica');
     }
 
     public function zoomMeet(Type $var = null)

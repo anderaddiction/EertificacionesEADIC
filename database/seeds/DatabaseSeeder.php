@@ -25,5 +25,6 @@ class DatabaseSeeder extends Seeder
         $this->call(DiplomaStateSeeder::class);
         $this->call(CertificateStateSeeder::class);
         $this->call(UniversitySeeder::class);
+        $this->call(CountrySeed::class);
     }
 }

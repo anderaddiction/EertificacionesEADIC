@@ -18,6 +18,13 @@
                         <p>Detalle la hora de su preferencia (días de atención de lunes a viernes de 15:00pm a 23:59pm hora de España)</p>
                         <p>Al recibir su solicitud, validaremos nuestra disponibilidad y nos contactatremos en el horario descrito</p>
                     </div>
+                    @if (session()->has('success'))
+                    <div class="alert alert-success alert-dismissible">
+                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                        <h5><i class="icon fas fa-check"></i> Cita Agendada</h5>
+                        {{ session('success') }}
+                    </div>
+                    @endif
                     <div class="formulario-cita-telefonica">
                         <form action="{{ route('agendar-cita-telefonica') }}" method="POST" id="cita-telefonica" rol="form" >
                             @csrf
@@ -62,10 +69,14 @@
                                 </div>
                                 <div class="col-6">
                                     <div class="form-group">
-                                        <label class="col-form-label" for="telefono">Telefono</label>
+                                        <label class="col-form-label" for="telefono">Teléfono</label>
                                         <div class="input-group">
                                             <div class="input-group-prepend">
-                                                <span class="input-group-text"><i class="fas fa-phone"></i></span>
+                                                <select class="form-control" name="phone_code" id="phone_code">
+                                                    @foreach ($paises as $code)
+                                                    <option value="{{ $code->phone_code }}">{{ $code->phone_code }}</option>
+                                                    @endforeach
+                                                </select>
                                             </div>
                                             <input type="text" class="form-control" placeholder="Telefono" name="telefono" id="telefono">
                                         </div>
@@ -89,6 +100,9 @@
                                                 </option>
                                                 <option value="Incidencia con matriculacion universitaria">Incidencia con matriculacion universitaria
                                                 </option>
+                                                <option value="Ampliación de actividades">Ampliación de actividades</option>
+                                                <option value="Dudas de la plataforma">Dudas de la plataforma</option>
+                                                <option value="Dudas sobre el programa formativo">Dudas sobre el programa formativo</option>
                                                 <option value="otros">otros</option>
                                             </select>
                                         </div>
@@ -104,12 +118,31 @@
                                             </div>
                                             <select class="form-control" name="horario" id="horario">
                                                 <option value="">Seleccione una opcion</option>
-                                                <option value="8:00 a 11:00 Hora España">8:00 a 11:00 Hora España</option>
-                                                <option value="11:00 a 14:00 Hora España">11:00 a 14:00 Hora España</option>
-                                                <option value="14:00 a 17:00 Hora España">14:00 a 17:00 Hora España</option>
+                                                <option value="15:00 - 17:00 Hora España">15:00 - 17:00 Hora España</option>
+                                                <option value="17:00 - 19:00 Hora España">17:00 - 19:00 Hora España</option>
+                                                <option value="19:00 - 23:55 Hora España">19:00 - 23:55 Hora España</option>
                                             </select>
                                         </div>
                                         <small id="name-error" class="error text-danger">{{ $errors->first('horario') }}</small>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="form-group">
+                                        <label class="col-form-label" for="country">País</label>
+                                        <div class="input-group">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text"><i class="fas fa-globe"></i></span>
+                                            </div>
+                                            <select class="form-control" name="country" id="country">
+                                                <option value="">Seleccione una opcion</option>
+                                                @foreach ($paises as $country)
+                                                <option value="{{ $country->name }}">{{ $country->name }}</option>
+                                                @endforeach
+                                            </select>
+                                        </div>
+                                        <small id="name-error" class="error text-danger">{{ $errors->first('country') }}</small>
                                     </div>
                                 </div>
                             </div>

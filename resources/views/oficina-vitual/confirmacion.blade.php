@@ -11,8 +11,9 @@
     <h3>Datos que se envian a Osticket</h3>
     Nombre : {{ $request->name }} {{ $request->last_name }}<br>
     Email : {{ $request->email }}<br>
-    Telefono : {{ $request->telefono }}<br>
+    Telefono : {{ $request->phone_code.''.$request->telefono }}<br>
     Motivo de Llamada : {{ $request->motivo_llamada }}<br>
     horario : {{ $request->horario }}
+    País: {{ $request->country }}
 </body>
 </html>

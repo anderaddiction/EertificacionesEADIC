@@ -3,8 +3,9 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
-class CitaTelefonicaRequest extends FormRequest
+class CountryRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,13 +25,12 @@ class CitaTelefonicaRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required',
-            'last_name' => 'required',
-            'telefono' => 'required',
-            'motivo_llamada' => 'required',
-            'horario' => 'required',
-            'country' => 'required',
+            'name' => [
+                'required',
+                Rule::unique('countries')->ignore($this->route('country'))
+            ],
             'phone_code' => 'required',
+            'note' => 'nullable'
         ];
     }
 }
