@@ -13,7 +13,7 @@
     Email : {{ $request->email }}<br>
     Telefono : {{ $request->phone_code.''.$request->telefono }}<br>
     Motivo de Llamada : {{ $request->motivo_llamada }}<br>
-    horario : {{ $request->horario }}
+    horario : {{ $request->horario }}<br>
     País: {{ $request->country }}
 </body>
 </html>

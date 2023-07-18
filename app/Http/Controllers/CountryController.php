@@ -92,7 +92,7 @@ class CountryController extends Controller
     {
         $country->update($request->validated()
             + ['slug' => Str::slug($request->name)]);
-        return redirect()->back()->with('success', 'Data actualizada exitosamente');
+        return redirect()->Route('country.edit', $country)->with('success', 'Data actualizada exitosamente');
     }
 
     /**

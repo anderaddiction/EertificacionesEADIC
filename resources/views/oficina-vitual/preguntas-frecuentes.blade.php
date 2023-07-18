@@ -294,7 +294,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="card card-primary card-outline">
+                                {{-- <div class="card card-primary card-outline">
                                     <a class="d-block w-100" data-toggle="collapse" href="#collapse15">
                                         <div class="card-header">
                                             <h4 class="card-title w-100">
@@ -311,7 +311,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                </div>
+                                </div> --}}
                             </div>
                         </div>
                         {{-- <div class="row">
