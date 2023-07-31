@@ -16,6 +16,8 @@ class CreateCerficadoActivoLogsTable extends Migration
         Schema::create('cerficado_activo_logs', function (Blueprint $table) {
             $table->id();
             $table->string('correo', 255);
+            $table->string('master', 255)->nullable();
+            $table->string('universidad_espanola', 255)->nullable();
             $table->timestamps();
         });
     }

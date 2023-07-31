@@ -46,7 +46,9 @@ class AlumnosActivosController extends Controller
         $user = AlumnoActivo::where('id', $request->id)
             ->first();
         CerficadoActivoLog::create([
-            'correo' => $request->correo
+            'correo'                => $request->correo,
+            'master'                => $request->master,
+            'universidad_espanola'  => $request->universidad_espanola
         ]);
         $dompdf = App::make("dompdf.wrapper");
         $dompdf->loadView("tramites.pdf.certificado_pdf", [

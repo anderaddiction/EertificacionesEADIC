@@ -31,6 +31,8 @@
                 <thead class="text-center">
                     <tr>
                         <th>{{ __('Correo') }}</th>
+                        <th>{{ __('Master') }}</th>
+                        <th>{{ __('Universidad') }}</th>
                         <th>{{ __('Created At') }}</th>
                     </tr>
                 </thead>
@@ -38,6 +40,8 @@
                     @foreach ($cert_activ_descargados as $descargados)
                     <tr>
                         <td>{{ $descargados->present()->email() }}</td>
+                        <td>{{ $descargados->present()->master() }}</td>
+                        <td>{{ $descargados->present()->universidad() }}</td>
                         <td>{{ $descargados->present()->downloadedDate() }}</td>
                     </tr>
                     @endforeach
@@ -45,6 +49,8 @@
                 <tfoot class="text-center">
                     <tr>
                         <th>{{ __('Correo') }}</th>
+                        <th>{{ __('Master') }}</th>
+                        <th>{{ __('Universidad') }}</th>
                         <th>{{ __('Created At') }}</th>
                     </tr>
                 </tfoot>

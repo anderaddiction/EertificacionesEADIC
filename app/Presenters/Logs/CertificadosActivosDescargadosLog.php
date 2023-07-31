@@ -18,6 +18,16 @@ class CertificadosActivosDescargadosLog
         return $this->cert_actv_descargado->correo;
     }
 
+    public function master()
+    {
+        return $this->cert_actv_descargado->master;
+    }
+
+    public function universidad()
+    {
+        return $this->cert_actv_descargado->universidad_espanola;
+    }
+
     public function downloadedDate()
     {
         return $this->cert_actv_descargado->created_at;
