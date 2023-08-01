@@ -16,7 +16,7 @@
                     <div class="disclamer">
                         <p>¡Bienvenido a nuestro formulario de citas telefónicas para nuestra oficina virtual!</p>
                         <p>Detalle la hora de su preferencia (días de atención de lunes a viernes de 15:00pm a 23:59pm hora de España)</p>
-                        <p>Al recibir su solicitud, validaremos nuestra disponibilidad y nos contactatremos en el horario descrito</p>
+                        <p>Al recibir su solicitud, validaremos nuestra disponibilidad y nos contactaremos en el horario descrito.</p>
                     </div>
                     @if (session()->has('success'))
                     <div class="alert alert-success alert-dismissible">
