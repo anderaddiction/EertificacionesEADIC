@@ -21,6 +21,8 @@ class CreateMastersTable extends Migration
             $table->text('note')->nullable();
             $table->integer('status');
             $table->text('slug')->unique();
+            $table->text('fecha-de-lanzamiento')->nullable();
+            $table->text('fecha-de-extinción')->nullable();
             $table->softDeletes();
             $table->timestamps();
         });
