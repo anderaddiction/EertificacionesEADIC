@@ -51,4 +51,10 @@ class Master extends Model
     {
         return Str::slug($value);
     }
+
+    //Relationships Many to Many
+    public function asignaturas()
+    {
+        return $this->belongsToMany(Asignatura::class, 'master_asignatura', 'id_master', 'id_asignatura');
+    }
 }

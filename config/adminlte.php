@@ -390,6 +390,16 @@ return [
             'can' => 'menu-restriction'
         ],
         [
+            'text' => 'Crear asignaturas',
+            'route'  => 'asignatura.create',
+            'icon' => 'fas fa-fw fa-book',
+        ],
+        [
+            'text' => 'filtrar Asignaturas',
+            'route'  => 'asignatura.index',
+            'icon' => 'fas fa-fw fa-folder-open',
+        ],
+        [
             'text'    => 'Historiales',
             'icon'    => 'fa fa-bar-chart',
             'can' => 'menu-restriction',

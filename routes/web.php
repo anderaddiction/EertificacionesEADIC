@@ -3,6 +3,7 @@
 use App\AlumnoActivo;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AlumnosActivosController;
+
 use App\Http\Controllers\LogController;
 use App\Http\Controllers\OficinaVirtualController;
 use App\Http\Controllers\MatriculaStatusController;
@@ -102,6 +103,10 @@ Route::prefix('admin')->group(function () {
     Route::resource('masters', MasterController::class)
         ->parameters(['master' => 'master'])
         ->names('master');
+
+    //Asignaturas
+    Route::resource('asignatura', AsignaturasController::class);
+
 
     //Roles
     Route::resource('roles', RoleController::class)

@@ -7,6 +7,8 @@
 // use ConceptStateSeeder;
 // use DiplomaStateSeeder;
 // use CertificateStateSeeder;
+
+use App\User;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -26,5 +28,6 @@ class DatabaseSeeder extends Seeder
         $this->call(CertificateStateSeeder::class);
         $this->call(UniversitySeeder::class);
         $this->call(CountrySeed::class);
+        $this->call(UserSeeder::class);
     }
 }

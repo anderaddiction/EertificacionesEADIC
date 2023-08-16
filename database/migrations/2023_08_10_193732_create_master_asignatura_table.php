@@ -17,11 +17,10 @@ class CreateMasterAsignaturaTable extends Migration
             $table->id();
             $table->unsignedBigInteger('id_master');
             $table->unsignedBigInteger('id_asignatura');
-            $table->string('nombre_master');
-            $table->string('nombre_asignatura');
+
             $table->timestamps();
-            $table->foreign('id_master')->references('id')->on('masters');
-            $table->foreign('id_asignatura')->references('id')->on('asignatura');
+            $table->foreign('id_master')->references('id')->on('masters')->onDelete('cascade');
+            $table->foreign('id_asignatura')->references('id')->on('asignatura')->onDelete('cascade');
         });
     }
 
