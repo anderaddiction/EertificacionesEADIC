@@ -57,4 +57,8 @@ class Master extends Model
     {
         return $this->belongsToMany(Asignatura::class, 'master_asignatura', 'id_master', 'id_asignatura');
     }
+    public function datosPorMatricula()
+    {
+        return $this->hasOne(DatosPorMatricula::class, 'id_master');
+    }
 }

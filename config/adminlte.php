@@ -393,11 +393,30 @@ return [
             'text' => 'Crear asignaturas',
             'route'  => 'asignatura.create',
             'icon' => 'fas fa-fw fa-book',
+            'can' => 'menu-restriction',
         ],
         [
             'text' => 'filtrar Asignaturas',
             'route'  => 'asignatura.index',
             'icon' => 'fas fa-fw fa-folder-open',
+            'can' => 'menu-restriction',
+        ],
+        [
+            'text'    => 'Matriculas',
+            'icon'    => 'fa fa-bar-chart',
+            'can' => 'menu-restriction',
+            'submenu' => [
+                [
+                    'text' => 'Crear Matricula',
+                    'route'  => 'datos-de-matricula.create',
+                    'can' => 'menu-restriction',
+                ],
+                [
+                    'text' => 'Lista de matriculas',
+                    'route'  => 'datos-de-matricula.index',
+                    'can' => 'menu-restriction',
+                ],
+            ],
         ],
         [
             'text'    => 'Historiales',
@@ -455,11 +474,13 @@ return [
         // ],
         //     ],
         // ],
+
         [
             'text' => 'Trámite de Diploma',
             'route'  => 'home',
             'icon' => 'fas fa-fw fa-certificate',
         ],
+
         [
             'text' => 'Estado de Matricula',
             'route'  => 'matricula',

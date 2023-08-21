@@ -3,7 +3,6 @@
 use App\AlumnoActivo;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AlumnosActivosController;
-
 use App\Http\Controllers\LogController;
 use App\Http\Controllers\OficinaVirtualController;
 use App\Http\Controllers\MatriculaStatusController;
@@ -67,11 +66,11 @@ Route::prefix('tramites')->group(function () {
 
 
 
-// Route::get('/clear-cache', function () {
-//     $exitCode = Artisan::call('config:cache');
-//     $exitCode2 = Artisan::call('cache:clear');
-//     $exitCode3 = Artisan::call('key:generate');
-// });
+Route::get('/clear-cache', function () {
+    $exitCode = Artisan::call('config:cache');
+    $exitCode2 = Artisan::call('cache:clear');
+    $exitCode3 = Artisan::call('key:generate');
+});
 
 Auth::routes();
 
@@ -107,7 +106,9 @@ Route::prefix('admin')->group(function () {
     //Asignaturas
     Route::resource('asignatura', AsignaturasController::class);
 
+    //Datos por matricula
 
+    Route::resource('datos-de-matricula', DatosPorMatriculaController::class);
     //Roles
     Route::resource('roles', RoleController::class)
         ->parameters(['role' => 'role'])

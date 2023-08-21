@@ -50,4 +50,8 @@ class University extends Model
     {
         return Str::slug($value);
     }
+    public function datosPorMatricula()
+    {
+        return $this->hasOne(DatosPorMatricula::class, 'id_universities');
+    }
 }
