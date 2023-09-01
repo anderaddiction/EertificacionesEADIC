@@ -63,7 +63,7 @@
 
                         <div class="form-group col-md-6">
                             <label for="id_master">Seleccione Master:</label>
-                            <select name="id_master" id="" class="form-control">
+                            <select name="id_master" id="id_master" class="form-control select2">
                                 @foreach ($masters as $master)
                                     <option value="{{ $master->id }}">{{ $master->name }}</option>
                                 @endforeach
@@ -74,9 +74,10 @@
                                 </div>
                             @enderror
                         </div>
+
                         <div class="form-group col-md-6">
                             <label for="id_universities">Seleccione Universidad:</label>
-                            <select name="id_universities" id="" class="form-control">
+                            <select name="id_universities" id="id_universities" class="form-control select2">
                                 @foreach ($universidades as $universidad)
                                     <option value="{{ $universidad->id }}">{{ $universidad->name }}</option>
                                 @endforeach
@@ -181,13 +182,21 @@
             </div>
         </div>
     </div>
-    <!-- Resto del código permanece igual -->
 @stop
 
 @section('css')
     <link rel="stylesheet" href="/css/admin_custom.css">
+    <!-- Agrega el CSS de Select2 -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" rel="stylesheet">
 @stop
 
 @section('js')
-
+    <!-- Agrega la biblioteca de Select2 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
+    <!-- Inicializa los campos select2 -->
+    <script>
+        $('.select2').select2({
+            theme: 'bootstrap4' // Utiliza el tema de Bootstrap 4 para Select2
+        });
+    </script>
 @stop

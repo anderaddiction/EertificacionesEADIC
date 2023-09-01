@@ -57,7 +57,7 @@ class DatosPorMatriculaController extends Controller
             'edicion_master' => 'required|string|max:255',
             'fecha_inicio' => 'required|date',
             'fecha_fin' => 'required|date',
-            'numero_oportunidad' => 'required|integer',
+            'numero_oportunidad' => 'required|string',
         ]);
 
         // Crea una nueva instancia del modelo y asigna los valores

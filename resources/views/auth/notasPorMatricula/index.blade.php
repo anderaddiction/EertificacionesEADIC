@@ -1,7 +1,7 @@
 @extends('adminlte::page')
 @section('title', 'Lista de datos de matriculas')
 @section('content_header')
-    <h3>Lista de datos de matriculas</h3>
+    <h3>Lista de Notas por matriculas</h3>
 @stop
 @section('content')
 
@@ -28,9 +28,10 @@
                                 <th>ID</th>
                                 <th>Nombre</th>
                                 <th>Apellido</th>
-                                <th>Documento</th>
+                                <th>DNI</th>
+                                <th>Master</th>
+                                <th>Universidad</th>
                                 <th>Email</th>
-                                <th>Última actualización</th>
                                 <th>Acción</th>
                             </tr>
                         </thead>
@@ -41,26 +42,31 @@
                                     <td>{{ $datosPorMatricula->nombre }}</td>
                                     <td>{{ $datosPorMatricula->apellido }}</td>
                                     <td>{{ $datosPorMatricula->documento_de_identidad }}</td>
+                                    <td>{{ $datosPorMatricula->master->master_code }}</td>
+                                    <td>{{ $datosPorMatricula->university->name }}</td>
                                     <td>{{ $datosPorMatricula->email }}</td>
-                                    <td>{{ $datosPorMatricula->updated_at->diffForHumans() }}</td>
                                     <td>
                                         <div class="btn-group" role="group">
-                                            <a href="{{ route('datos-de-matricula.show', $datosPorMatricula) }}"
-                                                class="btn btn-info btn-sm">
-                                                <i class="fas fa-eye"></i>
-                                            </a>
-                                            <a href="{{ route('datos-de-matricula.edit', $datosPorMatricula) }}"
-                                                class="btn btn-success btn-sm mx-2">
-                                                <i class="fas fa-edit"></i>
-                                            </a>
-                                            <form action="{{ route('datos-de-matricula.destroy', $datosPorMatricula) }}"
-                                                method="POST">
-                                                @csrf
-                                                @method('DELETE')
-                                                <button type="submit" class="btn btn-danger delete-button">
-                                                    <i class="fas fa-trash"></i>
-                                                </button>
-                                            </form>
+                                            <?php
+                                            $alumno = $datosPorMatricula->id;
+                                            $datosDeMatriculas = DB::table('notas_por_matricula')
+                                                ->where('id_datos_por_matricula', $alumno)
+                                                ->get();
+                                            ?>
+                                            @if ($datosDeMatriculas->isEmpty())
+                                                <a href="{{ route('notas-de-matricula.create', $datosPorMatricula->id) }}"
+                                                    class="btn btn-primary mx-2">Cargar notas</a>
+                                            @else
+                                                @foreach ($datosDeMatriculas as $datosDeMatricula)
+                                                    @if ($datosDeMatricula->bloqueado == 1)
+                                                        <a href="{{ route('notas-de-matricula.show', $datosPorMatricula->id) }}"
+                                                            class="btn btn-secondary">Ver</a>
+                                                    @else
+                                                        <a href="{{ route('notas-de-matricula.edit', $datosPorMatricula->id) }}"
+                                                            class="btn btn-success mx-2">Editar notas</a>
+                                                    @endif
+                                                @endforeach
+                                            @endif
                                         </div>
                                     </td>
                                 </tr>
@@ -72,6 +78,7 @@
         </div>
     </div>
 @stop
+
 @section('plugins.Datatables', true)
 @section('plugins.Sweetalert2', true)
 
@@ -96,7 +103,7 @@
     <script src="https://cdn.datatables.net/buttons/2.1.1/js/buttons.print.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
 
-    <!-- Agrega el script para habilitar la exportación a PDF -->
+    <!-- Agrega los scripts para habilitar la exportación a PDF -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
     <script src="https://cdn.datatables.net/buttons/2.1.1/js/buttons.html5.min.js"></script>
 

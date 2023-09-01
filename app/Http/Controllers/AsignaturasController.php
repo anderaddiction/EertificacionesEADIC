@@ -90,7 +90,7 @@ class AsignaturasController extends Controller
         //$master->asignaturas()->attach($asignatura->id);
 
 
-        return redirect()->route("asignatura.index")->with(["info" => "¡Se agrego con exito la asignatura.!",]);
+        return redirect()->route("asignatura.index")->with(["info" => "¡Se agrego con exito la asignatura!",]);
     }
 
     /**
@@ -151,7 +151,6 @@ class AsignaturasController extends Controller
         $asignatura->nombre = $request->nombre;
         $asignatura->creditos = $request->creditos;
         $asignatura->slug = app(Asignatura::class)->generateUrl($request->nombre);
-
         $asignatura->save();
         /*guardar en la tabla masters asignatura */
         //$master = Master::find($masterId);

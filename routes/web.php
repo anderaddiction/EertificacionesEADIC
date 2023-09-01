@@ -109,6 +109,18 @@ Route::prefix('admin')->group(function () {
     //Datos por matricula
 
     Route::resource('datos-de-matricula', DatosPorMatriculaController::class);
+
+    // Notas por matricula
+
+    Route::get('notas-de-matricula/buscar', [App\Http\Controllers\notasPorMatriculaController::class, 'buscar'])->name('notas-de-matricula.buscar');
+    Route::post('notas-de-matricula/resultados', [App\Http\Controllers\notasPorMatriculaController::class, 'resultados'])->name('notas-de-matricula.resultados');
+
+    Route::resource('notas-de-matricula', NotasPorMatriculaController::class)->except(['create']);
+    Route::get('notas-de-matricula/create/{id}', [App\Http\Controllers\notasPorMatriculaController::class, 'create'])->name('notas-de-matricula.create');
+
+
+
+
     //Roles
     Route::resource('roles', RoleController::class)
         ->parameters(['role' => 'role'])

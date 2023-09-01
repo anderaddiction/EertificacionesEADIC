@@ -17,23 +17,23 @@
                 @method('PUT')
                 <div class="form-row">
                     <div class="form-group col-md-12">
-                        <div class="form-group">
+                        <div class="form-group col-md-12">
                             <label for="master">Seleccione el master:</label>
-                            <select class="form-control" name="master" id="master">
+                            <select class="form-control select2" name="master" id="master">
                                 <option hidden selected disabled>Seleccionar:</option>
                                 @foreach ($masters as $master)
                                     <option value="{{ $master->id }}"
                                         {{ $master->id === $asignatura->master_id ? 'selected' : '' }}>
-                                        {{ $master->name }}
+                                        {{ $master->master_code }}
                                     </option>
                                 @endforeach
                             </select>
+                            @error('master')
+                                <div class="text-danger mx-auto">
+                                    {{ $message }}
+                                </div>
+                            @enderror
                         </div>
-                        @error('master')
-                            <div class="text-danger mx-auto">
-                                {{ $message }}
-                            </div>
-                        @enderror
                     </div>
                     <br>
 
@@ -96,5 +96,12 @@
 @stop
 
 @section('js')
-
+    <script>
+        $(document).ready(function() {
+            // Inicializa Select2 y personaliza las clases CSS
+            $('.select2').select2({
+                theme: 'bootstrap4' // Utiliza el tema de Bootstrap 4 para Select2
+            });
+        });
+    </script>
 @stop

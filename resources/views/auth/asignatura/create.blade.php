@@ -284,5 +284,12 @@
 @stop
 
 @section('js')
-
+    <script>
+        $(document).ready(function() {
+            $("#example2").DataTable({
+                "responsive": true,
+                "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+            });
+        });
+    </script>
 @stop
