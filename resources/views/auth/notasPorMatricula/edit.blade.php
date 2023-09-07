@@ -68,10 +68,9 @@
                     <table class="table table-light">
                         <thead class="thead-dark">
                             <tr>
-                                <th>Asignaturas</th>
-                                <th>Módulos</th>
-
-                                <th>Estados</th>
+                                <th>N. modulos</th>
+                                <th>Notas optenidas</th>
+                                <th>Estado</th>
                                 <th>Baremos</th>
                             </tr>
                         </thead>
@@ -122,8 +121,8 @@
                                                             <select class="form-control" name="estado_{{ $i }}">
                                                                 <option disabled selected hidden>Seleccione el nuevo estado
                                                                 </option>
-                                                                <option value="Aprobado">Aprobado</option>
-                                                                <option value="Rechazado">Rechazado</option>
+                                                                <option value="Superado">Superado</option>
+                                                                <option value="Pendiente">Pendiente</option>
                                                             </select>
                                                         </div>
                                                     </div>
@@ -147,7 +146,7 @@
                         </tbody>
                     </table>
                     <div class="col-3">
-                        <label for="">Bloquear notas:</label>
+                        <label for="">Cerrar aptas:</label>
                         <div class="form-group">
                             <select class="form-control" name="bloqueado" required>
                                 <option disabled selected hidden>Seleccione </option>
@@ -182,24 +181,37 @@
     @section('js')
         <script>
             document.addEventListener('DOMContentLoaded', function() {
-
                 const modulos = document.querySelectorAll('.modulo-input');
 
+                function calcularCalificacion(moduloValue) {
+                    if (isNaN(moduloValue)) {
+                        return 'Invalido';
+                    } else if (moduloValue <= 5) {
+                        return 'Suspenso';
+                    } else if (moduloValue >= 5.1 && moduloValue <= 7) {
+                        return 'Aprobado';
+                    } else if (moduloValue > 7 && moduloValue <= 9) {
+                        return 'Notable';
+                    } else if (moduloValue >= 9 && moduloValue <= 10) {
+                        return 'Sobresaliente';
+                    } else {
+                        return 'Fuera de rango';
+                    }
+                }
 
                 function updateBaremo() {
                     const moduloValue = parseFloat(this.value);
                     const baremoSelector = this.getAttribute('data-baremo-selector');
                     const baremoInput = document.querySelector(baremoSelector);
 
-                    if (!isNaN(moduloValue)) {
-                        baremoInput.value = moduloValue >= 10 ? 'Aprobado' : 'Reprobado';
-                    }
+                    const calificacion = calcularCalificacion(moduloValue);
+                    baremoInput.value = calificacion;
                 }
-
 
                 modulos.forEach(modulo => {
                     modulo.addEventListener('change', updateBaremo);
                 });
             });
         </script>
+
     @stop

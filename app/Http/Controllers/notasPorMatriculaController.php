@@ -40,8 +40,8 @@ class notasPorMatriculaController extends Controller
 
     public function index()
     {
-       $datosPorMatriculas = DatosPorMatricula::all();
-    return view('auth.notasPorMatricula.index', ['datosPorMatriculas' => $datosPorMatriculas]);
+        $datosPorMatriculas = DatosPorMatricula::all();
+        return view('auth.notasPorMatricula.index', ['datosPorMatriculas' => $datosPorMatriculas]);
     }
 
     /**
@@ -75,42 +75,6 @@ class notasPorMatriculaController extends Controller
 
         $request->validate([
             'id_datos_por_matricula' => 'required',
-            'asignatura_1' => 'required',
-            'modulo_1' => 'required',
-            'estado_1' => 'required',
-            'baremo_1' => 'required',
-            'asignatura_2' => 'required',
-            'modulo_2' => 'required',
-            'estado_2' => 'required',
-            'baremo_2' => 'required',
-            'asignatura_3' => 'required',
-            'modulo_3' => 'required',
-            'estado_3' => 'required',
-            'baremo_3' => 'required',
-            'asignatura_4' => 'required',
-            'modulo_4' => 'required',
-            'estado_4' => 'required',
-            'baremo_4' => 'required',
-            'asignatura_5' => 'required',
-            'modulo_5' => 'required',
-            'estado_5' => 'required',
-            'baremo_5' => 'required',
-            'asignatura_6' => 'required',
-            'modulo_6' => 'required',
-            'estado_6' => 'required',
-            'baremo_6' => 'required',
-            'asignatura_7' => 'required',
-            'modulo_7' => 'required',
-            'estado_7' => 'required',
-            'baremo_7' => 'required',
-            'asignatura_8' => 'required',
-            'modulo_8' => 'required',
-            'estado_8' => 'required',
-            'baremo_8' => 'required',
-            'asignatura_9' => 'required',
-            'modulo_9' => 'required',
-            'estado_9' => 'required',
-            'baremo_9' => 'required',
 
             'bloqueado' => 'required',
         ]);
@@ -178,7 +142,22 @@ class notasPorMatriculaController extends Controller
      */
     public function show($id)
     {
-        return redirect()->route('notas-de-matricula.buscar');
+
+        $datosDeMatricula = DatosPorMatricula::findOrFail($id);
+        $master = $datosDeMatricula->master;
+
+        $asignaturasIds = $master->asignaturas->pluck('id');
+        $asignatura = Asignatura::whereIn('id', $asignaturasIds)->get();
+
+        $notas = NotasPorMatricula::where('id_datos_por_matricula', $datosDeMatricula->id)->get();
+        return view(
+            'auth.notasPorMatricula.show',
+            [
+                'notas' => $notas,
+                'asignatura' => $asignatura,
+                'datosDeMatricula' => $datosDeMatricula,
+            ]
+        );
     }
 
     /**
@@ -217,6 +196,7 @@ class notasPorMatriculaController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
+            'id_datos_por_matricula' => 'required',
             'bloqueado' => 'required',
         ]);
         $notasPorMatricula_id = $request->id;
