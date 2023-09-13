@@ -1,16 +1,16 @@
 @extends('adminlte::page')
 
-@section('title', 'Editar Datos por Matricula')
+@section('title', 'Editar datos del estudiante')
 
 @section('content_header')
-    <h1>Editar Datos de la Matricula</h1>
+    <h1>Editar datos del estudiante</h1>
 @stop
 
 @section('content')
     <div class="container-fluid">
         <div class="card">
             <div class="card-header">
-                <h3 class="card-title">Editar Datos de la Matricula</h3>
+                <h3 class="card-title">Datos del estudiante</h3>
             </div>
             <div class="card-body">
                 <form method="POST" action="{{ route('datos-de-matricula.update', $datosPorMatricula->id) }}">
@@ -74,7 +74,7 @@
                         </div>
                         <div class="form-group col-md-6">
                             <label for="id_master">Seleccione Master nuevamente:</label>
-                            <select name="id_master" id="" class="form-control">
+                            <select name="id_master" id="" class="form-control select2">
                                 @foreach ($masters as $master)
                                     <option value="{{ $master->id }}">{{ $master->name }}</option>
                                 @endforeach
@@ -87,7 +87,7 @@
                         </div>
                         <div class="form-group col-md-6">
                             <label for="id_universities">Seleccione Universidad nuevamente:</label>
-                            <select name="id_universities" id="" class="form-control">
+                            <select name="id_universities" id="" class="form-control select2">
                                 @foreach ($universidades as $universidad)
                                     <option value="{{ $universidad->id }}">{{ $universidad->name }}</option>
                                 @endforeach
@@ -178,7 +178,7 @@
 
                         <div class="form-group col-md-6">
                             <label for="numero_oportunidad">Número Oportunidad:</label>
-                            <input name="numero_oportunidad" type="number" class="form-control" id="numero_oportunidad"
+                            <input name="numero_oportunidad" type="text" class="form-control" id="numero_oportunidad"
                                 value="{{ $datosPorMatricula->numero_oportunidad }}" placeholder="Número Oportunidad">
                             @error('numero_oportunidad')
                                 <div class="text-danger mx-auto">
@@ -197,8 +197,17 @@
 
 @section('css')
     <link rel="stylesheet" href="/css/admin_custom.css">
+    <!-- Agrega el CSS de Select2 -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" rel="stylesheet">
 @stop
 
 @section('js')
-
+    <!-- Agrega la biblioteca de Select2 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
+    <!-- Inicializa los campos select2 -->
+    <script>
+        $('.select2').select2({
+            theme: 'bootstrap4' // Utiliza el tema de Bootstrap 4 para Select2
+        });
+    </script>
 @stop

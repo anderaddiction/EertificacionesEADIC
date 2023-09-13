@@ -195,8 +195,9 @@ class notasPorMatriculaController extends Controller
      */
     public function update(Request $request, $id)
     {
+
         $request->validate([
-            'id_datos_por_matricula' => 'required',
+            'id' => 'required',
             'bloqueado' => 'required',
         ]);
         $notasPorMatricula_id = $request->id;

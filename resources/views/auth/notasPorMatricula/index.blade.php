@@ -22,7 +22,7 @@
                 <br>
 
                 <div class="table-responsive">
-                    <table id="example2" class="table table-bordered table-hover">
+                    <table id="example2" class="table table-bordered table-hover table-sm">
                         <thead class="text-center">
                             <tr>
                                 <th>ID</th>
@@ -32,7 +32,9 @@
                                 <th>Master</th>
                                 <th>Universidad</th>
                                 <th>Email</th>
-                                <th>Acción</th>
+                                <th>Situacion financiera</th>
+                                <th>Estado</th>
+                                <th width="200px">Acción</th>
                             </tr>
                         </thead>
                         <tbody class="text-center">
@@ -45,25 +47,41 @@
                                     <td>{{ $datosPorMatricula->master->master_code }}</td>
                                     <td>{{ $datosPorMatricula->university->name }}</td>
                                     <td>{{ $datosPorMatricula->email }}</td>
+                                    <td>{{ $datosPorMatricula->situacion_financiera }}
+                                    <td>
+                                        <?php
+                                        $alumno = $datosPorMatricula->id;
+                                        $datosDeMatriculas = DB::table('notas_por_matricula')
+                                            ->where('id_datos_por_matricula', $alumno)
+                                            ->get();
+                                        ?>
+                                        @if ($datosDeMatriculas->isEmpty())
+                                            <p>No tiene notas</p>
+                                        @else
+                                            @foreach ($datosDeMatriculas as $datosDeMatricula)
+                                                @if ($datosDeMatricula->bloqueado == 1)
+                                                    <p>Bloqueado</p>
+                                                @else
+                                                    <p>No bloqueado</p>
+                                                @endif
+                                            @endforeach
+                                        @endif
+                                    </td>
+
                                     <td>
                                         <div class="btn-group" role="group">
-                                            <?php
-                                            $alumno = $datosPorMatricula->id;
-                                            $datosDeMatriculas = DB::table('notas_por_matricula')
-                                                ->where('id_datos_por_matricula', $alumno)
-                                                ->get();
-                                            ?>
+
                                             @if ($datosDeMatriculas->isEmpty())
                                                 <a href="{{ route('notas-de-matricula.create', $datosPorMatricula->id) }}"
-                                                    class="btn btn-primary mx-2">Cargar notas</a>
+                                                    class="btn btn-primary btn-sm mx-2">Cargar notas</a>
                                             @else
                                                 @foreach ($datosDeMatriculas as $datosDeMatricula)
                                                     @if ($datosDeMatricula->bloqueado == 1)
                                                         <a href="{{ route('notas-de-matricula.show', $datosPorMatricula->id) }}"
-                                                            class="btn btn-secondary">Ver</a>
+                                                            class="btn btn-sm btn-secondary">Ver</a>
                                                     @else
                                                         <a href="{{ route('notas-de-matricula.edit', $datosPorMatricula->id) }}"
-                                                            class="btn btn-success mx-2">Editar notas</a>
+                                                            class="btn btn-sm btn-success mx-2">Editar actas</a>
                                                     @endif
                                                 @endforeach
                                             @endif
@@ -110,7 +128,7 @@
     <script>
         $(document).ready(function() {
             var table = $('#example2').DataTable({
-                "responsive": true,
+
                 "language": {
                     "url": "//cdn.datatables.net/plug-ins/1.10.24/i18n/Spanish.json"
                 },

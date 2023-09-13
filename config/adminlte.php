@@ -402,36 +402,36 @@ return [
             'can' => 'menu-restriction',
         ],
         [
-            'text'    => 'Matriculas',
+            'text'    => 'Estudiantes',
             'icon'    => 'fa fa-bar-chart',
- 'can' => 'menu-restriction',
+
             'submenu' => [
                 [
-                    'text' => 'Crear Matricula',
+                    'text' => 'Crear estudiante',
                     'route'  => 'datos-de-matricula.create',
- 'can' => 'menu-restriction',
+
                 ],
                 [
-                    'text' => 'Lista de matriculas',
+                    'text' => 'Lista de estudiantes',
                     'route'  => 'datos-de-matricula.index',
- 'can' => 'menu-restriction',
+
                 ],
             ],
         ],
         [
             'text'    => 'Notas de matriculas',
             'icon'    => 'fa file-text fa-file-text',
- 'can' => 'menu-restriction',
+
             'submenu' => [
                 [
                     'text' => 'Buscar Matricula',
                     'route'  => 'notas-de-matricula.buscar',
- 'can' => 'menu-restriction',
+
                 ],
                 [
                     'text' => 'Lista de notas de matriculas',
                     'route'  => 'notas-de-matricula.index',
- 'can' => 'menu-restriction',
+
                 ],
             ],
         ],

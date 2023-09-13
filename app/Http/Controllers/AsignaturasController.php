@@ -18,16 +18,15 @@ class AsignaturasController extends Controller
         $tipoAsignaturas = $request->get('tipo_asignaturas');
 
         if ($tipoAsignaturas == 'sin_masters') {
-            $asignaturas = Asignatura::whereDoesntHave('masters')->paginate(20);
+            $asignaturas = Asignatura::whereDoesntHave('masters')->get();
         } elseif ($tipoAsignaturas == 'con_masters') {
-            $asignaturas = Asignatura::has('masters')->paginate(20);
+            $asignaturas = Asignatura::has('masters')->get();
         } else {
-            $asignaturas = Asignatura::paginate(20);
+            $asignaturas = Asignatura::all();
         }
 
         return view('auth.asignatura.index', compact('asignaturas', 'tipoAsignaturas'));
     }
-
 
     /**
      * Show the form for creating a new resource.
@@ -40,11 +39,11 @@ class AsignaturasController extends Controller
         $tipoAsignaturas = $request->get('tipo_asignaturas');
 
         if ($tipoAsignaturas == 'sin_masters') {
-            $asignaturas = Asignatura::whereDoesntHave('masters')->paginate(20);
+            $asignaturas = Asignatura::whereDoesntHave('masters')->get();
         } elseif ($tipoAsignaturas == 'con_masters') {
-            $asignaturas = Asignatura::has('masters')->paginate(20);
+            $asignaturas = Asignatura::has('masters')->get();
         } else {
-            $asignaturas = Asignatura::paginate(20);
+            $asignaturas = Asignatura::all();
         }
 
         return view('auth.asignatura.create', compact('masters', 'asignaturas', 'tipoAsignaturas'));
@@ -58,21 +57,23 @@ class AsignaturasController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            //'master' => ['required'],
-            'code' => ['required'],
-            'numero_de_la_asignatura' => ['required'],
-            'nombre' => ['required'],
-            'creditos' => ['required'],
-        ], [
-            //'master' => 'Debe seleccionar el master al cual pertnece la asignatura.',
-            'code' => 'El campo codigo es obligatorio',
-            'numero_de_la_asignatura' => 'Las numero de la asignatura es obligatoria.',
-            'nombre' => 'El nombre de la asignatura es obligatoria.',
-            'creditos' => 'Los creditos de la asignatura es obligatoria.',
-        ]);
-        $master
-            = $request->master;
+        $request->validate(
+            [
+                //'master' => ['required'],
+                'code' => ['required'],
+                'numero_de_la_asignatura' => ['required'],
+                'nombre' => ['required'],
+                'creditos' => ['required'],
+            ],
+            [
+                //'master' => 'Debe seleccionar el master al cual pertnece la asignatura.',
+                'code' => 'El campo codigo es obligatorio',
+                'numero_de_la_asignatura' => 'Las numero de la asignatura es obligatoria.',
+                'nombre' => 'El nombre de la asignatura es obligatoria.',
+                'creditos' => 'Los creditos de la asignatura es obligatoria.',
+            ],
+        );
+        $master = $request->master;
         $asignatura = new Asignatura();
         $asignatura->code = $request->code;
         $asignatura->numero_de_la_asignatura = $request->numero_de_la_asignatura;
@@ -89,8 +90,9 @@ class AsignaturasController extends Controller
         /* Guardar datos en una tabla relacion muchos a muchos */
         //$master->asignaturas()->attach($asignatura->id);
 
-
-        return redirect()->route("asignatura.index")->with(["info" => "¡Se agrego con exito la asignatura!",]);
+        return redirect()
+            ->route('asignatura.index')
+            ->with(['info' => '¡Se agrego con exito la asignatura!']);
     }
 
     /**
@@ -128,20 +130,22 @@ class AsignaturasController extends Controller
      */
     public function update(Request $request, $id)
     {
-
-        $request->validate([
-            //'master' => ['required'],
-            'code' => ['required'],
-            'numero_de_la_asignatura' => ['required'],
-            'nombre' => ['required'],
-            'creditos' => ['required'],
-        ], [
-            'master' => 'Debe seleccionar el master al cual pertnece la asignatura.',
-            'code' => 'El campo codigo es obligatorio',
-            'numero_de_la_asignatura' => 'Las numero de la asignatura es obligatoria.',
-            'nombre' => 'El nombre de la asignatura es obligatoria.',
-            'creditos' => 'Los creditos de la asignatura es obligatoria.',
-        ]);
+        $request->validate(
+            [
+                //'master' => ['required'],
+                'code' => ['required'],
+                'numero_de_la_asignatura' => ['required'],
+                'nombre' => ['required'],
+                'creditos' => ['required'],
+            ],
+            [
+                'master' => 'Debe seleccionar el master al cual pertnece la asignatura.',
+                'code' => 'El campo codigo es obligatorio',
+                'numero_de_la_asignatura' => 'Las numero de la asignatura es obligatoria.',
+                'nombre' => 'El nombre de la asignatura es obligatoria.',
+                'creditos' => 'Los creditos de la asignatura es obligatoria.',
+            ],
+        );
 
         $masterId = $request->master;
         $asignatura = Asignatura::findOrFail($id);
@@ -163,8 +167,9 @@ class AsignaturasController extends Controller
             $asignatura->masters()->sync([$master->id]);
         }
 
-
-        return redirect()->route("asignatura.index")->with(["info" => "¡Se actualizó con éxito la asignatura y su relación con el master!"]);
+        return redirect()
+            ->route('asignatura.index')
+            ->with(['info' => '¡Se actualizó con éxito la asignatura y su relación con el master!']);
     }
 
     /**
@@ -183,7 +188,8 @@ class AsignaturasController extends Controller
         // Eliminar la asignatura
         $asignatura->delete();
 
-
-        return redirect()->route("asignatura.index")->with(["info" => "¡Se eliminó con éxito la asignatura y su relación con el master!"]);
+        return redirect()
+            ->route('asignatura.index')
+            ->with(['info' => '¡Se eliminó con éxito la asignatura y su relación con el master!']);
     }
 }

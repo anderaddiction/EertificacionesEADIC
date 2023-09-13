@@ -2,7 +2,7 @@
 @section('title', 'Cargar notas a matriculas')
 
 @section('content_header')
-    <h3>Cargar notas</h3>
+    <h3>Cargar actas</h3>
 @stop
 
 @section('content')
@@ -11,7 +11,8 @@
     <!-- Información personal del estudiante -->
     <div class="card p-2">
         <div class="card-body">
-            <h5 class="card-title">información del estudiante</h5>
+            <h5 class="card-title mb-2">Información del estudiante</h5>
+            <br>
             <hr>
 
             <!-- Información del estudiante -->
@@ -61,14 +62,15 @@
             </div>
 
             <!-- Tabla de asignaturas -->
-            <div class="mx-auto mt-4">
-                <table class="table table-light">
+            <div class="table-responsive">
+                <table class="mt-4 table table-light table-hover  table-sm  w-100 table-responsive">
                     <thead class="thead-dark">
                         <tr>
-                            <th>N. modulos</th>
-                            <th>Notas optenidas</th>
-                            <th>Estado</th>
-                            <th>Baremos</th>
+                            <th class="w-50">Nombre modulo</th>
+                            <th width="70px">Credito</th>
+                            <th width="100px">Nota</th>
+                            <th width="150px">Estado</th>
+                            <th>Baremo</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -95,6 +97,8 @@
                                             </div>
                                         @enderror
                                     </td>
+                                    <td><input type="text" class="form-control" name=""
+                                            value="{{ $asignatura->creditos }}" readonly></td>
                                     <!-- Campo Módulos -->
                                     <td>
                                         <input type="text" class="form-control modulo-input"
@@ -139,32 +143,33 @@
 
                     </tbody>
                 </table>
-                <div class="col-3">
-                    <label for="">Cerrrar actas:</label>
-                    <div class="form-group">
-                        <select class="form-control" name="bloqueado" required>
-                            <option disabled selected hidden>Seleccione </option>
-                            <option value="0">No</option>
-                            <option value="1">Si</option>
-                        </select>
-                    </div>
-                    @error('bloqueado')
-                        <div class="text-danger mx-auto">
-                            {{ $message }}
-                        </div>
-                    @enderror
-                </div>
-
-
-
-
-                <div class="float-right mt-3">
-                    <button type="submit" class="btn btn-primary">Guardar</button>
-                    <a href="{{ route('notas-de-matricula.buscar') }}" class="btn btn-danger">Cancelar</a>
-                </div>
             </div>
-            </form>
+            <div class="col-3">
+                <label for="">Cerrar actas:</label>
+                <div class="form-group">
+                    <select class="form-control" name="bloqueado" required>
+                        <option disabled selected hidden>Seleccione </option>
+                        <option value="0">No</option>
+                        <option value="1">Si</option>
+                    </select>
+                </div>
+                @error('bloqueado')
+                    <div class="text-danger mx-auto">
+                        {{ $message }}
+                    </div>
+                @enderror
+            </div>
+
+
+
+
+            <div class="float-right mt-3">
+                <button type="submit" class="btn btn-primary">Guardar</button>
+                <a href="{{ route('notas-de-matricula.buscar') }}" class="btn btn-danger">Cancelar</a>
+            </div>
         </div>
+        </form>
+
     </div>
 @stop
 

@@ -1,16 +1,16 @@
 @extends('adminlte::page')
 
-@section('title', 'Detalles de la matrícula')
+@section('title', 'Detalles del estudiante')
 
 @section('content_header')
-    <h1>Detalles de la matrícula</h1>
+    <h1>Detalles del estudiante</h1>
 @stop
 
 @section('content')
     <div class="container-fluid">
         <div class="card">
             <div class="card-header">
-                <h3 class="card-title">Detalles de la matrícula</h3>
+                <h3 class="card-title">Detalles del estudiante</h3>
             </div>
             <div class="card-body">
                 <div class="form-row">

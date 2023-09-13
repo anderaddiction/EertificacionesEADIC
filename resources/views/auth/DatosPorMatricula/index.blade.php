@@ -22,7 +22,7 @@
                 <br>
 
                 <div class="table-responsive">
-                    <table id="example2" class="table table-bordered table-hover">
+                    <table id="example2" class="table table-striped table-bordered nowrap" style="width:100%">
                         <thead class="text-center">
                             <tr>
                                 <th>ID</th>
@@ -42,7 +42,7 @@
                                     <td>{{ $datosPorMatricula->apellido }}</td>
                                     <td>{{ $datosPorMatricula->documento_de_identidad }}</td>
                                     <td>{{ $datosPorMatricula->email }}</td>
-                                    <td>{{ $datosPorMatricula->updated_at->diffForHumans() }}</td>
+                                    <td>{{ $datosPorMatricula->updated_at->format('d/m/Y') }}</td>
                                     <td>
                                         <div class="btn-group" role="group">
                                             <a href="{{ route('datos-de-matricula.show', $datosPorMatricula) }}"

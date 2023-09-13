@@ -1,17 +1,15 @@
 @extends('adminlte::page')
 
-@section('title', 'Datos por matricula')
+@section('title', 'Crear datos del estudiante')
 
 @section('content_header')
-    <h1>Datos por matricula</h1>
+    <h1>Crear datos del estudiante</h1>
 @stop
 
 @section('content')
     <div class="container-fluid">
         <div class="card">
-            <div class="card-header">
-                <h3 class="card-title"></h3>
-            </div>
+
             <div class="card-body">
                 <form method="POST" action="{{ route('datos-de-matricula.store') }}">
                     @csrf
