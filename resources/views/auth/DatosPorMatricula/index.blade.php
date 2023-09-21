@@ -1,7 +1,8 @@
 @extends('adminlte::page')
 @section('title', 'Lista de datos de matriculas')
 @section('content_header')
-    <h3>Lista de datos de matriculas</h3>
+    <h3>
+        Lista de datos de matriculas</h3>
 @stop
 @section('content')
 
@@ -30,6 +31,8 @@
                                 <th>Apellido</th>
                                 <th>Documento</th>
                                 <th>Email</th>
+                                <th>Nombre oportunidad</th>
+                                <th>Código único estudiante</th>
                                 <th>Última actualización</th>
                                 <th>Acción</th>
                             </tr>
@@ -42,7 +45,15 @@
                                     <td>{{ $datosPorMatricula->apellido }}</td>
                                     <td>{{ $datosPorMatricula->documento_de_identidad }}</td>
                                     <td>{{ $datosPorMatricula->email }}</td>
-                                    <td>{{ $datosPorMatricula->updated_at->format('d/m/Y') }}</td>
+                                    <td>{{ $datosPorMatricula->nombreOportunidad }}</td>
+                                    <td>{{ $datosPorMatricula->codigoUnicoEstudiante }}</td>
+                                    <td>
+                                        @if (is_null($datosPorMatricula->updated_at))
+                                            <p>No se posee fecha</p>
+                                        @else
+                                            {{ $datosPorMatricula->updated_at->format('d/m/Y') }}
+                                        @endif
+
                                     <td>
                                         <div class="btn-group" role="group">
                                             <a href="{{ route('datos-de-matricula.show', $datosPorMatricula) }}"

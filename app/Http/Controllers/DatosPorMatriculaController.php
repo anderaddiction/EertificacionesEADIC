@@ -16,7 +16,7 @@ class DatosPorMatriculaController extends Controller
      */
     public function index()
     {
-        $datosPorMatriculas = DatosPorMatricula::paginate(20);
+         $datosPorMatriculas = DatosPorMatricula::paginate(DatosPorMatricula::count());
         return view('auth.DatosPorMatricula.index',  [
             'datosPorMatriculas' => $datosPorMatriculas
         ]);
@@ -58,6 +58,8 @@ class DatosPorMatriculaController extends Controller
             'fecha_inicio' => 'required|date',
             'fecha_fin' => 'required|date',
             'numero_oportunidad' => 'required|string',
+             'codigoUnicoEstudiante' => 'required|string',
+              'nombreOportunidad' => 'required|string',
         ]);
 
         // Crea una nueva instancia del modelo y asigna los valores
@@ -76,6 +78,8 @@ class DatosPorMatriculaController extends Controller
         $datosPorMatricula->fecha_inicio = $request['fecha_inicio'];
         $datosPorMatricula->fecha_fin = $request['fecha_fin'];
         $datosPorMatricula->numero_oportunidad = $request['numero_oportunidad'];
+         $datosPorMatricula->codigoUnicoEstudiante = $request['codigoUnicoEstudiante'];
+          $datosPorMatricula->nombreOportunidad = $request['nombreOportunidad'];
 
         // Guarda el modelo en la base de datos
         $datosPorMatricula->save();
@@ -137,7 +141,8 @@ class DatosPorMatriculaController extends Controller
             'fecha_inicio' => $request->input('fecha_inicio'),
             'fecha_fin' => $request->input('fecha_fin'),
             'numero_oportunidad' => $request->input('numero_oportunidad'),
-            // Agrega aquí los demás campos que desees actualizar
+            'codigoUnicoEstudiante' => $request->input('codigoUnicoEstudiante'),
+            'nombreOportunidad' => $request->input('nombreOportunidad'),
         ]);
 
         return redirect()->route('datos-de-matricula.index', $id)

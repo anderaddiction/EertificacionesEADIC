@@ -158,6 +158,7 @@
                             <option disabled selected hidden>Seleccione </option>
                             <option value="0">No</option>
                             <option value="1">Si</option>
+                            <option value="2">Acta pendiente</option>
                         </select>
                     </div>
                     @error('bloqueado')
@@ -188,34 +189,46 @@
         <script>
             document.addEventListener('DOMContentLoaded', function() {
                 const modulos = document.querySelectorAll('.modulo-input');
+                const estados = document.querySelectorAll('select[name^="estado_"]');
+                const baremos = document.querySelectorAll('input[name^="baremos_"]');
 
                 function calcularCalificacion(moduloValue) {
                     if (isNaN(moduloValue)) {
                         return 'Invalido';
-                    } else if (moduloValue <= 5) {
+                    } else if (moduloValue <= 4.9) {
                         return 'Suspenso';
-                    } else if (moduloValue >= 5.1 && moduloValue <= 7) {
+                    } else if (moduloValue >= 5 && moduloValue <= 6.9) {
                         return 'Aprobado';
-                    } else if (moduloValue > 7 && moduloValue <= 9) {
+                    } else if (moduloValue >= 7 && moduloValue <= 8.9) {
                         return 'Notable';
-                    } else if (moduloValue >= 9 && moduloValue <= 10) {
+                    } else if (moduloValue <= 10) {
                         return 'Sobresaliente';
                     } else {
                         return 'Fuera de rango';
                     }
                 }
 
-                function updateBaremo() {
-                    const moduloValue = parseFloat(this.value);
-                    const baremoSelector = this.getAttribute('data-baremo-selector');
-                    const baremoInput = document.querySelector(baremoSelector);
+                function updateBaremo(index) {
+                    return function() {
+                        const moduloValue = parseFloat(modulos[index].value);
+                        const estadoValue = estados[index].value;
+                        const baremoInput = baremos[index];
 
-                    const calificacion = calcularCalificacion(moduloValue);
-                    baremoInput.value = calificacion;
+                        if (estadoValue === 'Pendiente') {
+                            baremoInput.value = 'Suspenso';
+                        } else {
+                            const calificacion = calcularCalificacion(moduloValue);
+                            baremoInput.value = calificacion;
+                        }
+                    };
                 }
 
-                modulos.forEach(modulo => {
-                    modulo.addEventListener('change', updateBaremo);
+                modulos.forEach((modulo, index) => {
+                    modulo.addEventListener('change', updateBaremo(index));
+                });
+
+                estados.forEach((estado, index) => {
+                    estado.addEventListener('change', updateBaremo(index));
                 });
             });
         </script>

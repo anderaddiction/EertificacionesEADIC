@@ -23,6 +23,8 @@ class DatosPorMatricula extends Model
         'fecha_inicio',
         'fecha_fin',
         'numero_oportunidad',
+        'codigoUnicoEstudiante',
+        'nombreOportunidad',
     ];
 
     public function master()

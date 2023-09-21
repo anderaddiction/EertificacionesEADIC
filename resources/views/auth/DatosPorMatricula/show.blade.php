@@ -1,16 +1,16 @@
 @extends('adminlte::page')
 
-@section('title', 'Detalles del estudiante')
+@section('title', 'Detalles de matricula')
 
 @section('content_header')
-    <h1>Detalles del estudiante</h1>
+    <h1>Detalles de matricula</h1>
 @stop
 
 @section('content')
     <div class="container-fluid">
         <div class="card">
             <div class="card-header">
-                <h3 class="card-title">Detalles del estudiante</h3>
+                <h3 class="card-title">Detalles de matricula</h3>
             </div>
             <div class="card-body">
                 <div class="form-row">
@@ -95,6 +95,16 @@
                         <label for="numero_oportunidad">Número de Oportunidad:</label>
                         <input name="numero_oportunidad" type="text" class="form-control" id="numero_oportunidad"
                             value="{{ $datosDeMatricula->numero_oportunidad }}" readonly>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="nombreOportunidad">Nombre Oportunidad:</label>
+                        <input name="nombreOportunidad" type="text" class="form-control" id="nombreOportunidad"
+                            value="{{ $datosDeMatricula->nombreOportunidad }}" readonly>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="codigoUnicoEstudiante">Código único estuditante:</label>
+                        <input name="codigoUnicoEstudiante" type="text" class="form-control"
+                            id="codigoUnicoEstudiante" value="{{ $datosDeMatricula->codigoUnicoEstudiante }}" readonly>
                     </div>
                     <a type="button" class="btn btn-secondary"
                         href="{{ route('datos-de-matricula.index') }}">Regresar</a>

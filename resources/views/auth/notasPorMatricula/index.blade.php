@@ -1,7 +1,7 @@
 @extends('adminlte::page')
-@section('title', 'Lista de datos de matriculas')
+@section('title', 'Lista de actas de matriculas')
 @section('content_header')
-    <h3>Lista de Notas por matriculas</h3>
+    <h3>Lista de actas de matriculas</h3>
 @stop
 @section('content')
 
@@ -30,6 +30,7 @@
                                 <th>Apellido</th>
                                 <th>DNI</th>
                                 <th>Master</th>
+                                <th>Edición Máster</th>
                                 <th>Universidad</th>
                                 <th>Email</th>
                                 <th>Situacion financiera</th>
@@ -44,7 +45,9 @@
                                     <td>{{ $datosPorMatricula->nombre }}</td>
                                     <td>{{ $datosPorMatricula->apellido }}</td>
                                     <td>{{ $datosPorMatricula->documento_de_identidad }}</td>
+
                                     <td>{{ $datosPorMatricula->master->master_code }}</td>
+                                    <td>{{ $datosPorMatricula->edicion_master }}</td>
                                     <td>{{ $datosPorMatricula->university->name }}</td>
                                     <td>{{ $datosPorMatricula->email }}</td>
                                     <td>{{ $datosPorMatricula->situacion_financiera }}
@@ -56,11 +59,13 @@
                                             ->get();
                                         ?>
                                         @if ($datosDeMatriculas->isEmpty())
-                                            <p>No tiene notas</p>
+                                            <p>No tiene actas</p>
                                         @else
                                             @foreach ($datosDeMatriculas as $datosDeMatricula)
                                                 @if ($datosDeMatricula->bloqueado == 1)
-                                                    <p>Bloqueado</p>
+                                                    <p>Avisar al estudiante</p>
+                                                @elseif ($datosDeMatricula->bloqueado == 2)
+                                                    <p>Se debe cargar notas </p>
                                                 @else
                                                     <p>No bloqueado</p>
                                                 @endif
@@ -73,7 +78,7 @@
 
                                             @if ($datosDeMatriculas->isEmpty())
                                                 <a href="{{ route('notas-de-matricula.create', $datosPorMatricula->id) }}"
-                                                    class="btn btn-primary btn-sm mx-2">Cargar notas</a>
+                                                    class="btn btn-primary btn-sm mx-2">Cargar actas</a>
                                             @else
                                                 @foreach ($datosDeMatriculas as $datosDeMatricula)
                                                     @if ($datosDeMatricula->bloqueado == 1)

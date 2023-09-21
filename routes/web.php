@@ -111,9 +111,19 @@ Route::prefix('admin')->group(function () {
     Route::resource('datos-de-matricula', DatosPorMatriculaController::class);
 
     // Notas por matricula
-
+    // buscar matricula
     Route::get('notas-de-matricula/buscar', [App\Http\Controllers\notasPorMatriculaController::class, 'buscar'])->name('notas-de-matricula.buscar');
     Route::post('notas-de-matricula/resultados', [App\Http\Controllers\notasPorMatriculaController::class, 'resultados'])->name('notas-de-matricula.resultados');
+    // fin buscar matricula
+
+    // buscar matricula para certificado
+    Route::get('notas-de-matricula/buscar-certificado', [App\Http\Controllers\notasPorMatriculaController::class, 'buscarCertificado'])->name('notas-de-matricula.buscar.certificados');
+
+    Route::post('notas-de-matricula/resultado-certificado', [App\Http\Controllers\notasPorMatriculaController::class, 'resultadoCertificado'])->name('notas-de-matricula.resultado.certificados');
+    // fin buscar matricula para certificado
+
+    // PDF notas por matricula
+    Route::get('notas-de-matricula/pdf-certificado/{id}', [App\Http\Controllers\notasPorMatriculaController::class, 'pdfCertificado'])->name('notas-de-matricula.pdf.certificados');
 
     Route::resource('notas-de-matricula', NotasPorMatriculaController::class)->except(['create']);
     Route::get('notas-de-matricula/create/{id}', [App\Http\Controllers\notasPorMatriculaController::class, 'create'])->name('notas-de-matricula.create');

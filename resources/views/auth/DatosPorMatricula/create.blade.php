@@ -1,9 +1,9 @@
 @extends('adminlte::page')
 
-@section('title', 'Crear datos del estudiante')
+@section('title', 'Crear datos de matricula')
 
 @section('content_header')
-    <h1>Crear datos del estudiante</h1>
+    <h1>Crear datos de matricula</h1>
 @stop
 
 @section('content')
@@ -174,6 +174,30 @@
                                 </div>
                             @enderror
                         </div>
+
+                        <div class="form-group col-md-6">
+                            <label for="nombreOportunidad">Nombre Oportunidad:</label>
+                            <input name="nombreOportunidad" type="text" class="form-control" id="nombreOportunidad"
+                                value="{{ old('nombreOportunidad') }}" placeholder="Nombre Oportunidad">
+                            @error('nombreOportunidad')
+                                <div class="text-danger mx-auto">
+                                    {{ $message }}
+                                </div>
+                            @enderror
+                        </div>
+
+                        <div class="form-group col-md-6">
+                            <label for="codigoUnicoEstudiante">Código único estudiante:</label>
+                            <input name="codigoUnicoEstudiante" type="text" class="form-control"
+                                id="codigoUnicoEstudiante" value="{{ old('codigoUnicoEstudiante') }}"
+                                placeholder="Codigo Unico estudiante">
+                            @error('codigoUnicoEstudiante')
+                                <div class="text-danger mx-auto">
+                                    {{ $message }}
+                                </div>
+                            @enderror
+                        </div>
+
                     </div>
                     <button type="submit" class="btn btn-primary">Guardar</button>
                 </form>

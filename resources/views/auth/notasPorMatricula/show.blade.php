@@ -70,6 +70,8 @@
                                 <th>Notas obtenidas</th>
                                 <th>Estado</th>
                                 <th>Baremos</th>
+                                <th width="70px">Crédito</th>
+
                             </tr>
                         </thead>
                         <tbody>
@@ -117,6 +119,10 @@
                                                     readonly>
                                             </div>
                                         </td>
+                                        <td><input type="text" class="form-control" name=""
+                                                value="{{ $asignaturaConsulta ? $asignaturaConsulta->creditos : 'No encontrado' }}"
+                                                readonly></td>
+                                        <td>
                                     </tr>
                                 @endfor
                             @endforeach

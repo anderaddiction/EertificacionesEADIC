@@ -387,45 +387,56 @@ return [
             'text' => 'Masters',
             'route'  => 'master.index',
             'icon' => 'fas fa-fw fa-book',
-            'can' => 'menu-restriction'
+           // 'can' => 'menu-restriction'
+        ],
+
+         [
+            'text'    => 'Asignaturas',
+            'icon'    => 'fa fa fa-list-alt',
+
+            'submenu' => [
+                [
+                    'text' => 'Crear asignaturas',
+                    'route'  => 'asignatura.create',
+
+                ],
+                [
+                    'text' => 'Filtrar de asignaturas',
+                    'route'  => 'asignatura.index',
+
+                ],
+            ],
         ],
         [
-            'text' => 'Crear asignaturas',
-            'route'  => 'asignatura.create',
-            'icon' => 'fas fa-fw fa-book',
-            'can' => 'menu-restriction',
-        ],
-        [
-            'text' => 'filtrar Asignaturas',
-            'route'  => 'asignatura.index',
-            'icon' => 'fas fa-fw fa-folder-open',
-            'can' => 'menu-restriction',
-        ],
-        [
-            'text'    => 'Estudiantes',
+            'text'    => 'Matriculas',
             'icon'    => 'fa fa-bar-chart',
 
             'submenu' => [
                 [
-                    'text' => 'Crear estudiante',
+                    'text' => 'Crear matriculas',
                     'route'  => 'datos-de-matricula.create',
 
                 ],
                 [
-                    'text' => 'Lista de estudiantes',
+                    'text' => 'Lista de matriculas',
                     'route'  => 'datos-de-matricula.index',
 
                 ],
             ],
         ],
         [
-            'text'    => 'Notas de matriculas',
+            'text'    => 'Actas de matriculas',
             'icon'    => 'fa file-text fa-file-text',
 
             'submenu' => [
                 [
                     'text' => 'Buscar Matricula',
                     'route'  => 'notas-de-matricula.buscar',
+
+                ],
+                 [
+                    'text' => 'Generar certificado',
+                    'route'  => 'notas-de-matricula.buscar.certificados',
 
                 ],
                 [

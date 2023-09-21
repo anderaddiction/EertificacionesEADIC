@@ -3,7 +3,7 @@
 @section('title', __('Masters'))
 
 @section('content_header')
-<h1>{{ __('Masters') }}</h1>
+    <h1>{{ __('Masters') }}</h1>
 @stop
 
 @section('content')
@@ -15,89 +15,96 @@
             </div>
             <!-- /.card-header -->
             <div class="card-body">
-                <div class="col-sm-1 mb-3">
-                    <a href="{{ route('master.create') }}" class="btn btn-block bg-gradient-primary" title="{{ __('Add') }}"><i
+                <div class="col-sm-12 mb-3 d-flex justify-content-between">
+                    <a href="{{ route('master.create') }}" class="btn bg-gradient-primary">Crear master<i
                             class="fas fa-pencil"></i></a>
+
+                    <a href="#" class="btn btn-success">Importar csv</a>
                 </div>
+
                 <div class="col-12 mb-3">
                     @if (session()->has('Success'))
-                    <div class="alert bg-teal alert-dismissible">
-                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-                        <h6><i class="icon fas fa-check"></i> Feliciades! {{ session('Success') }}</h6>
-                    </div>
+                        <div class="alert bg-teal alert-dismissible">
+                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                            <h6><i class="icon fas fa-check"></i> Felicidades! {{ session('Success') }}</h6>
+                        </div>
                     @endif
                 </div>
-                <table id="example2" class="table table-bordered table-hover dt-responsive nowrap">
-                    <thead class="text-center">
-                        <tr>
-                            <th>ID</th>
-                            <th>{{ __('Code') }}</th>
-                            <th>{{ __('Name') }}</th>
-                            <th>{{ __('Master Code') }}</th>
-                            <th>{{ __('Status') }}</th>
-                            {{-- <th>{{ __('Note') }}</th> --}}
-                            <th>{{ __('Created At') }}</th>
-                            <th>{{ __('Action') }}</th>
-                        </tr>
-                    </thead>
-                    <tbody class="text-center">
-                        @foreach ($masters as $master)
+                <div class="table-responsive">
+                    <table id="example2" class="table table-bordered table-hover dt-responsive nowrap">
+                        <thead class="text-center">
                             <tr>
-                                <td>{{ $master->present()->id() }}</td>
-                                <td>{{ $master->present()->code() }}</td>
-                                <td>{{ $master->present()->name() }}</td>
-                                <td>{{ $master->present()->codeMaster() }}</td>
-                                <td>{!! $master->present()->status() !!}</td>
-                                {{-- <td>{{ $master->present()->note() }}</td> --}}
-                                <td>{{ $master->present()->createdAt() }}</td>
-                                <td>
-                                    <form action="{{ route('master.destroy', $master) }}" method="POST">
-                                        @csrf
-                                        @method('DELETE')
-                                        {!! $master->present()->actionButtons() !!}
-                                    </form>
-                                </td>
+                                <th>ID</th>
+                                <th>{{ __('Code') }}</th>
+                                <th>{{ __('Name') }}</th>
+                                <th>{{ __('Master Code') }}</th>
+                                <th>{{ __('Status') }}</th>
+                                {{-- <th>{{ __('Note') }}</th> --}}
+                                <th>{{ __('Created At') }}</th>
+                                <th>{{ __('Action') }}</th>
                             </tr>
-                        @endforeach
-                    </tbody>
-                    <tfoot class="text-center">
-                        <tr>
-                            <th>ID</th>
-                            <th>{{ __('Code') }}</th>
-                            <th>{{ __('Name') }}</th>
-                            <th>{{ __('Master Code') }}</th>
-                            <th>{{ __('Status') }}</th>
-                            {{-- <th>{{ __('Note') }}</th> --}}
-                            <th>{{ __('Created At') }}</th>
-                            <th>{{ __('Action') }}</th>
-                        </tr>
-                    </tfoot>
-                </table>
+                        </thead>
+                        <tbody class="text-center">
+                            @foreach ($masters as $master)
+                                <tr>
+                                    <td>{{ $master->present()->id() }}</td>
+                                    <td>{{ $master->present()->code() }}</td>
+                                    <td>{{ $master->present()->name() }}</td>
+                                    <td>{{ $master->present()->codeMaster() }}</td>
+                                    <td>{!! $master->present()->status() !!}</td>
+                                    {{-- <td>{{ $master->present()->note() }}</td> --}}
+                                    <td>{{ $master->created_at->format('d/m/Y') }}</td>
+                                    <td>
+                                        <form action="{{ route('master.destroy', $master) }}" method="POST">
+                                            @csrf
+                                            @method('DELETE')
+                                            {!! $master->present()->actionButtons() !!}
+                                        </form>
+                                    </td>
+                                </tr>
+                            @endforeach
+                        </tbody>
+
+                    </table>
+                </div>
             </div>
-            <!-- /.card-body -->
-            <div class="card-footer">
-                Visit <a href="https://select2.github.io/">Select2 documentation</a> for more examples and information about
-                the plugin.
-            </div>
+
         </div>
         <!-- /.card -->
     </div>
 
 @stop
 
-@section('plugins.Select2', true)
+@section('plugins.Datatables', true)
+@section('plugins.Sweetalert2', true)
 
 @section('css')
-{{-- Here your customs css --}}
+    {{-- Incluye los estilos de DataTables y DataTables Buttons --}}
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.25/css/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.7.1/css/buttons.bootstrap4.min.css">
+    {{-- Aquí puedes agregar tu CSS personalizado si es necesario --}}
 @stop
 
 @section('js')
-<script>
-    $(document).ready(function () {
-        $("#example2").DataTable({
-            "responsive": true,
-            "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+    <script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.25/js/dataTables.bootstrap4.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.7.1/js/dataTables.buttons.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.7.1/js/buttons.bootstrap4.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.7.1/js/buttons.html5.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.7.1/js/buttons.print.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.7.1/js/buttons.colVis.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $("#example2").DataTable({
+                "responsive": false,
+                "buttons": ["copy", "csv", "excel", "print", "colvis"],
+                "dom": 'Bfrtip',
+                "lengthMenu": [
+                    [10, 25, 50, -1],
+                    [10, 25, 50, "All"]
+                ]
+            });
         });
-    });
-</script>
+    </script>
 @stop

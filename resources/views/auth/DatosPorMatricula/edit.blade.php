@@ -1,16 +1,16 @@
 @extends('adminlte::page')
 
-@section('title', 'Editar datos del estudiante')
+@section('title', 'Editar datos de matricula')
 
 @section('content_header')
-    <h1>Editar datos del estudiante</h1>
+    <h1>Editar datos de matricula</h1>
 @stop
 
 @section('content')
     <div class="container-fluid">
         <div class="card">
             <div class="card-header">
-                <h3 class="card-title">Datos del estudiante</h3>
+                <h3 class="card-title">Datos de matricula</h3>
             </div>
             <div class="card-body">
                 <form method="POST" action="{{ route('datos-de-matricula.update', $datosPorMatricula->id) }}">
@@ -181,6 +181,29 @@
                             <input name="numero_oportunidad" type="text" class="form-control" id="numero_oportunidad"
                                 value="{{ $datosPorMatricula->numero_oportunidad }}" placeholder="Número Oportunidad">
                             @error('numero_oportunidad')
+                                <div class="text-danger mx-auto">
+                                    {{ $message }}
+                                </div>
+                            @enderror
+                        </div>
+
+                        <div class="form-group col-md-6">
+                            <label for="nombreOportunidad">Nombre Oportunidad:</label>
+                            <input name="nombreOportunidad" type="text" class="form-control" id="nombreOportunidad"
+                                value="{{ $datosPorMatricula->nombreOportunidad }}" placeholder="Número Oportunidad">
+                            @error('nombreOportunidad')
+                                <div class="text-danger mx-auto">
+                                    {{ $message }}
+                                </div>
+                            @enderror
+                        </div>
+
+                        <div class="form-group col-md-6">
+                            <label for="codigoUnicoEstudiante">Código único estudiante:</label>
+                            <input name="codigoUnicoEstudiante" type="text" class="form-control"
+                                id="codigoUnicoEstudiante" value="{{ $datosPorMatricula->codigoUnicoEstudiante }}"
+                                placeholder="Número Oportunidad">
+                            @error('codigoUnicoEstudiante')
                                 <div class="text-danger mx-auto">
                                     {{ $message }}
                                 </div>

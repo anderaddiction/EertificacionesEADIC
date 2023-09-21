@@ -19,7 +19,7 @@ class CreateAsignaturaTable extends Migration
             $table->text('numero_de_la_asignatura');
             $table->text('nombre');
             $table->text('creditos');
-            $table->text('slug')->unique();
+            $table->text('slug');
             $table->softDeletes();
             $table->timestamps();
         });

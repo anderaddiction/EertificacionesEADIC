@@ -29,6 +29,8 @@ class CreateDatosPorMatriculaTable extends Migration
             $table->text('fecha_inicio');
             $table->text('fecha_fin');
             $table->text('numero_oportunidad');
+            $table->string('codigoUnicoEstudiante');
+            $table->string('nombreOportunidad');
             $table->timestamps();
 
             $table->foreign('id_master')->references('id')->on('masters');
