@@ -393,17 +393,17 @@ return [
          [
             'text'    => 'Asignaturas',
             'icon'    => 'fa fa fa-list-alt',
-
+ 'can' => 'menu-restriction',
             'submenu' => [
                 [
                     'text' => 'Crear asignaturas',
                     'route'  => 'asignatura.create',
-
+ 'can' => 'menu-restriction',
                 ],
                 [
                     'text' => 'Filtrar de asignaturas',
                     'route'  => 'asignatura.index',
-
+ 'can' => 'menu-restriction',
                 ],
             ],
         ],

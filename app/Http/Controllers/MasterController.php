@@ -20,7 +20,7 @@ class MasterController extends Controller
      */
     public function index()
     {
-        $masters = Master::orderBy('id', 'ASC')->paginate(20);
+        $masters = Master::orderBy('id', 'ASC')->paginate(Master::count());
         return view('auth.masters.index', [
             'masters' => $masters
         ]);
@@ -47,12 +47,16 @@ class MasterController extends Controller
      */
     public function store(MasterRequest $request)
     {
-        Master::create(
-            $request->validated()
-                + ['code' => app(Master::class)->getRandomString()]
-                + ['slug' => app(Master::class)->generateUrl($request->name)]
-        );
-        return redirect()->back()->with('Success', 'Data stored Successfully');
+
+         $validatedData = $request->validated();
+    $validatedData['code'] =  $request->code;
+
+    Master::create(
+        $validatedData
+            + ['slug' => app(Master::class)->generateUrl($request->name)]
+    );
+
+    return redirect()->back()->with('Success', 'Data stored Successfully');
     }
 
     /**
@@ -89,15 +93,19 @@ class MasterController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(MasterRequest $request, Master $master)
-    {
-        $master->update(
-            $request->validated()
-                + ['slug' => app(Master::class)->generateUrl($request->name)]
-        );
-        return redirect()->route('master.edit', [
-            'master' => $master
-        ])->with('Success', 'Data updated Successfully');
-    }
+{
+    $validatedData = $request->validated();
+    $validatedData['code'] = $request->code;
+
+    $master->update(
+        $validatedData
+            + ['slug' => app(Master::class)->generateUrl($request->name)]
+    );
+
+    return redirect()->route('master.edit', [
+        'master' => $master
+    ])->with('Success', 'Data updated Successfully');
+}
 
     /**
      * Remove the specified resource from storage.
