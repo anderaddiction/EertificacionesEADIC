@@ -17,9 +17,76 @@
         </script>
     @endif
     <div class="container-fluid">
+        @if ($errors->any())
+            <div class="alert alert-danger mt-3">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
         <div class="card">
             <div class="card-body">
-                <h5 class="card-title"> Mostrar la tabla</h5>
+                <!-- Botón que abre el modal -->
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+                    Importar CSV
+                </button>
+                <br>
+                <!-- El Modal -->
+                <div class="modal fade " id="myModal">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+
+                            <!-- Cabecera del Modal -->
+                            <div class="modal-header">
+                                <h4 class="modal-title">Acciones CSV</h4>
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            </div>
+
+                            <!-- Contenido del Modal -->
+                            <div class="modal-body">
+                                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Pariatur cum nobis, eligendi,
+                                    consectetur quibusdam adipisci natus accusamus possimus beatae perferendis itaque sint
+                                    totam earum quia atque aliquid? Voluptate, pariatur placeat?</p>
+                                <button type="button" class="btn btn-secundary">
+                                    <i class="fas fa-arrow-down"></i> Descargar platilla CSV
+                                </button>
+                                <br>
+                                <p>Seleccione una acción:</p>
+
+                                <br>
+
+                                <form action="{{ route('datos-de-matricula.cargar-csv') }}" method="POST"
+                                    enctype="multipart/form-data">
+                                    @csrf
+                                    <div class="input-group">
+                                        <div class="custom-file">
+                                            <input type="file" class="custom-file-input" id="excelFile" name="excelFile">
+                                            <label class="custom-file-label" for="excelFile">Selecciona un archivo
+                                                CSV</label>
+                                        </div>
+                                        <div class="input-group-append">
+                                            <button type="submit" class="btn btn-success">
+                                                <i class="fas fa-upload"></i> Cargar CSV
+                                            </button>
+                                        </div>
+                                    </div>
+                                </form>
+
+
+
+                            </div>
+
+                            <!-- Pie del Modal -->
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
                 <br>
 
                 <div class="table-responsive">

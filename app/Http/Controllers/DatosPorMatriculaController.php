@@ -2,10 +2,17 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
+
+use Maatwebsite\Excel\Facades\Excel;
 use App\DatosPorMatricula;
 use App\Master;
 use App\University;
 use Illuminate\Http\Request;
+use App\Imports\datosPorMatriculaImport;
+
+use function PHPUnit\Framework\returnArgument;
 
 class DatosPorMatriculaController extends Controller
 {
@@ -14,9 +21,29 @@ class DatosPorMatriculaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    public function cargarCSV(Request $request)
+    {
+
+        try {
+            // Importa los datos desde el archivo Excel y guarda los registros en la base de datos
+            \Excel::import(new DatosPorMatriculaImport, $request->file('excelFile'));
+
+            return redirect()->back()->with('success', 'Datos importados correctamente.');
+        } catch (\Illuminate\Validation\ValidationException $e) {
+            $errors = $e->errors();
+            \Log::error('Errores de validación: ' . json_encode($errors));
+            return back()->withErrors('Error al procesar el archivo Excel: ' . json_encode($errors));
+        } catch (\Exception $e) {
+            \Log::error('Error al procesar el archivo Excel: ' . $e->getMessage());
+            return back()->withErrors('Error al procesar el archivo Excel: ' . $e->getMessage());
+        }
+    }
+    //   return 'Error al procesar el archivo Excel: ';
+
     public function index()
     {
-         $datosPorMatriculas = DatosPorMatricula::paginate(DatosPorMatricula::count());
+        $datosPorMatriculas = DatosPorMatricula::paginate(DatosPorMatricula::count());
         return view('auth.DatosPorMatricula.index',  [
             'datosPorMatriculas' => $datosPorMatriculas
         ]);
@@ -58,8 +85,8 @@ class DatosPorMatriculaController extends Controller
             'fecha_inicio' => 'required|date',
             'fecha_fin' => 'required|date',
             'numero_oportunidad' => 'required|string',
-             'codigoUnicoEstudiante' => 'required|string',
-              'nombreOportunidad' => 'required|string',
+            'codigoUnicoEstudiante' => 'required|string',
+            'nombreOportunidad' => 'required|string',
         ]);
 
         // Crea una nueva instancia del modelo y asigna los valores
@@ -78,8 +105,8 @@ class DatosPorMatriculaController extends Controller
         $datosPorMatricula->fecha_inicio = $request['fecha_inicio'];
         $datosPorMatricula->fecha_fin = $request['fecha_fin'];
         $datosPorMatricula->numero_oportunidad = $request['numero_oportunidad'];
-         $datosPorMatricula->codigoUnicoEstudiante = $request['codigoUnicoEstudiante'];
-          $datosPorMatricula->nombreOportunidad = $request['nombreOportunidad'];
+        $datosPorMatricula->codigoUnicoEstudiante = $request['codigoUnicoEstudiante'];
+        $datosPorMatricula->nombreOportunidad = $request['nombreOportunidad'];
 
         // Guarda el modelo en la base de datos
         $datosPorMatricula->save();

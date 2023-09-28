@@ -23,19 +23,15 @@ Route::get('/', function () {
     return view('auth.students.login');
 });
 
-Route::prefix('eadic-auth')->group(
-    function () {
-        Route::get('/alumnos-login', 'StudentController@index')->name('alumnos-login');
-        Route::post('/alumnos-autenticacion', 'StudentController@auth')->name('alumnos-autenticacion');
-    }
-);
-
+Route::prefix('eadic-auth')->group(function () {
+    Route::get('/alumnos-login', 'StudentController@index')->name('alumnos-login');
+    Route::post('/alumnos-autenticacion', 'StudentController@auth')->name('alumnos-autenticacion');
+});
 
 Route::prefix('suporte')->group(function () {
     Route::get('aulumno', function () {
         return view('soporte.links.index');
-    })
-        ->name('soporte.alumno');
+    })->name('soporte.alumno');
 });
 
 Route::prefix('oficina-virtual')->group(function () {
@@ -62,9 +58,6 @@ Route::prefix('tramites')->group(function () {
     Route::post('/certificados/alumno-activo', [AlumnosActivosController::class, 'find'])->name('certificado.find');
     Route::post('/certificados/desacargar-certificado', [AlumnosActivosController::class, 'downloadPDF'])->name('certificado.descarga');
 });
-
-
-
 
 Route::get('/clear-cache', function () {
     $exitCode = Artisan::call('config:cache');
@@ -110,9 +103,13 @@ Route::prefix('admin')->group(function () {
 
     Route::resource('datos-de-matricula', DatosPorMatriculaController::class);
 
+    //CARGAR ARCHIVOS CSV
+    Route::post('datos-de-matricula/cargar-csv', [App\Http\Controllers\DatosPorMatriculaController::class, 'cargarCSV'])->name('datos-de-matricula.cargar-csv');
+
     // Notas por matricula
     // buscar matricula
     Route::get('notas-de-matricula/buscar', [App\Http\Controllers\notasPorMatriculaController::class, 'buscar'])->name('notas-de-matricula.buscar');
+
     Route::post('notas-de-matricula/resultados', [App\Http\Controllers\notasPorMatriculaController::class, 'resultados'])->name('notas-de-matricula.resultados');
     // fin buscar matricula
 
@@ -127,9 +124,6 @@ Route::prefix('admin')->group(function () {
 
     Route::resource('notas-de-matricula', NotasPorMatriculaController::class)->except(['create']);
     Route::get('notas-de-matricula/create/{id}', [App\Http\Controllers\notasPorMatriculaController::class, 'create'])->name('notas-de-matricula.create');
-
-
-
 
     //Roles
     Route::resource('roles', RoleController::class)
@@ -147,8 +141,7 @@ Route::prefix('admin')->group(function () {
         ->names('user');
 
     //Reportes
-    Route::get('log/cerficados-activos-descargados', [LogController::class, 'certificadoActivoDescargadoLog'])
-        ->name('certificado_activo_log');
+    Route::get('log/cerficados-activos-descargados', [LogController::class, 'certificadoActivoDescargadoLog'])->name('certificado_activo_log');
 
     Route::prefix('territorios')->group(function () {
         Route::resource('countries', CountryController::class)
