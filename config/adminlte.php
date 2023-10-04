@@ -323,7 +323,7 @@ return [
             'header' => 'admin_settings',
             'can' => 'menu-restriction'
         ],
-        [
+        /* [
             'text' => 'Roles',
             'route'  => 'role.index',
             'icon' => 'fas fa-fw fa-lock',
@@ -334,25 +334,145 @@ return [
             'route'  => 'user.index',
             'icon' => 'fas fa-fw fa-users',
             'can' => 'menu-restriction'
-        ],
+        ],*/
+
         [
-            'text' => 'Categories',
-            'route'  => 'category.index',
-            'icon' => 'fas fa-fw fa-tag',
-            'can' => 'menu-restriction'
+            'text'    => 'Opciones Admin',
+            'icon'    => 'fas fa-fw fa-share',
+            //'can' => 'menu-restriction',
+            'active'  => true,
+            'open'    => true,
+            'submenu' => [
+                [
+                    'text'    => 'Usuarios y Roles',
+
+                    'submenu' => [
+                        [
+                            'text' => 'Users',
+                            'route'  => 'user.index',
+                            'icon' => 'fas fa-fw fa-users',
+
+                        ],
+                        [
+                            'text' => 'Roles',
+                            'route'  => 'role.index',
+                            'icon' => 'fas fa-fw fa-lock',
+                        ],
+                    ],
+                ],
+
+                [
+                    'text'    => 'Universidades',
+                    'submenu' => [
+                        [
+                            'text' => 'Categories',
+                            'route'  => 'category.index',
+                            'icon' => 'fas fa-fw fa-tag',
+                            'shift'   => 'ml-3',
+
+                        ],
+                        [
+                            'text' => 'Universities',
+                            'route'  => 'university.index',
+                            'icon' => 'fa fa-university',
+                            'shift'   => 'ml-3',
+                        ],
+                        [
+                            'text' => 'Concepts',
+                            'route'  => 'concept.index',
+                            'icon' => 'fas fa-fw fa-book',
+                            'shift'   => 'ml-3',
+                        ],
+                        [
+                            'text'    => 'Territorios',
+                            'icon'    => 'fa fa-globe',
+                            'shift'   => 'ml-3',
+
+                            'submenu' => [
+                                [
+                                    'text' => 'Paises',
+                                    'route'  => 'country.index',
+                                    'shift'   => 'ml-4',
+                                ]
+                            ],
+                        ],
+
+                    ],
+                ],
+
+
+
+                [
+                    'text'    => 'Masters',
+                    'submenu' => [
+
+                        [
+                            'text' => 'Lista de Masters',
+                            'route'  => 'master.index',
+                            'icon' => 'fas fa-fw fa-book',
+                            'shift'   => 'ml-3',
+                        ],
+
+                        [
+                            'text'    => 'Asignaturas',
+                            'icon'    => 'fa fa fa-list-alt',
+                            'shift'   => 'ml-3',
+                            'submenu' => [
+                                [
+                                    'text' => 'Crear asignaturas',
+                                    'route'  => 'asignatura.create',
+                                    'shift'   => 'ml-4',
+
+                                ],
+                                [
+                                    'text' => 'Filtrar de asignaturas',
+                                    'route'  => 'asignatura.index',
+                                    'shift'   => 'ml-4',
+                                ],
+                            ],
+                        ],
+                    ],
+                ],
+                [
+                    'text'    => 'Matriculas',
+                    'icon'    => 'fa fa-bar-chart',
+                    'submenu' => [
+                        [
+                            'text' => 'Crear matriculas',
+                            'route'  => 'datos-de-matricula.create',
+                            'shift'   => 'ml-3',
+                        ],
+                        [
+                            'text' => 'Lista de matriculas',
+                            'route'  => 'datos-de-matricula.index',
+                            'shift'   => 'ml-3',
+                        ],
+                    ],
+                ],
+                [
+                    'text'    => 'Actas de matriculas',
+                    'icon'    => 'fa file-text fa-file-text',
+                    'submenu' => [
+                        [
+                            'text' => 'Buscar Matricula',
+                            'route'  => 'notas-de-matricula.buscar',
+                            'shift'   => 'ml-3',
+                        ],
+                        [
+                            'text' => 'Generar certificado',
+                            'route'  => 'notas-de-matricula.buscar.certificados',
+                            'shift'   => 'ml-3',
+                        ],
+                        [
+                            'text' => 'Lista de notas de matriculas',
+                            'route'  => 'notas-de-matricula.index',
+                            'shift'   => 'ml-3',
+                        ],
+                    ],
+                ],
+            ],
         ],
-        [
-            'text' => 'Universities',
-            'route'  => 'university.index',
-            'icon' => 'fa fa-university',
-            'can' => 'menu-restriction'
-        ],
-        [
-            'text' => 'Concepts',
-            'route'  => 'concept.index',
-            'icon' => 'fas fa-fw fa-book',
-            'can' => 'menu-restriction'
-        ],
+
         [
             'text'    => 'Formalities Status',
             'icon'    => 'fa fa-bar-chart',
@@ -367,82 +487,6 @@ return [
                     'text' => 'Certificate Status',
                     'route'  => 'certificate_status.index',
                     'can' => 'menu-restriction'
-                ],
-            ],
-        ],
-
-        [
-            'text'    => 'Territorios',
-            'icon'    => 'fa fa-globe',
-            'can' => 'menu-restriction',
-            'submenu' => [
-                [
-                    'text' => 'Paises',
-                    'route'  => 'country.index',
-                    'can' => 'menu-restriction'
-                ]
-            ],
-        ],
-        [
-            'text' => 'Masters',
-            'route'  => 'master.index',
-            'icon' => 'fas fa-fw fa-book',
-           // 'can' => 'menu-restriction'
-        ],
-
-         [
-            'text'    => 'Asignaturas',
-            'icon'    => 'fa fa fa-list-alt',
- 'can' => 'menu-restriction',
-            'submenu' => [
-                [
-                    'text' => 'Crear asignaturas',
-                    'route'  => 'asignatura.create',
- 'can' => 'menu-restriction',
-                ],
-                [
-                    'text' => 'Filtrar de asignaturas',
-                    'route'  => 'asignatura.index',
- 'can' => 'menu-restriction',
-                ],
-            ],
-        ],
-        [
-            'text'    => 'Matriculas',
-            'icon'    => 'fa fa-bar-chart',
-
-            'submenu' => [
-                [
-                    'text' => 'Crear matriculas',
-                    'route'  => 'datos-de-matricula.create',
-
-                ],
-                [
-                    'text' => 'Lista de matriculas',
-                    'route'  => 'datos-de-matricula.index',
-
-                ],
-            ],
-        ],
-        [
-            'text'    => 'Actas de matriculas',
-            'icon'    => 'fa file-text fa-file-text',
-
-            'submenu' => [
-                [
-                    'text' => 'Buscar Matricula',
-                    'route'  => 'notas-de-matricula.buscar',
-
-                ],
-                 [
-                    'text' => 'Generar certificado',
-                    'route'  => 'notas-de-matricula.buscar.certificados',
-
-                ],
-                [
-                    'text' => 'Lista de notas de matriculas',
-                    'route'  => 'notas-de-matricula.index',
-
                 ],
             ],
         ],
