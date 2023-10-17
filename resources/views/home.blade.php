@@ -38,7 +38,7 @@
                     <div class="card-body">
                         <div class="row">
                             <div class="title p-2">
-                                <h4>¿Tienes tú número de ticket?</h4>
+                                <h4>¿Tienes número de ticket de solicitud de trámite?</h4>
                                 <p class="text-justify">Recuerda que tu número de ticket es el que creaste en nuestra
                                     plataforma Soporte EADIC, donde adjuntaste el justificante
                                     de pago para iniciar con el trámite de diploma.</p>

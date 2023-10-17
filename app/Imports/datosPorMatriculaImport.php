@@ -13,10 +13,10 @@ class DatosPorMatriculaImport implements ToModel, WithHeadingRow
     {
         $rules = [
             'id' => 'nullable',
-            'nombre' => 'required',
-            'apellido' => 'required',
+            'nombre' => 'nullable',
+            'apellido' => 'nullable',
             'documento_de_identidad' => 'nullable',
-            'email' => 'required|email',
+            'email' => 'nullable|email',
             'id_master' => 'nullable',
             'id_universities' => 'nullable',
             'situacion_financiera' => 'nullable',

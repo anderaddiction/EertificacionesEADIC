@@ -37,115 +37,134 @@
                 <div class="modal fade " id="myModal">
                     <div class="modal-dialog">
                         <div class="modal-content">
+                            <form action="{{ route('datos-de-matricula.cargar-csv') }}" method="POST"
+                                enctype="multipart/form-data">
 
-                            <!-- Cabecera del Modal -->
-                            <div class="modal-header">
-                                <h4 class="modal-title">Acciones CSV o Excel</h4>
-                                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                            </div>
-
-                            <!-- Contenido del Modal -->
-                            <div class="modal-body">
-                                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Pariatur cum nobis, eligendi,
-                                    consectetur quibusdam adipisci natus accusamus possimus beatae perferendis itaque sint
-                                    totam earum quia atque aliquid? Voluptate, pariatur placeat?</p>
-                                <a href="/documents/plantilla.xlsx" class="btn btn-secondary" download>
-                                    <i class="fas fa-arrow-down"></i> Descargar plantilla XML
-                                </a>
-                                <br>
-                                <p>Seleccione una acción:</p>
-
-                                <br>
-
-                                @csrf
-                                <div class="input-group">
-                                    <div class="custom-file">
-                                        <input type="file" class="custom-file-input" id="excelFile" name="excelFile">
-                                        <label class="custom-file-label" for="excelFile">Selecciona un archivo
-                                            CSV</label>
-                                    </div>
-                                    <div class="input-group-append">
-                                        <button type="submit" class="btn btn-success">
-                                            <i class="fas fa-upload"></i> Cargar CSV
-                                        </button>
-                                    </div>
+                                <!-- Cabecera del Modal -->
+                                <div class="modal-header">
+                                    <h4 class="modal-title">Importacion alumno masiva</h4>
+                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
                                 </div>
-                                </form>
+
+                                <!-- Contenido del Modal -->
+                                <div class="modal-body">
+
+                                    <p style="text-align:center;">
+                                        <i style=" font-weight:bold;">Primero:</i> Descargar la plantilla (Descargar la
+                                        plantilla en forma de botón)
+                                    </p>
+                                    <p style="text-align:center;">
+                                        <i style=" font-weight:bold;">Segundo:</i> Llenar la plantilla respetando las
+                                        columnas
+                                    </p>
+                                    <p style="text-align:center;">
+                                        <i style=" font-weight:bold;">Tercero:</i> Borrar la cabecera de la plantilla
+                                    </p>
+                                    <p style="text-align:center;">
+                                        <i style=" font-weight:bold;">Cuarto:</i> Guardar en formato CSV, separado por coma
+                                        ( , )
+                                    </p>
+                                    <p style="text-align:center;">
+                                        <i style=" font-weight:bold;">Quinto:</i> Cargar la plantilla llena en el botón
+                                        "Seleccionar Archivo"
+                                    </p>
+                                    <a href="{{ url('/descargar-csv') }}" class="btn btn-secondary">
+                                        <i class="fas fa-arrow-down"></i> Descargar plantilla
+                                    </a>
+                                    <br>
+                                    <p>Seleccione una acción:</p>
+
+                                    <br>
+
+                                    @csrf
+                                    <div class="input-group">
+                                        <div class="custom-file">
+                                            <input type="file" class="custom-file-input" id="excelFile" name="excelFile">
+                                            <label class="custom-file-label" for="excelFile">Selecciona un archivo
+                                                CSV</label>
+                                        </div>
+                                        <div class="input-group-append">
+                                            <button type="submit" class="btn btn-success">
+                                                <i class="fas fa-upload"></i> Cargar CSV
+                                            </button>
+                                        </div>
+                                    </div>
+                            </form>
 
 
-
-                            </div>
-
-                            <!-- Pie del Modal -->
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
-                            </div>
 
                         </div>
+
+                        <!-- Pie del Modal -->
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+                        </div>
+
                     </div>
                 </div>
+            </div>
 
-                <br>
+            <br>
 
-                <div class="table-responsive">
-                    <table id="example2" class="table table-striped table-bordered nowrap" style="width:100%">
-                        <thead class="text-center">
+            <div class="table-responsive">
+                <table id="example2" class="table table-striped table-bordered nowrap" style="width:100%">
+                    <thead class="text-center">
+                        <tr>
+                            <th>ID</th>
+                            <th>Nombre</th>
+                            <th>Apellido</th>
+                            <th>Documento</th>
+                            <th>Email</th>
+                            <th>Nombre oportunidad</th>
+                            <th>Código único estudiante</th>
+                            <th>Última actualización</th>
+                            <th>Acción</th>
+                        </tr>
+                    </thead>
+                    <tbody class="text-center">
+                        @foreach ($datosPorMatriculas as $datosPorMatricula)
                             <tr>
-                                <th>ID</th>
-                                <th>Nombre</th>
-                                <th>Apellido</th>
-                                <th>Documento</th>
-                                <th>Email</th>
-                                <th>Nombre oportunidad</th>
-                                <th>Código único estudiante</th>
-                                <th>Última actualización</th>
-                                <th>Acción</th>
-                            </tr>
-                        </thead>
-                        <tbody class="text-center">
-                            @foreach ($datosPorMatriculas as $datosPorMatricula)
-                                <tr>
-                                    <td>{{ $datosPorMatricula->id }}</td>
-                                    <td>{{ $datosPorMatricula->nombre }}</td>
-                                    <td>{{ $datosPorMatricula->apellido }}</td>
-                                    <td>{{ $datosPorMatricula->documento_de_identidad }}</td>
-                                    <td>{{ $datosPorMatricula->email }}</td>
-                                    <td>{{ $datosPorMatricula->nombreOportunidad }}</td>
-                                    <td>{{ $datosPorMatricula->codigoUnicoEstudiante }}</td>
-                                    <td>
-                                        @if (is_null($datosPorMatricula->updated_at))
-                                            <p>No se posee fecha</p>
-                                        @else
-                                            {{ $datosPorMatricula->updated_at->format('d/m/Y') }}
-                                        @endif
+                                <td>{{ $datosPorMatricula->id }}</td>
+                                <td>{{ $datosPorMatricula->nombre }}</td>
+                                <td>{{ $datosPorMatricula->apellido }}</td>
+                                <td>{{ $datosPorMatricula->documento_de_identidad }}</td>
+                                <td>{{ $datosPorMatricula->email }}</td>
+                                <td>{{ $datosPorMatricula->nombreOportunidad }}</td>
+                                <td>{{ $datosPorMatricula->codigoUnicoEstudiante }}</td>
+                                <td>
+                                    @if (is_null($datosPorMatricula->updated_at))
+                                        <p>No se posee fecha</p>
+                                    @else
+                                        {{ $datosPorMatricula->updated_at->format('d/m/Y') }}
+                                    @endif
 
-                                    <td>
-                                        <div class="btn-group" role="group">
-                                            <a href="{{ route('datos-de-matricula.show', $datosPorMatricula) }}"
-                                                class="btn btn-info btn-sm">
-                                                <i class="fas fa-eye"></i>
-                                            </a>
-                                            <a href="{{ route('datos-de-matricula.edit', $datosPorMatricula) }}"
-                                                class="btn btn-success btn-sm mx-2">
-                                                <i class="fas fa-edit"></i>
-                                            </a>
-                                            <form action="{{ route('datos-de-matricula.destroy', $datosPorMatricula) }}"
-                                                method="POST">
-                                                @csrf
-                                                @method('DELETE')
-                                                <button type="submit" class="btn btn-danger delete-button">
-                                                    <i class="fas fa-trash"></i>
-                                                </button>
-                                            </form>
-                                        </div>
-                                    </td>
-                                </tr>
-                            @endforeach
-                        </tbody>
-                    </table>
-                </div>
+                                <td>
+                                    <div class="btn-group" role="group">
+                                        <a href="{{ route('datos-de-matricula.show', $datosPorMatricula) }}"
+                                            class="btn btn-info btn-sm">
+                                            <i class="fas fa-eye"></i>
+                                        </a>
+                                        <a href="{{ route('datos-de-matricula.edit', $datosPorMatricula) }}"
+                                            class="btn btn-success btn-sm mx-2">
+                                            <i class="fas fa-edit"></i>
+                                        </a>
+                                        <form action="{{ route('datos-de-matricula.destroy', $datosPorMatricula) }}"
+                                            method="POST">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit" class="btn btn-danger delete-button">
+                                                <i class="fas fa-trash"></i>
+                                            </button>
+                                        </form>
+                                    </div>
+                                </td>
+                            </tr>
+                        @endforeach
+                    </tbody>
+                </table>
             </div>
         </div>
+    </div>
     </div>
 @stop
 @section('plugins.Datatables', true)

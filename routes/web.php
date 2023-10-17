@@ -7,7 +7,7 @@ use App\Http\Controllers\LogController;
 use App\Http\Controllers\OficinaVirtualController;
 use App\Http\Controllers\MatriculaStatusController;
 use App\Http\Controllers\Tramites\TramiteDiplomaController;
-
+use Illuminate\Support\Facades\Response;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -148,4 +148,11 @@ Route::prefix('admin')->group(function () {
             ->parameters(['country' => 'country'])
             ->names('country');
     });
+});
+
+
+Route::get('/descargar-csv', function () {
+    $rutaArchivo = public_path('documents/plantilla.csv'); 
+
+    return Response::download($rutaArchivo, 'plantilla.csv');
 });
