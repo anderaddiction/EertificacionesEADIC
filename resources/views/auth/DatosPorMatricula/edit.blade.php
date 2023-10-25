@@ -155,6 +155,29 @@
                         </div>
 
                         <div class="form-group col-md-6">
+                            <label for="numero_de_edicion">Numero de edición:</label>
+                            <input name="numero_de_edicion" type="text" class="form-control" id="numero_de_edicion"
+                                value="{{ $datosPorMatricula->numero_de_edicion }}" placeholder="Numero de edición">
+                            @error('numero_de_edicion')
+                                <div class="text-danger mx-auto">
+                                    {{ $message }}
+                                </div>
+                            @enderror
+                        </div>
+
+                        <div class="form-group col-md-6">
+                            <label for="codigo_de_edicion">Codigo de Edición:</label>
+                            <input name="codigo_de_edicion" type="text" class="form-control" id="codigo_de_edicion"
+                                value="{{ $datosPorMatricula->codigo_de_edicion }}" placeholder="Edición Master">
+                            @error('codigo_de_edicion')
+                                <div class="text-danger mx-auto">
+                                    {{ $message }}
+                                </div>
+                            @enderror
+                        </div>
+
+
+                        <div class="form-group col-md-6">
                             <label for="fecha_inicio">Fecha Inicio:</label>
                             <input name="fecha_inicio" type="date" class="form-control" id="fecha_inicio"
                                 value="{{ $datosPorMatricula->fecha_inicio }}" placeholder="Fecha Inicio">

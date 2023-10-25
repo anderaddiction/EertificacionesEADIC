@@ -1,9 +1,13 @@
 @extends('adminlte::page')
 @section('title', 'Lista de datos de matriculas')
 @section('content_header')
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
     <h3>
         Lista de datos de matriculas</h3>
 @stop
+
+
 @section('content')
 
     @if (session('info'))
@@ -47,26 +51,27 @@
                                 </div>
 
                                 <!-- Contenido del Modal -->
-                                <div class="modal-body">
+                                <div class="modal-body texte-justify">
 
-                                    <p style="text-align:center;">
-                                        <i style=" font-weight:bold;">Primero:</i> Descargar la plantilla (Descargar la
-                                        plantilla en forma de botón)
+                                    <p>
+                                        <i style=" font-weight:bold;">1er paso:</i> Descargar plantilla
                                     </p>
-                                    <p style="text-align:center;">
-                                        <i style=" font-weight:bold;">Segundo:</i> Llenar la plantilla respetando las
-                                        columnas
+                                    <p>
+                                        <i style=" font-weight:bold;">2do paso:</i> Rellenar la plantilla con la información
+                                        de los estudiantes respetando las columnas.
                                     </p>
-                                    <p style="text-align:center;">
-                                        <i style=" font-weight:bold;">Tercero:</i> Borrar la cabecera de la plantilla
+
+                                    <p>
+                                        <i style=" font-weight:bold;">3er paso:</i> Guardar en formato, CSV UTF-8
+                                        (delimitado por comas).
                                     </p>
-                                    <p style="text-align:center;">
-                                        <i style=" font-weight:bold;">Cuarto:</i> Guardar en formato CSV, separado por coma
-                                        ( , )
+                                    <p>
+                                        <i style=" font-weight:bold;">4to paso:</i> Guardar la plantilla en formato CSV,
+                                        separado por coma.
                                     </p>
-                                    <p style="text-align:center;">
-                                        <i style=" font-weight:bold;">Quinto:</i> Cargar la plantilla llena en el botón
-                                        "Seleccionar Archivo"
+                                    <p>
+                                        <i style=" font-weight:bold;">5to paso:</i> Subir la plantilla en el botón
+                                        “Seleccionar archivo” y después pulsar “Cargar CSV”.
                                     </p>
                                     <a href="{{ url('/descargar-csv') }}" class="btn btn-secondary">
                                         <i class="fas fa-arrow-down"></i> Descargar plantilla
@@ -125,8 +130,10 @@
                         @foreach ($datosPorMatriculas as $datosPorMatricula)
                             <tr>
                                 <td>{{ $datosPorMatricula->id }}</td>
-                                <td>{{ $datosPorMatricula->nombre }}</td>
-                                <td>{{ $datosPorMatricula->apellido }}</td>
+
+                                <td class="special-chars">{{ $datosPorMatricula->nombre }}</td>
+                                <td class="special-chars">{{ $datosPorMatricula->apellido }}</td>
+
                                 <td>{{ $datosPorMatricula->documento_de_identidad }}</td>
                                 <td>{{ $datosPorMatricula->email }}</td>
                                 <td>{{ $datosPorMatricula->nombreOportunidad }}</td>
@@ -196,6 +203,16 @@
     <script src="https://cdn.datatables.net/buttons/2.1.1/js/buttons.html5.min.js"></script>
 
     <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var specialCharsElements = document.querySelectorAll(".special-chars");
+
+            specialCharsElements.forEach(function(element) {
+                var text = element.innerHTML;
+                var decodedText = new DOMParser().parseFromString(text, "text/html").documentElement
+                    .textContent;
+                element.innerHTML = decodedText;
+            });
+        });
         $(document).ready(function() {
             var table = $('#example2').DataTable({
                 "responsive": true,

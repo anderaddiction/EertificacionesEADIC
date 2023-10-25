@@ -16,7 +16,7 @@ class DatosPorMatriculaImport implements ToModel, WithHeadingRow
             'nombre' => 'nullable',
             'apellido' => 'nullable',
             'documento_de_identidad' => 'nullable',
-            'email' => 'nullable|email',
+            'email' => 'nullable|email|unique:datos_por_matricula,email',
             'id_master' => 'nullable',
             'id_universities' => 'nullable',
             'situacion_financiera' => 'nullable',
@@ -24,10 +24,12 @@ class DatosPorMatriculaImport implements ToModel, WithHeadingRow
             'modalidad_de_estudio' => 'nullable',
             'estado_formacion' => 'nullable',
             'edicion_master' => 'nullable',
+            'codigo_de_edicion' => 'nullable',
+            'numero_de_edicion' => 'nullable',
             'fecha_inicio' => 'nullable',
             'fecha_fin' => 'nullable',
             'numero_oportunidad' => 'nullable',
-            'codigoUnicoEstudiante' => 'nullable|unique:datos_por_matricula,codigoUnicoEstudiante',
+            'codigoUnicoEstudiante' => 'nullable',
             'nombreOportunidad' => 'nullable',
         ];
 
@@ -60,11 +62,19 @@ class DatosPorMatriculaImport implements ToModel, WithHeadingRow
             'modalidad_de_estudio' => $row['modalidad_de_estudio'] ?? null,
             'estado_formacion' => $row['estado_formacion'] ?? null,
             'edicion_master' => $row['edicion_master'] ?? null,
+            'codigo_de_edicion' => $row['codigo_de_edicion'] ?? null,
+            'numero_de_edicion' => $row['numero_de_edicion'] ?? null,
             'fecha_inicio' => $row['fecha_inicio'] ?? null,
             'fecha_fin' => $row['fecha_fin'] ?? null,
             'numero_oportunidad' => $row['numero_oportunidad'] ?? null,
             'codigoUnicoEstudiante' => $row['codigoUnicoEstudiante'] ?? null,
             'nombreOportunidad' => $row['nombreOportunidad'] ?? null,
         ]);
+    }
+    public function getCsvSettings(): array
+    {
+        return [
+            'input_encoding' => 'UTF-8'
+        ];
     }
 }

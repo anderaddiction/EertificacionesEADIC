@@ -20,6 +20,8 @@ class DatosPorMatricula extends Model
         'modalidad_de_estudio',
         'estado_formacion',
         'edicion_master',
+        'codigo_de_edicion',
+        'numero_de_edicion',
         'fecha_inicio',
         'fecha_fin',
         'numero_oportunidad',

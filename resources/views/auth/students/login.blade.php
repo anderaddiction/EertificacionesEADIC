@@ -27,7 +27,6 @@
         <div style="font-size: 11px; text-align:justify; color:black; margin-bottom:2%"><strong>Por favor</strong>, verifica los siguientes puntos para continuar con tu consulta:
             <ol>
                 <li>Que hayas finalizado exitosamente el máster en el que estás matriculado.</li>
-                <li>Que hayas finalizado exitosamente el máster en el que estás matriculado.</li>
                 <li>Que estás usando el correo electrónico al que te llegó la notificación de Trámites de Diploma.</li>
             </ol>
             {{-- <p>

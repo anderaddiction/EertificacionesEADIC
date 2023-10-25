@@ -82,6 +82,8 @@ class DatosPorMatriculaController extends Controller
             'modalidad_de_estudio' => 'required|string|max:255',
             'estado_formacion' => 'required|string|max:255',
             'edicion_master' => 'required|string|max:255',
+            'numero_de_edicion' => 'required|string|max:255',
+            'codigo_de_edicion' => 'required|string|max:255',
             'fecha_inicio' => 'required|date',
             'fecha_fin' => 'required|date',
             'numero_oportunidad' => 'required|string',
@@ -102,6 +104,9 @@ class DatosPorMatriculaController extends Controller
         $datosPorMatricula->modalidad_de_estudio = $request['modalidad_de_estudio'];
         $datosPorMatricula->estado_formacion = $request['estado_formacion'];
         $datosPorMatricula->edicion_master = $request['edicion_master'];
+        $datosPorMatricula->numero_de_edicion = $request['numero_de_edicion'];
+        $datosPorMatricula->codigo_de_edicion = $request['codigo_de_edicion'];
+
         $datosPorMatricula->fecha_inicio = $request['fecha_inicio'];
         $datosPorMatricula->fecha_fin = $request['fecha_fin'];
         $datosPorMatricula->numero_oportunidad = $request['numero_oportunidad'];
@@ -165,6 +170,8 @@ class DatosPorMatriculaController extends Controller
             'modalidad_de_estudio' => $request->input('modalidad_de_estudio'),
             'estado_formacion' => $request->input('estado_formacion'),
             'edicion_master' => $request->input('edicion_master'),
+            'codigo_de_edicion' => $request->input('codigo_de_edicion'),
+            'numero_de_edicion' => $request->input('numero_de_edicion'),
             'fecha_inicio' => $request->input('fecha_inicio'),
             'fecha_fin' => $request->input('fecha_fin'),
             'numero_oportunidad' => $request->input('numero_oportunidad'),
