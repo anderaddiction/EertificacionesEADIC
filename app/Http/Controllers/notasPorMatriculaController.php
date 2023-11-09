@@ -39,41 +39,42 @@ class notasPorMatriculaController extends Controller
         return view('auth.notasPorMatricula.resultados', compact('datos', 'masters'));
     }
 
-     public function buscarCertificado()
+    public function buscarCertificado()
     {
         return view('auth.notasPorMatricula.buscarCertificado');
     }
 
-     public function resultadoCertificado(Request $request)
+    public function resultadoCertificado(Request $request)
     {
         $dni = $request->input('dni');
 
-        $datos = DatosPorMatricula::where('documento_de_identidad', $dni)->get();
+        $datos = DatosPorMatricula::where('documento_de_identidad', $dni)->first();
 
-        if ($datos->isEmpty()) {
-
-            return redirect()->route('notas-de-matricula.buscarCertificado')->with('info', 'No se encontró ningún DNI verifique.');
+        if (!$datos) {
+            return redirect()->route('notas-de-matricula.buscarCertificado')->with('info', 'No se encontró ningún DNI, verifique.');
         }
-        $alumnoMaster = $datos->first()->id_master;
+
+        $alumnoMaster = $datos->id_master;
 
         $masters = Master::where('master_code', $alumnoMaster)->first();
+        $notas = NotasPorMatricula::where('id_datos_por_matricula', $datos->id)->get();
 
-        return view('auth.notasPorMatricula.resultadoCertificado', compact('datos', 'masters','notas'));
+        return view('auth.notasPorMatricula.resultadoCertificado', compact('datos', 'masters', 'notas'));
     }
 
-    public function pdfCertificado(Request $request,$id)
+
+    public function pdfCertificado(Request $request, $id)
     {
-       $datosDeMatricula = DatosPorMatricula::findOrFail($id);
- $master = $datosDeMatricula->master;
+        $datosDeMatricula = DatosPorMatricula::findOrFail($id);
+        $master = $datosDeMatricula->master;
 
         $asignaturasIds = $master->asignaturas->pluck('id');
         $asignaturas = Asignatura::whereIn('id', $asignaturasIds)->get();
-$notas = NotasPorMatricula::where('id_datos_por_matricula', $datosDeMatricula->id)->get();
-        $pdf = \PDF::loadView('auth.notasPorMatricula.pdf',compact('datosDeMatricula','asignaturas','master','notas'));
+        $notas = NotasPorMatricula::where('id_datos_por_matricula', $datosDeMatricula->id)->get();
+        $pdf = \PDF::loadView('auth.notasPorMatricula.pdf', compact('datosDeMatricula', 'asignaturas', 'master', 'notas'));
 
-   $datosDeMatricula->nombre . $datosDeMatricula->documento_de_identidad;
+        $datosDeMatricula->nombre . $datosDeMatricula->documento_de_identidad;
         return $pdf->stream();
-
     }
 
     public function index()

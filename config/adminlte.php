@@ -397,6 +397,19 @@ return [
                             ],
                         ],
 
+                        [
+                            'text' => 'Departamento',
+                            'route'  => 'departamento.index',
+
+                            'shift'   => 'ml-3',
+                        ],
+                        [
+                            'text' => 'Area',
+                            'route'  => 'area.index',
+
+                            'shift'   => 'ml-3',
+                        ],
+
                     ],
                 ],
 

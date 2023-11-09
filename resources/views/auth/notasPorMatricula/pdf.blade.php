@@ -33,9 +33,12 @@
         margin-bottom: 5px;
         padding: 0;
     }
+
+    .barra {}
 </style>
 
 <body>
+    <div style=" background: linear-gradient(90deg, #0a4e96 0%, #1e191a 100%) width: 100%;">aaaaaaaaaa</div>
     <div class="container">
         <table width="100%" style=" border: none">
             <tr>

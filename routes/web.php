@@ -125,6 +125,12 @@ Route::prefix('admin')->group(function () {
     Route::resource('notas-de-matricula', NotasPorMatriculaController::class)->except(['create']);
     Route::get('notas-de-matricula/create/{id}', [App\Http\Controllers\notasPorMatriculaController::class, 'create'])->name('notas-de-matricula.create');
 
+    //area
+    Route::resource('area', AreaController::class);
+
+    //Departamenta
+    Route::resource('departamento', DepartamentoController::class);
+
     //Roles
     Route::resource('roles', RoleController::class)
         ->parameters(['role' => 'role'])
@@ -152,7 +158,7 @@ Route::prefix('admin')->group(function () {
 
 
 Route::get('/descargar-csv', function () {
-    $rutaArchivo = public_path('documents/plantilla.csv'); 
+    $rutaArchivo = public_path('documents/plantilla.csv');
 
     return Response::download($rutaArchivo, 'plantilla.csv');
 });

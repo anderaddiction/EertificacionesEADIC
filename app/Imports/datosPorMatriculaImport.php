@@ -35,7 +35,6 @@ class DatosPorMatriculaImport implements ToModel, WithHeadingRow
 
         $customMessages = [
             'email.unique' => 'El correo electrónico ya ha sido registrado.',
-            'codigoUnicoEstudiante.unique' => 'El código único del estudiante ya ha sido registrado.',
         ];
 
         $validator = Validator::make($row, $rules, $customMessages);
