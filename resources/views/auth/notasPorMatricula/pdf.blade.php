@@ -2,7 +2,7 @@
 
 <style>
     body {
-        font-size: 12px;
+        font-size: 14px;
         text-align: justify;
     }
 
@@ -34,11 +34,38 @@
         padding: 0;
     }
 
-    .barra {}
+    .hf-img {
+        position: absolute;
+        width: 830px;
+        height: 50px;
+        z-index: -1;
+        margin-left: -60px;
+        margin-top: -60px;
+    }
+
+    .hf-img2 {
+
+        width: 830px;
+        height: 25px;
+        z-index: -1;
+        position: absolute;
+        bottom: 0;
+        margin-left: -60px;
+        margin-bottom: -60px;
+    }
+
+    .LI-Certifica {
+        width: 80%;
+        margin: 0 auto;
+        display: flex;
+        text-align: justify;
+        justify-content: center;
+        align-items: center;
+    }
 </style>
 
 <body>
-    <div style=" background: linear-gradient(90deg, #0a4e96 0%, #1e191a 100%) width: 100%;">aaaaaaaaaa</div>
+    <img src="img/head-pdf.PNG" class="hf-img">
     <div class="container">
         <table width="100%" style=" border: none">
             <tr>
@@ -62,21 +89,31 @@
         </table>
     </div>
     <br>
-    <p style="padding: 0 50px; text-align: justify;">LINA LIZBETH SANTAMARÍA GUTIÉRREZ, Responsable del
-        Departamento de Formación de la Escuela Abierta en Desarrollo de Ingeniería y Construcción SL (EADIC SL).
-    </p>
-    <p style=" text-align: center; padding-bottom: 10px; font-weight:700;"> CERTIFICA</p>
-    <p style="padding: 0 50px; ; text-align: justify;">
+    <div class="LI-Certifica"><b>LINA LIZBETH SANTAMARÍA GUTIÉRREZ</b>,
+        Responsable del
+        Departamento de Formación dela Escuela Abierta en Desarrollo de Ingeniería y Construcción SL (EADIC SL).
+    </div>
+
+
+    <div style=" text-align: center; padding-bottom: 10px; font-weight:700; text-transform:uppercase; font-size: 20px;">
+        CERTIFICA</div>
+
+
+
+    <div
+        style="width: 80%; text-align: justify;  display: flex;
+        text-align: justify;
+        justify-content: center;
+        align-items: center;">
         Que D./Dña. {{ $datosDeMatricula->nombre }}, con nº documento identidad
         {{ $datosDeMatricula->documento_de_identidad }}, ha finalizado exitosamente
-        el {{ $datosDeMatricula->master->name }} en su modalidad de estudio
+        el <b>{{ $datosDeMatricula->master->name }}</b> en su modalidad de estudio
         {{ $datosDeMatricula->modalidad_de_estudio }} desde el {{ $datosDeMatricula->fecha_inicio }} hasta el
         {{ $datosDeMatricula->fecha_fin }}, impartido por EADIC
         junto con la {{ $datosDeMatricula->university->name }}. A la
         fecha ha obtenido las calificaciones a continuación y se encuentra a la espera de la emisión del diploma por
         parte de la universidad:
-
-    </p>
+    </div>
 
 
 
@@ -162,6 +199,7 @@
     <p>
         <a style="padding: 0 80px; font-size: 12px;" href="http://www.eadic.com/">www.eadic.com</a>
     </p>
+    <img src="img/footer-pdf.PNG" class="hf-img2">
 </body>
 
 </html>
