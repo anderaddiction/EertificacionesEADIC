@@ -43,9 +43,11 @@
                                         <td>
                                             @if ($datos->university)
                                                 @if ($datos->university->name == 'UDIMA')
-                                                    <img src="img/udima_log.png" alt="logo UDIMA">
+                                                    <img src="{{ asset('img/udima_log.png') }}" alt="logo UDIMA"
+                                                        width="130px">
                                                 @elseif ($datos->university->name == 'UCAM')
-                                                    <img src="img/ucam_logo.png" alt="logo UCAM">
+                                                    <img src="{{ asset('img/ucam_logo.png') }}" alt="logo UCAM"
+                                                        width="130px">
                                                 @else
                                                     {{ $datos->university->name }}
                                                 @endif

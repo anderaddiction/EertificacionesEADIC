@@ -7,7 +7,6 @@ use App\DatosPorMatricula;
 use App\Master;
 use App\notasPorMatricula;
 use Illuminate\Http\Request;
-use Barryvdh\DomPDF\Facade\Pdf;
 
 class notasPorMatriculaController extends Controller
 {
@@ -65,6 +64,7 @@ class notasPorMatriculaController extends Controller
 
     public function pdfCertificado(Request $request, $id)
     {
+
         $datosDeMatricula = DatosPorMatricula::findOrFail($id);
         $master = $datosDeMatricula->master;
 

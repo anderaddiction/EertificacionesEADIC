@@ -2,8 +2,18 @@
 
 <style>
     body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         font-size: 14px;
         text-align: justify;
+
+        background: url("{{ public_path('img/fondo.png') }}");
+
+        background-size: cover cover;
+
+        -webkit-print-color-adjust: exact;
+        width: 100vw;
+        height: 100vh;
+        margin: 0px;
     }
 
 
@@ -20,18 +30,20 @@
     }
 
     th {
-        background-color: #808080;
+        background-color: #0a4e96;
         color: white;
         font-size: 12.5px;
     }
 
     .color {
-        color: #006c97;
-        background-color: #ececec;
+        color: #ffffff;
+        background-color: #b0b6bc;
         width: 100%;
         height: 15px;
-        margin-bottom: 5px;
+
         padding: 0;
+        padding-bottom: 5px;
+
     }
 
     .hf-img {
@@ -61,10 +73,28 @@
         text-align: justify;
         justify-content: center;
         align-items: center;
+        margin-bottom: 15px;
+    }
+
+    .img-linea {
+        position: absolute;
+        width: 270px;
+        margin-left: -50px;
+
+    }
+
+    .r-table {
+        position: absolute;
+        width: 30px;
+        height: 375.5px;
+        margin-left: -20px;
+        margin-top: 15px;
+
     }
 </style>
 
 <body>
+
     <img src="img/head-pdf.PNG" class="hf-img">
     <div class="container">
         <table width="100%" style=" border: none">
@@ -75,11 +105,13 @@
                 <td style="text-align: right; "style=" border: none">
                     @if ($datosDeMatricula->university)
                         @if ($datosDeMatricula->university->name == 'UDIMA')
-                            <img src="img/udima_logo.png" alt="logo {{ $datosDeMatricula->university->name }}"
-                                width="150px" style="float: right;">
+                            <img src="{{ asset('img/udima_log.png') }}"
+                                alt="logo {{ $datosDeMatricula->university->name }}" width="150px"
+                                style="float: right;">
                         @elseif ($datosDeMatricula->university->name == 'UCAM')
-                            <img src="img/ucam_logo.png" alt="logo {{ $datosDeMatricula->university->name }}"
-                                width="150px" style="float: right; padding-right: 30px; ">
+                            <img src="{{ asset('img/ucam_logo.png') }}"
+                                alt="logo {{ $datosDeMatricula->university->name }}" width="150px"
+                                style="float: right; padding-right: 30px; ">
                         @endif
                     @else
                         No hay universidad disponible
@@ -94,17 +126,23 @@
         Departamento de Formación dela Escuela Abierta en Desarrollo de Ingeniería y Construcción SL (EADIC SL).
     </div>
 
-
-    <div style=" text-align: center; padding-bottom: 10px; font-weight:700; text-transform:uppercase; font-size: 20px;">
+    <img src="img/linea.png" alt="" class="img-linea">
+    <div style=" text-align: center; padding-bottom: 10px; font-weight:400; text-transform:uppercase; font-size: 35px;">
         CERTIFICA</div>
 
 
 
     <div
-        style="width: 80%; text-align: justify;  display: flex;
+        style="
+        width: 100%;
+        margin: 0 auto;
+        display: flex;
         text-align: justify;
         justify-content: center;
-        align-items: center;">
+        align-items: center;
+        margin-bottom: 15px;
+         margin-top: 15px;
+        ">
         Que D./Dña. {{ $datosDeMatricula->nombre }}, con nº documento identidad
         {{ $datosDeMatricula->documento_de_identidad }}, ha finalizado exitosamente
         el <b>{{ $datosDeMatricula->master->name }}</b> en su modalidad de estudio
@@ -115,17 +153,17 @@
         parte de la universidad:
     </div>
 
-
-
+    <img src="img/r-table.PNG" class="r-table">
     <table
-        style="font-size: 11px; border-collapse: collapse; width: 700px; margin: 0 auto; text-align: center; padding: 0 60px;  ">
+        style="font-size: 11px; border-collapse: collapse; width: 850px; margin: 0 auto; text-align: center; padding: 0 60px;    margin-left: -60px; margin-bottom: 15px;
+         margin-top: 15px;">
         <thead>
             <tr>
-                <th style="border: 2px solid black; padding: 8px; text-align: center;" width="300px">Nombre de la
+                <th style="border: 1px solid black; padding: 8px; text-align: center;" width="300px">Nombre de la
                     asignatura o módulo</th>
-                <th style="border: 2px solid black; padding: 8px; text-align: center;" colspan="3">Notas obtenidas
+                <th style="border: 1px solid black; padding: 8px; text-align: center;" colspan="3">Notas obtenidas
                 </th>
-                <th style="border: 2px solid black; padding: 8px; text-align: center;" width="25px">Créditos
+                <th style="border: 1px solid black; padding: 8px; text-align: center;" width="25px">Créditos
                     ECTS*</th>
             </tr>
         </thead>
@@ -134,8 +172,7 @@
                 @for ($i = 1; $i <= 9; $i++)
                     <tr>
                         <!-- Asignatura -->
-                        <td
-                            style="border: 2px solid #2596be; padding: 0; text-align: center; background-color: #ececec; margin:0;">
+                        <td style="border: 1px solid black; padding: 0; text-align: center;  margin:0;">
                             <?php
                             $codigo = $nota["asignaturas_$i"];
                             $asignaturaConsulta = DB::table('asignatura')
@@ -145,28 +182,27 @@
                             {{ $asignaturaConsulta ? $asignaturaConsulta->nombre : 'No encontrado' }}
                         </td>
                         <!-- Notas obtenidas -->
-                        <td style="border: 2px solid #2596be; padding: 0; text-align: center;">
+                        <td style="border: 1px solid black; padding: 0; text-align: center;">
                             <div class="color">Total Módulo {{ $i }}</div>
-                            <hr style="margin: 0; padding: 0; border: none; border-top: 2px solid black; width: 100%;">
+                            <hr style="margin: 0; padding: 0; border: none; border-top: 1px solid black; width: 100%;">
                             {{ $nota["modulos_$i"] }}
                         </td>
-                        <td style="border: 2px solid #2596be; padding: 0; text-align: center;">
+                        <td style="border: 1px solid black; padding: 0; text-align: center;">
                             <div class="color">Estado M {{ $i }}</div>
-                            <hr style="margin: 0; padding: 0; border: none; border-top: 2px solid black; width: 100%;">
-                            <div style="color: #053a00;
-        background-color: #00c21a8c;">
+                            <hr style="margin: 0; padding: 0; border: none; border-top: 1px solid black; width: 100%;">
+                            <div style="color: #020202;
+        background-color: #41c9e8;">
                                 {{ $nota["estado_$i"] }}
                             </div>
 
                         </td>
-                        <td style="border: 2px solid #2596be; padding: 0; text-align: center;">
+                        <td style="border: 1px solid black; padding: 0; text-align: center;">
                             <div class="color">Baremo {{ $i }}</div>
-                            <hr style="margin: 0; padding: 0; border: none; border-top: 2px solid black; width: 100%;">
+                            <hr style="margin: 0; padding: 0; border: none; border-top: 1px solid black; width: 100%;">
                             {{ $nota["baremos_$i"] }}
                         </td>
                         <!-- Créditos -->
-                        <td
-                            style="border: 2px solid #2596be; padding: 0; text-align: center; background-color: #ececec;">
+                        <td style="border: 1px solid black; padding: 0; text-align: center; ">
                             <p>{{ $asignaturaConsulta ? $asignaturaConsulta->creditos : 'No encontrado' }}</p>
                         </td>
                     </tr>
@@ -177,27 +213,34 @@
 
 
 
-    <p style="font-size: 9px; text-aling:start; padding: 0 60px; ">*Cada crédito corresponde a un total de 25 horas</p>
-
-    <p style="padding: 0 80px; ">Y para que así conste a los efectos oportunos firmo el presente en Madrid.</p>
-
-    <p style="padding: 0 80px; color: #525252; font-size: 14px;"> Lina Santamaría
+    <p style="font-size:10px; text-aling:start; padding: 0 50px;  margin-top: -15px;">*Cada crédito corresponde a
+        un
+        total de 25 horas
     </p>
-    <p style="padding: 0 80px; color: #525252; font-size: 10px;"> Departamento de Formación
-    </p>
-    <img src="img/eadic_logo.png" alt="logo" width="120px" style=" border: none; padding: 0 80px;">
-    <p style="padding: 0 80px; color: #525252; font-size: 10px;"> Oficina: +34 913 930 319</p>
 
-    <hr style="margin: 0 80px; float: left; color: #c7c7c796; width:120px;">
+    <p style="padding: 0 50px; ">Y para que así conste a los efectos oportunos firmo el presente en
+        Madrid.</p>
+    <p style="padding: 0 50px; color: #646464; font-size: 18px; margin-top: -5px; margin-bottom: -5px;"> - - - - - - - -
+        - - - - - - - - - - - - - - - - - - -
 
-    <br>
-    <p style="padding: 0 80px; color: #525252; font-size: 10px;"> Calle Medea 4
     </p>
-    <p style="padding: 0 80px; color: #525252; font-size: 10px;">28037 Madrid</p>
-    <p><a style="padding: 0 80px; font-size: 12px;" href="mailto:lina.santamaria@eadic.es">lina.santamaria@eadic.es</a>
+    <p style="padding: 0 50px; color: #3d3d3d; font-size: 18px;"> Lina Lizbeth Santamaría Gutiérrez
+
+    </p>
+    <p style="padding: 0 50px; color: #525252; font-size: 12px; font-weight:800; "> Departamento de Formación
+    </p>
+    <p style="padding: 0 50px; color: #525252; font-size: 12px;">
+        Oficina: +34 913 930 319
+    </p>
+    <p style="padding: 0 50px; color: #525252; font-size: 12px;">
+        Calle Medea 4, 28037
+    </p>
+    <p style="padding: 0 50px; color: #525252; font-size: 12px;">
+        28037 - <b>Madrid, España</b></p>
+    <p><a style="padding: 0 50px; font-size: 12px;" href="mailto:lina.santamaria@eadic.es">lina.santamaria@eadic.es</a>
     </p>
     <p>
-        <a style="padding: 0 80px; font-size: 12px;" href="http://www.eadic.com/">www.eadic.com</a>
+        <a style="padding: 0 50px; font-size: 12px;" href="http://www.eadic.com/">www.eadic.com</a>
     </p>
     <img src="img/footer-pdf.PNG" class="hf-img2">
 </body>
