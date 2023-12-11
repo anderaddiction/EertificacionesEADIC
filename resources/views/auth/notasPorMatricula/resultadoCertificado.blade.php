@@ -35,9 +35,7 @@
                                         <td>{{ $datos->documento_de_identidad }}</td>
                                         <td>
                                             @if ($masters)
-                                                {{ $masters->master_code }}
-                                            @else
-                                                No se encontró información del master.
+                                                {{ $masters->name }}
                                             @endif
                                         </td>
                                         <td>

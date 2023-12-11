@@ -7,6 +7,8 @@ use App\DatosPorMatricula;
 use App\Master;
 use App\notasPorMatricula;
 use Illuminate\Http\Request;
+use Barryvdh\DomPDF\Facade as DomPDF;
+use Barryvdh\DomPDF\Facade\Pdf as PDF;
 
 class notasPorMatriculaController extends Controller
 {
@@ -55,7 +57,7 @@ class notasPorMatriculaController extends Controller
 
         $alumnoMaster = $datos->id_master;
 
-        $masters = Master::where('master_code', $alumnoMaster)->first();
+        $masters = Master::where('id', $alumnoMaster)->first();
         $notas = NotasPorMatricula::where('id_datos_por_matricula', $datos->id)->get();
 
         return view('auth.notasPorMatricula.resultadoCertificado', compact('datos', 'masters', 'notas'));
@@ -71,7 +73,7 @@ class notasPorMatriculaController extends Controller
         $asignaturasIds = $master->asignaturas->pluck('id');
         $asignaturas = Asignatura::whereIn('id', $asignaturasIds)->get();
         $notas = NotasPorMatricula::where('id_datos_por_matricula', $datosDeMatricula->id)->get();
-        $pdf = \PDF::loadView('auth.notasPorMatricula.pdf', compact('datosDeMatricula', 'asignaturas', 'master', 'notas'));
+        $pdf = PDF::loadView('auth.notasPorMatricula.pdf', compact('datosDeMatricula', 'asignaturas', 'master', 'notas'));
 
         $datosDeMatricula->nombre . $datosDeMatricula->documento_de_identidad;
         return $pdf->stream();
