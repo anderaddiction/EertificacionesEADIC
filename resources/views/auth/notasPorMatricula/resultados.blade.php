@@ -43,9 +43,7 @@
 
                                                 <?php
                                                 $alumno = $dato->id;
-                                                $datosDeMatriculas = DB::table('notas_por_matricula')
-                                                    ->where('id_datos_por_matricula', $alumno)
-                                                    ->get();
+                                                $datosDeMatriculas = DB::table('notas_por_matricula')->where('codigoUnicoEstudiante', $alumno)->get();
                                                 ?>
 
                                                 @if ($datosDeMatriculas->isEmpty())

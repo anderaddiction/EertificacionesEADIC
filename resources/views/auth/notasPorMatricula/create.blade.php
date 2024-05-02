@@ -77,7 +77,8 @@
                         <form role="form" action="{{ route('notas-de-matricula.store') }}" method="post">
                             @php $numero = 0; @endphp
                             @csrf
-                            <input type="hidden" name="id_datos_por_matricula" value="{{ $datosDeMatricula->id }}">
+                            <input type="hidden" name="codigoUnicoEstudiante"
+                                value="{{ $datosDeMatricula->codigoUnicoEstudiante }}">
                             @foreach ($asignaturas as $asignatura)
                                 @php
                                     $numero++;

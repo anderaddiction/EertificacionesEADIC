@@ -15,7 +15,7 @@ class CreateNotasPorMatriculaTable extends Migration
     {
         Schema::create('notas_por_matricula', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('id_datos_por_matricula');
+            $table->string('codigoUnicoEstudiante');
             $table->string('asignaturas_1');
             $table->string('asignaturas_2');
             $table->string('asignaturas_3');
@@ -54,8 +54,6 @@ class CreateNotasPorMatriculaTable extends Migration
             $table->string('baremos_9')->nullable();
             $table->integer('bloqueado');
             $table->timestamps();
-
-            $table->foreign('id_datos_por_matricula')->references('id')->on('datos_por_matricula');
         });
     }
 

@@ -122,7 +122,7 @@ class notasPorMatriculaController extends Controller
         ]);
         $notasPorMatricula = new notasPorMatricula();
 
-        $notasPorMatricula->id_datos_por_matricula = $request->id_datos_por_matricula;
+        $notasPorMatricula->codigoUnicoEstudiante = $request->codigoUnicoEstudiante;
 
         $notasPorMatricula->asignaturas_1 = $request->asignatura_1;
         $notasPorMatricula->modulos_1 = $request->modulo_1;

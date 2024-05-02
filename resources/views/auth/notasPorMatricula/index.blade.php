@@ -54,9 +54,7 @@
                                     <td>
                                         <?php
                                         $alumno = $datosPorMatricula->id;
-                                        $datosDeMatriculas = DB::table('notas_por_matricula')
-                                            ->where('id_datos_por_matricula', $alumno)
-                                            ->get();
+                                        $datosDeMatriculas = DB::table('notas_por_matricula')->where('id_datos_por_matricula', $alumno)->get();
                                         ?>
                                         @if ($datosDeMatriculas->isEmpty())
                                             <p>No tiene actas</p>
