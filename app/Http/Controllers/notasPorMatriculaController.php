@@ -4,14 +4,34 @@ namespace App\Http\Controllers;
 
 use App\Asignatura;
 use App\DatosPorMatricula;
+use App\Imports\NotasPorMatriculaImport;
 use App\Master;
 use App\notasPorMatricula;
 use Illuminate\Http\Request;
 use Barryvdh\DomPDF\Facade as DomPDF;
 use Barryvdh\DomPDF\Facade\Pdf as PDF;
 
+use Maatwebsite\Excel\Facades\Excel;
+
 class notasPorMatriculaController extends Controller
 {
+
+
+    public function cargarCSV(Request $request)
+    {
+        if (!$request->hasFile('excelFile')) {
+            return back()->withErrors('No se encontró el archivo Excel.');
+        }
+
+        try {
+            Excel::import(new NotasPorMatriculaImport, $request->file('excelFile'));
+            return redirect()->back()->with('success', 'Datos importados correctamente.');
+        } catch (\Exception $e) {
+            \Log::error('Error al procesar el archivo Excel: ' . $e->getMessage());
+            return back()->withErrors('Error al procesar el archivo Excel: ' . $e->getMessage());
+        }
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -58,7 +78,7 @@ class notasPorMatriculaController extends Controller
         $alumnoMaster = $datos->id_master;
 
         $masters = Master::where('id', $alumnoMaster)->first();
-        $notas = NotasPorMatricula::where('id_datos_por_matricula', $datos->id)->get();
+        $notas = NotasPorMatricula::where('codigoUnicoEstudiante', $datos->id)->get();
 
         return view('auth.notasPorMatricula.resultadoCertificado', compact('datos', 'masters', 'notas'));
     }
@@ -72,7 +92,7 @@ class notasPorMatriculaController extends Controller
 
         $asignaturasIds = $master->asignaturas->pluck('id');
         $asignaturas = Asignatura::whereIn('id', $asignaturasIds)->get();
-        $notas = NotasPorMatricula::where('id_datos_por_matricula', $datosDeMatricula->id)->get();
+        $notas = NotasPorMatricula::where('codigoUnicoEstudiante', $datosDeMatricula->id)->get();
         $pdf = PDF::loadView('auth.notasPorMatricula.pdf', compact('datosDeMatricula', 'asignaturas', 'master', 'notas'));
 
         $datosDeMatricula->nombre . $datosDeMatricula->documento_de_identidad;
@@ -116,7 +136,7 @@ class notasPorMatriculaController extends Controller
     {
 
         $request->validate([
-            'id_datos_por_matricula' => 'required',
+            'codigoUnicoEstudiante' => 'required',
 
             'bloqueado' => 'required',
         ]);
@@ -191,7 +211,7 @@ class notasPorMatriculaController extends Controller
         $asignaturasIds = $master->asignaturas->pluck('id');
         $asignatura = Asignatura::whereIn('id', $asignaturasIds)->get();
 
-        $notas = NotasPorMatricula::where('id_datos_por_matricula', $datosDeMatricula->id)->get();
+        $notas = NotasPorMatricula::where('codigoUnicoEstudiante', $datosDeMatricula->codigoUnicoEstudiante)->get();
         return view(
             'auth.notasPorMatricula.show',
             [
@@ -216,7 +236,7 @@ class notasPorMatriculaController extends Controller
         $asignaturasIds = $master->asignaturas->pluck('id');
         $asignatura = Asignatura::whereIn('id', $asignaturasIds)->get();
 
-        $notas = NotasPorMatricula::where('id_datos_por_matricula', $datosDeMatricula->id)->get();
+        $notas = NotasPorMatricula::where('codigoUnicoEstudiante', $datosDeMatricula->codigoUnicoEstudiante)->get();
 
         return view(
             'auth.notasPorMatricula.edit',

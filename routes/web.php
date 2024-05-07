@@ -125,6 +125,10 @@ Route::prefix('admin')->group(function () {
     Route::resource('notas-de-matricula', NotasPorMatriculaController::class)->except(['create']);
     Route::get('notas-de-matricula/create/{id}', [App\Http\Controllers\notasPorMatriculaController::class, 'create'])->name('notas-de-matricula.create');
 
+
+    Route::post('notas-de-matricula/resultado-certificado', [App\Http\Controllers\notasPorMatriculaController::class, 'resultadoCertificado'])->name('notas-de-matricula.resultado.certificados');
+
+    Route::post('notas-de-matricula/cargar-csv', [App\Http\Controllers\notasPorMatriculaController::class, 'cargarCSV'])->name('notas-de-matricula.cargar-csv');
     //area
     Route::resource('area', AreaController::class);
 

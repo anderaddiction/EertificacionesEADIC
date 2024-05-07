@@ -66,7 +66,7 @@ class DatosPorMatriculaImport implements ToModel, WithHeadingRow
             'fecha_inicio' => $row['fecha_inicio'] ?? null,
             'fecha_fin' => $row['fecha_fin'] ?? null,
             'numero_oportunidad' => $row['numero_oportunidad'] ?? null,
-            'codigoUnicoEstudiante' => $row['codigoUnicoEstudiante'] ?? null,
+            'codigoUnicoEstudiante' => $row['codigounicoestudiante'] ?? null,
             'nombreOportunidad' => $row['nombreOportunidad'] ?? null,
         ]);
     }

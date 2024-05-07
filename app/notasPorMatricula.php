@@ -8,7 +8,7 @@ class notasPorMatricula extends Model
 {
     protected $table = 'notas_por_matricula';
     protected $fillable = [
-        'id_datos_por_matricula',
+        'codigoUnicoEstudiante',
         'asignaturas_1',
         'asignaturas_2',
         'asignaturas_3',

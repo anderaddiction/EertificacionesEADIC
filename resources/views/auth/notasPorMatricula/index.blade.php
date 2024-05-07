@@ -17,6 +17,93 @@
     @endif
     <div class="container-fluid">
         <div class="card">
+            @if ($errors->any())
+                <div class="alert alert-danger mt-3">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
+            <div class="card-body">
+
+                <!-- Botón que abre el modal -->
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+                    Importar CSV
+                </button>
+                <br>
+                <!-- El Modal -->
+                <div class="modal fade " id="myModal">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <form action="{{ route('notas-de-matricula.cargar-csv') }}" method="POST"
+                                enctype="multipart/form-data">
+
+                                <!-- Cabecera del Modal -->
+                                <div class="modal-header">
+                                    <h4 class="modal-title">Importacion alumno masiva</h4>
+                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                </div>
+
+                                <!-- Contenido del Modal -->
+                                <div class="modal-body texte-justify">
+
+                                    <p>
+                                        <i style=" font-weight:bold;">1er paso:</i> Descargar plantilla
+                                    </p>
+                                    <p>
+                                        <i style=" font-weight:bold;">2do paso:</i> Rellenar la plantilla con la información
+                                        de los estudiantes respetando las columnas.
+                                    </p>
+
+                                    <p>
+                                        <i style=" font-weight:bold;">3er paso:</i> Guardar en formato, CSV UTF-8
+                                        (delimitado por comas).
+                                    </p>
+                                    <p>
+                                        <i style=" font-weight:bold;">4to paso:</i> Guardar la plantilla en formato CSV,
+                                        separado por coma.
+                                    </p>
+                                    <p>
+                                        <i style=" font-weight:bold;">5to paso:</i> Subir la plantilla en el botón
+                                        “Seleccionar archivo” y después pulsar “Cargar CSV”.
+                                    </p>
+                                    <a href="{{ url('/descargar-csv') }}" class="btn btn-secondary">
+                                        <i class="fas fa-arrow-down"></i> Descargar plantilla
+                                    </a>
+                                    <br>
+                                    <p>Seleccione una acción:</p>
+
+                                    <br>
+
+                                    @csrf
+                                    <div class="input-group">
+                                        <div class="custom-file">
+                                            <input type="file" class="custom-file-input" id="excelFile" name="excelFile">
+                                            <label class="custom-file-label" for="excelFile">Selecciona un archivo
+                                                CSV</label>
+                                        </div>
+                                        <div class="input-group-append">
+                                            <button type="submit" class="btn btn-success">
+                                                <i class="fas fa-upload"></i> Cargar CSV
+                                            </button>
+                                        </div>
+                                    </div>
+                            </form>
+
+
+
+                        </div>
+
+                        <!-- Pie del Modal -->
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
             <div class="card-body">
                 <h5 class="card-title"> Mostrar la tabla</h5>
                 <br>
@@ -41,7 +128,7 @@
                         <tbody class="text-center">
                             @foreach ($datosPorMatriculas as $datosPorMatricula)
                                 <tr>
-                                    <td>{{ $datosPorMatricula->id }}</td>
+                                    <td>{{ $datosPorMatricula->codigoUnicoEstudiante }}</td>
                                     <td>{{ $datosPorMatricula->nombre }}</td>
                                     <td>{{ $datosPorMatricula->apellido }}</td>
                                     <td>{{ $datosPorMatricula->documento_de_identidad }}</td>
@@ -53,8 +140,8 @@
                                     <td>{{ $datosPorMatricula->situacion_financiera }}
                                     <td>
                                         <?php
-                                        $alumno = $datosPorMatricula->id;
-                                        $datosDeMatriculas = DB::table('notas_por_matricula')->where('id_datos_por_matricula', $alumno)->get();
+                                        $alumno = $datosPorMatricula->codigoUnicoEstudiante;
+                                        $datosDeMatriculas = DB::table('notas_por_matricula')->where('codigoUnicoEstudiante', $alumno)->get();
                                         ?>
                                         @if ($datosDeMatriculas->isEmpty())
                                             <p>No tiene actas</p>
